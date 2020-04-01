@@ -550,6 +550,32 @@
 		height: 250px;
 	}
 	
+	.gdpp{
+		text-align: center;
+		    padding: 0.2rem;
+		    font-size: 16px;
+		    color: #33A1EC;
+	}
+	.gddd{
+		text-align: center;
+		    padding: 0.2rem;
+		    font-size: 16px;
+		    color: #33A1EC;
+	}
+	
+	.gdpt{
+		text-align: center;
+		    padding: 0.2rem;
+		    font-size: 16px;
+		    color: #33A1EC;
+	}
+	
+	.hrLine{
+	      vertical-align:middle; 
+		  display:inline-block;
+		  background-color:#33A1EC;
+	 }
+	
 	</style>
 	</head>
 
@@ -790,12 +816,16 @@
 					<div class="brand-title-box">
 						<div></div>
 						<div dom="cypp" style="font-size: 0.3rem;">参与品牌(<span dom="brandCount"></span>)</div>
-						<div dom="gdpp" onclick='javascript:location.href = BRAND_LIST_URL' >更多品牌 <img src="./../images/7.png" />
-						</div>
+						<!-- <div dom="gdpp" onclick='javascript:location.href = BRAND_LIST_URL' >更多品牌 <img src="./../images/7.png" />
+						</div> -->
 					</div>
 
 
 					<div dom="brand-box" class="brand-box" id="brand_yclist_id" style="display: none;"></div>
+					<div class="gdpp" dom="gdpp" onclick='javascript:location.href = BRAND_LIST_URL' >
+						<hr class="hrLine" style="width:1rem;margin-right: 0.1rem"/>查看更多品牌<hr class="hrLine" style="width:1rem;margin-left: 0.1rem"/>
+						
+					</div>
 
 					<div>
 
@@ -878,12 +908,15 @@
 						<div class="group-title-box" style="border-bottom: 1px solid #ededed;">
 							<div></div>
 							<span class="group-title">拼团购</span>
-							<div onclick='javascript:location.href = GROUP_LIST_URL'>更多 <img src="./../images/7.png" />
-							</div>
+							<!-- <div onclick='javascript:location.href = GROUP_LIST_URL'>更多 <img src="./../images/7.png" />
+							</div> -->
 						</div>
 						<ul class="spike-content">
 
 						</ul>
+						<div class="gdpt" onclick='javascript:location.href = GROUP_LIST_URL'>
+							<hr class="hrLine" style="width:1rem;margin-right: 0.1rem"/>查看更多拼团<hr class="hrLine" style="width:1rem;margin-left: 0.1rem"/>
+						</div>
 						<!-- 
 					<div class="myOrder-box"> 
 						我的订单
@@ -908,12 +941,15 @@
 								<div class="seckill-time-item"><span dom="seckill-minute"></span>分</div>
 								<div class="seckill-time-yh" style="margin-top: 0.07rem;color: #C0392E;">&nbsp;:&nbsp;</div>
 								<div class="seckill-time-item"><span dom="seckill-second"></span>秒</div>
-								<div onclick='javascript:location.href = SECKILL_LIST_URL'>更多 <img src="./../images/7.png" /> </div>
+								<!-- <div onclick='javascript:location.href = SECKILL_LIST_URL'>更多 <img src="./../images/7.png" /> </div> -->
 							</div>
 						</div>
 						<ul class="spike-content-seckill">
 
 						</ul>
+						<div class="gddd" onclick='javascript:location.href = SECKILL_LIST_URL'>
+							<hr class="hrLine" style="width:1rem;margin-right: 0.1rem"/>查看更多夺宝<hr class="hrLine" style="width:1rem;margin-left: 0.1rem"/>
+						</div>
 
 						<div id="privilegeBot">
 							<div class="enroll-title-box">
@@ -2441,6 +2477,7 @@ $(function(){
 							//不开启拼团
 							$(".spike-content").hide();
 							$(".group-title-box").hide();
+							$(".gdpt").hide();
 						}
 
 						//开启了广告商品(暂未使用)
@@ -2510,6 +2547,7 @@ $(function(){
 							$(".spike-content-seckill").html(html);
 						} else {
 							$(".seckill-title-box").hide();
+							$(".gddd").hide();
 						}
 
 						//开启优惠券

@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		 content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./../css/reset.css">
+	  <link href="../css/h5.css" rel="stylesheet" />
+	<link href="/js/layer-v3.1.1/layer/mobile/need/layer.css" rel="stylesheet" />
+    <script src="./../js/rem.js"></script>
+    <script src="./../js/jquery.min.js"></script>
+	<script src="/js/layer-v3.1.1/layer/mobile/layer.js"></script>
+    <title>拼团详情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .spike-wrap {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .spike-content {
+            border-bottom: 3px solid #ededed;
+        }
+
+        .spike-top {
+            display: flex;
+            padding: 0.24rem;
+        }
+
+        .left-img {
+            width: 3rem;
+            height: 2.5rem;
+            overflow: hidden;
+        }
+
+        .left-img img {
+            width: 100%;
+            display: block;
+			height: 100%;
+			width: 100%;
+        }
+
+        .content-rig {
+            margin-left: 0.24rem;
+        }
+
+        .content-rig>p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .price-num {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .price-num li:nth-of-type(1) {
+            color: red;
+            font-size: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .price-num li:nth-of-type(1)>span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .price-num li:nth-of-type(2) {
+            color: gray;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 0.2rem;
+        }
+
+        .content-rig>s {
+            font-size: 10px;
+            color: gray;
+            display: block;
+            margin-top: 0.1rem;
+        }
+		
+		.content-rig>span {
+		    font-size: 10px;
+		    color: gray;
+		    display: block;
+		    margin-top: 0.1rem;
+		}
+
+        .content-rig>div {
+            width: 1.5rem;
+            height: 0.8rem;
+            overflow: hidden;
+            margin-top: 0.1rem;
+        }
+
+        .content-rig>div img {
+            width: 100%;
+            display: block;
+			height: 100%;
+        }
+
+        .spike-bot {
+            padding: 0.3rem;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .brand-top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .brand-top li:nth-of-type(1) {
+            color: gray;
+        }
+
+        .brand-top li:nth-of-type(1)>span {
+            margin-left: 0.2rem;
+        }
+        .brand-top li:nth-of-type(2)>span{
+            margin-left: 0.2rem;
+            color: #000;
+        }
+
+        .brand-top li:nth-of-type(2) {
+            color: gray;
+            border-left: 1px solid gainsboro;
+            margin-right: 1.8rem;
+            margin-top: -0.15rem;
+            padding: 0.1rem;
+        }
+
+        .describe-bot {
+            color: gray;
+            margin-top: 0.2rem;
+        }
+
+        .describe-bot>span {
+            color: #000;
+            margin-left: 0.2rem;
+        }
+
+        .spike-btn {
+            padding: 0.4rem;
+            border-bottom: 3px solid #ededed;
+        }
+
+        .spike-btn div:nth-of-type(1) {
+            background: rgb(233, 101, 89);
+            color: #fff;
+            text-align: center;
+            font-size: 13px;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            border-radius: 0.06rem;
+            font-weight: bold;
+			margin-bottom: 0.3rem;
+        }
+		.spike-btn div:nth-of-type(2) {
+		    background: rgb(233, 101, 89);
+		    color: #fff;
+		    text-align: center;
+		    font-size: 13px;
+		    height: 0.6rem;
+		    line-height: 0.6rem;
+		    border-radius: 0.06rem;
+		    font-weight: bold;
+			margin-bottom: 0.3rem;
+		}
+
+        .spike-btn div:nth-of-type(3) {
+            border: 1px solid rgb(207, 104, 104);
+            color: rgb(207, 104, 104);
+            text-align: center;
+            font-size: 13px;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            border-radius: 0.06rem;
+            font-weight: bold;
+        }
+
+        .spike-tips {
+            padding: 0.24rem;
+            border-bottom: 1px solid gainsboro;
+            font-size: 11px;
+            height: 3rem;
+        }
+
+        .spike-tips>span {
+            color: gray;
+            font-weight: bold;
+        }
+
+        .spike-tips p {
+            color: rgb(207, 104, 104);
+            margin-top: 0.2rem;
+            font-weight: bold;
+        }
+		.goods-details-image img{
+			width: 100%;
+			height: auto;
+		}
+		.enroll-box{
+			position: fixed;
+			z-index: 9999;
+			display: none;
+			background-image: url("./../images/5.png");
+			background-size: 100% 100%;
+			width: 90%;
+			height: 4.8rem;
+			top: 20%;
+			left: 2.5%;
+		}
+		.enroll-title{
+			height: 0.6rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 0.5rem;
+		}
+		.enroll-count{
+			height: 0.79rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.enroll-input-box{
+			height: 0.75rem;
+			width: 100%;
+			margin-bottom: 0.2rem;
+		}
+		.enroll-input-box input{
+			width: 90%;
+			height: 100%;
+			margin-left: 4%;
+			padding: 0 1%;
+			border-radius: 0.1rem;
+			border: none;
+			font-size: 0.3rem;
+		}
+		.enroll-sub{
+			width: 90%;
+			margin-left: 5%;
+			background: #E6E6E6;
+			height: 0.8rem;
+			border-radius: 0.1rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 0.15rem;
+			font-size: 0.32rem;
+		}
+		.enroll-tisp{
+			margin-left: 5%;
+			color: #D40B01;
+		}
+		.shadow-box{
+			display: none;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+			background: rgba(0, 0, 0, 0.8);
+		}
+		.enroll-count>span{
+			font-weight: 600;
+			color: #DF2018;
+			margin: 0 0.1rem;
+		}
+    </style>
+</head>
+
+<body>
+    <div class="spike-wrap">
+        <ul class="spike-content">
+            <li class="spike-top">
+                <div class="left-img">
+                    <img src="./../images/img1.jpg" alt="">
+                </div>
+                <div class="content-rig">
+                    <p dom="goods-name"></p>
+                    <ul class="price-num">
+                        <li>￥<span dom="price"></span></li>
+                        <li dom="stock"></li>
+                    </ul>
+					<span dom="market-price">拼团价</span>
+                    <s dom="goods-price"></s>
+                    <div>
+                        <img dom="goods-brand-img"  alt="">
+                    </div>
+                </div>
+            </li>
+            <li class="spike-bot">
+                <ul class="brand-top">
+                    <li>品牌:<span dom="barnd-name"></span></li>
+                    <li>规格:<span dom="goods-specifications"></span></li>
+                </ul>
+                <div class="describe-bot">
+                    描述:<span dom="goods-details"></span>
+                </div>
+            </li>
+        </ul>
+		<div id="groupsOuter" style="display: none;">
+		  <div class="claer" style="background-color: #eee; height: 10px;">&nbsp;</div>
+		
+		  <div style="line-height: 40px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+		    <div style="float: left; padding-left: 15px;"><span id="groupCount"></span>人正在拼单，可直接参与</div>
+		    <!--<div style="float: right; padding-right: 15px;"><a style="text-decoration: none; color: #999; font-size: 14px;" onclick=''>查看更多 ></a></div>-->
+		    <div class="clear">&nbsp;</div>
+		  </div>
+		  <div style="margin-left: 15px; margin-right: 15px;">
+		    <div id="groups"></div>
+		  </div>
+		</div>
+		<div style="line-height: 40px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+		  <div style="float: left; padding-left: 15px;"><span id="groupCount"></span>人正在拼单，可直接参与</div>
+		  <!--<div style="float: right; padding-right: 15px;"><a style="text-decoration: none; color: #999; font-size: 14px;" onclick=''>查看更多 ></a></div>-->
+		  <div class="clear">&nbsp;</div>
+		</div>
+		<div style="margin-left: 15px; margin-right: 15px;">
+		  <div id="groups"></div>
+		</div>
+		
+        <div class="spike-btn">
+            <div onclick="enroll(1)">发起拼团</div>
+			<div onclick="enroll(3)">单独购买</div>
+            <div onclick="returnPage()">活动首页</div>
+        </div>
+		<div class="goods-details-image" dom="goodsDetailsImage">
+			
+			
+		</div>
+<!--        <div class="spike-tips">
+            <span>提示</span>
+            <p>1.每户限抢一件，数量有限，秒完即止。</p>
+            <p>2.成功秒杀顾客需在直播结束三天内到店面进行办理。</p>
+            <p>3.关于送货安装等售后服务详情，以实体店面解释为准。</p>
+            <p>4.秒杀品不参与其他优惠满减政策</p>
+        </div> -->
+    </div>
+	
+		<div class="shadow-box" onclick="shadowHide()">
+			
+		</div>
+		<div class="enroll-box">
+			<div class="enroll-title">拼团</div>
+			<div class="enroll-input-box">
+				<input dom="enrollName" placeholder="请填写姓名" />
+			</div>
+			<div class="enroll-input-box">
+				<input dom="enrollPhone" placeholder="请填写手机号码" />
+			</div>
+			<div class="enroll-tisp">*手机号仅用于本次下单</div>
+			<div class="enroll-sub" onclick="groupGoodsOrder()">
+				立即下单
+			</div>
+		</div>
+		
+<!-- 		<div class="bottom-nav">
+					<div class="bottom-nav-home" onclick="returnPage();">
+						<div class="nav-item">
+							<img src="../images/18.png" />
+						</div>
+						<div class="nav-item" style="display: contents;">首页</div>
+					</div>
+					<div class="bottom-nav-home" onclick="gotoMyOrder()" >
+						<div  class="nav-item">
+							<img src="../images/19.png" />
+						</div>
+						<div class="nav-item" style="display: contents;">我的订单</div>
+					</div>
+					<div class="bottom-nav-home" onclick="toExtensionReg();">
+						<div  class="nav-item">
+							<img src="../images/13.png">
+						</div>
+						<div class="nav-item" style="display: contents;">活动大使</div>
+					</div>
+		<!-- 			<div class="activity-bm-box"  onclick="enroll()">
+						活动报名
+					</div> -->
+				</div> -->
+</body>
+	<script src="../js/h5Common.js?_r=1451234"></script>
+	<script>
+		//记录当前拼团Id
+		var ORGANIZE_ID = "";
+		var IS_ORGANIZE = ""; 
+		var SECKILL_TYPE = "";
+		var GOODS_ID = getQueryString("goodsId");
+		var ACTIVITY_ID = getQueryString("activityId");
+	</script>
+	<script>
+	
+	  $(function () {
+	    $.post(API_ROOT + "/new/h5/group/details/", { token_id: TOKEN_ID, activityId: ACTIVITY_ID, id: GOODS_ID }, function (result) {
+	      if (result.ret != "200")
+	        alert(result.msg);
+	      else {
+			  
+			  $("[dom=goods-name]").text(result.data.goodsName);
+			  $(".left-img img").attr("src",API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.goodsImage);
+			  $("[dom=stock]").text("仅剩" + result.data.stock + "件");
+			  if(result.data.intention == null || result.data.intention == undefined){
+				  $("[dom=price]").text(result.data.marketPrice)
+			  } else {
+				  $("[dom=price]").text(result.data.intention)
+			  }
+			  $("[dom=market-price]").text("拼团价:" + result.data.marketPrice + "元/" + result.data.counting);
+			  $("[dom=goods-price]").text("产品原价:" + result.data.goodsPrice + "元/" + result.data.counting);
+			  $("[dom=barnd-name]").text(result.data.goodsBrandName)
+			  $("[dom=goods-brand-img]").attr("src",API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.goodsBrandImage);
+			  $("[dom=goods-specifications]").text(result.data.goodsSpecifications)
+			  $("[dom=goods-details]").text(result.data.goodsDetails)
+			  
+			  if (result.data.goodsDetailsImage != null) {
+			  	var goodsDetailsImages = result.data.goodsDetailsImage.split(",");
+			  	var imgs = "";
+			  	for (var i = 0; i < goodsDetailsImages.length; i++) {
+			  	  imgs += "<img style='width:100%;height:auto;margin:0;padding:0;border:0;' src='" + API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + goodsDetailsImages[i] + "'/>";
+			  	}
+			  	$("[dom=goodsDetailsImage]").html(imgs);
+			  }
+	      }
+	    });
+	  });
+	</script>
+	
+	<script>
+$(function () {
+      $.post(API_ROOT + "/client/share/order/",
+        { goodsId: GOODS_ID, activityId: ACTIVITY_ID, token_id: TOKEN_ID, organizeId: ORGANIZE_ID, id: GOODS_ID },
+        function (result) {
+          if (result.ret != "200")
+            alert(result.msg);
+          else {
+            $("[dom=goodsImage]").attr("src", API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&imgType=&fileId=" + result.data.goods.goodsImage);
+
+            $("[dom=goodsName]").text(result.data.goods.goodsName);
+            $("[dom=goodsPrice]").text("¥ " + result.data.goods.goodsPrice);
+            $("[dom=stock]").text("剩余数量:" + result.data.goods.stock);
+            $("[dom=diffCount]").text(result.data.differCount);
+            /*          var grouptext = "仅限<span style='color:red'>" +  result.data.differCount + " </span>" +
+                        "个名额，" + "<span id='time'></span>后结束";*/
+            /*
+                      TimeDown("time", result.data.organize.endTime, new Date().toString());
+            */
+            if (result.data.differCount > 0) {
+
+              $("[dom=customer-list]").css("display", "flex");
+              $(".cantuan").css("display", "flex");
+              $("[dom=group-text]").css("display", "inline-block");
+            }
+
+            try {
+              TimeDown("time", result.data.organize.endTime, new Date().toString());
+            }
+            catch (ex) {
+
+            }
+            /*          $("[dom=group-text]").html(grouptext);*/
+            $("[dom=stock]").text("剩余数量： " + result.data.goods.stock);
+            var lis = "";
+            for (var i = 0; i < result.data.customers.length; i++) {
+
+              if (i == 0) {
+                lis += '' +
+                  ' <div class="customer-item" height: 50px; width: 50px;style=""> ' +
+                  ' <div style="position: absolute; background: yellow; color: orange; height: 10px; width: 30px;font-size:5px; border-radius: 25%;align-items: center;justify-content:center;display: flex;border: 1px solid #ffffff ;text-align: center;border:1px solet">拼主</div> ' +
+                  ' <img style=" border:solid 1px #ff8c00;margin-top: 2px;float: left; height: 50px; width: 50px; border-radius: 50%;" src="' +
+                  API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&imgType=&fileId=" + result.data.customers[i].headPortraitImage + ' "/> ' + '</div> ';
+              } else {
+                if (result.data.customers[i].headPortraitImage == null || result.data.customers[i].headPortraitImage == undefined || result.data.customers[i].headPortraitImage == '') {
+                  lis += '' +
+                    ' <div  class="customer-item"  height: 50px; width: 50px> ' +
+                    ' <img  style="height: 50px; width: 50px; border-radius: 50%;"  src="img/face1.png" /> ' +
+                    '   </div> ';
+                } else {
+                  lis += '' +
+                    ' <div  class="customer-item" height: 50px; width: 50px;style=""> ' +
+                    ' <img  style="margin-top: 2px;float: left; height: 50px; width: 50px; border-radius: 50%;"  src="' + API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&imgType=&fileId=" + result.data.customers[i].headPortraitImage + ' "/> ' +
+                    '   </div> ';
+                }
+              }
+
+            }
+            $("[dom=customer-list]").html(lis);
+
+
+            if (result.data.differCount <= 0) {
+              $("[dom=group-text]").css("display", "inline-block");
+              $("[dom=group-text]").text("拼单已满");
+
+              $.post(API_ROOT + "/new/h5/organize/list",
+                { goodsId: GOODS_ID },
+                function (result) {
+                  if (result.data.length > 0) {
+                    $("#groupsOuter").show();
+
+                    $("#groupCount").text(result.data.length);
+                    var divs = "";
+                    for (var i = 0; i < result.data.length; i++) {
+                      divs += '<div style="display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: unset; font-size: 16px; line-height: 16px; padding: 15px 0;' +
+                        (i == result.data.length - 1 ? "" : " border-bottom: 1px solid #ccc;") +
+                        '">' +
+                        '<div style="flex-grow: 1;white-space: nowrap;text-overflow: ellipsis;width: 0;overflow: hidden;"><img style="height: 30px; width: 30px;float: left;" src="' +
+                        API_ROOT +
+                        "/image/show/?loginOs=0&fileId=" +
+                        result.data[i].headPortraitImage +
+                        '" /><div style="float: left; line-height: 30px; padding-left: 10px; padding-right: 10px;">' +
+                        formatTextMaxLength(result.data[i].customerName, 8) +
+                        '</div></div>' +
+                        '<div style="white-space: nowrap; font-size: 14px; padding-right: 10px;"><div style="color: black;">还差<span style="color: red;">' +
+                        result.data[i].differ +
+                        '人</span>拼成</div><div class="fc-light" id="timer' +
+                        result.data[i].id +
+                        '">剩余21:59:40</div></div>' +
+                        '<div style="width: 58px;white-space: nowrap;"><div style="border-radius:4px; background-color:red;color:white;height:30px;line-height:30px;text-align:center;display:inline-block;padding:0 8px;font-size:14px;" onclick="showDivMobile(2, \'' +
+                        result.data[i].id +
+                        '\');">去拼单</div></div>' +
+                        '</div>';
+                    }
+                    $("#groups").html(divs);
+                    for (var i = 0; i < result.data.length; i++) {
+                      TimeDown("timer" + result.data[i].id, result.data[i].endDate);
+                    }
+                  }
+                });
+            }
+
+            var trs = "";
+            for (var i = 0; i < result.data.merchantGoods.length; i = i + 2) {
+              trs += '<tr>' +
+                '<td style="width: 50%; overflow: hidden; border-right:  5px solid #ddd; border-bottom: 5px solid #ddd;" onclick="javascript:location.href=\'/Goods.html?goodsId=' + result.data.merchantGoods[i].id + '&activityId=' + ACTIVITY_ID + '&token_id=' + TOKEN_ID + '&guideId=' + GUIDE_ID + '\'">' +
+                '<div style="margin: 20px 20px 10px 20px;">' +
+                '<div>' + result.data.merchantGoods[i].goodsName + '</div>' +
+                '<div dom="" style="margin-top: 8px; font-size: 14px; line-height: 14px; color: #ff9900;">' + result.data.merchantGoods[i].goodsPrice + '元</div>' +
+                '<div style="margin-top: 4px;position: relative; font-size: 0; line-height: 0;">' +
+                '<img style="width: 100%;max-width:100%;" src="' + API_ROOT + '/image/show/?token_id=f3d1395db88c4d0c991e73d486bdfb72&loginOs=0&fileId=' + result.data.merchantGoods[i].goodsImage + '" />' +
+                '<div style="position: absolute; right: 0; bottom: 0; height: 20px; line-height: 20px; background: rgba(255, 255, 255, 0.5); color: black; font-size: 14px; line-height: 20px; padding: 2px 8px;">剩余：' + result.data.merchantGoods[i].stock + '</div>' +
+                '</div>' +
+                '<div class="clear">&nbsp;</div>' +
+                '</div>' +
+                '</td>';
+              if (result.data.merchantGoods[i + 1] != null) {
+                trs += '<td style="width: 50%;overflow: hidden; border-bottom: 5px solid #ddd;" onclick="javascript:location.href=\'/Goods.html?goodsId=' + result.data.merchantGoods[i + 1].id + '&activityId=' + ACTIVITY_ID + '&token_id=' + TOKEN_ID + '&guideId=' + GUIDE_ID + '\'">' +
+                  '<div style="margin: 20px 20px 10px 20px;">' +
+                  '<div>' + result.data.merchantGoods[i + 1].goodsName + '</div>' +
+                  '<div dom="" style="margin-top: 8px; font-size: 14px; line-height: 14px; color: #ff9900;">' + result.data.merchantGoods[i + 1].goodsPrice + '元</div>' +
+                  '<div style="margin-top: 4px;position: relative; font-size: 0; line-height: 0;">' +
+                  '<img style="width: 100%;max-width:100%;" src="' + API_ROOT + '/image/show/?token_id=f3d1395db88c4d0c991e73d486bdfb72&loginOs=0&fileId=' + result.data.merchantGoods[i + 1].goodsImage + '" />' +
+                  '<div style="position: absolute; right: 0; bottom: 0; height: 20px; line-height: 20px; background: rgba(255, 255, 255, 0.5); color: black; font-size: 14px; line-height: 20px; padding: 2px 8px;">剩余：' + result.data.merchantGoods[i + 1].stock + '</div>' +
+                  '</div>' +
+                  '<div class="clear">&nbsp;</div>' +
+                  '</div>' +
+                  '</td >';
+              }
+              else {
+                trs += '<td></td>';
+              }
+
+              trs += '</tr>';
+            }
+            $("[dom=goods]").html(trs);
+            resizeImage();
+          }
+        });
+	</script>
+	
+	<script>
+	  var _buyType;
+	  var _groupId;
+	
+	  function showDivMobile(buyType, groupId) {
+	    _buyType = buyType;
+	    _groupId = groupId;
+	    $(".enroll-box").show();
+		$(".shadow-box").show();
+	  }
+	  function hideDivMobile() {
+	    $(".enroll-box").hide();
+	  }
+	
+	  var paying = false;
+	</script>
+	<script>
+	  function PrefixInteger(num, n) {
+	    return (Array(n).join(0) + num).slice(-n);
+	  }
+	  function TimeDown(id, endDateStr) {
+	    //结束时间
+	    var endDate = new Date(endDateStr.replace(/\-/g, '/'));
+	    //当前时间
+	    var nowDate = new Date();
+	    //相差的总秒数
+	    var totalSeconds = parseInt((endDate - nowDate) / 1000);
+	    //天数
+	    var days = Math.floor(totalSeconds / (60 * 60 * 24));
+	    //取模（余数）
+	    var modulo = totalSeconds % (60 * 60 * 24);
+	    //小时数
+	    var hours = Math.floor(modulo / (60 * 60));
+	    modulo = modulo % (60 * 60);
+	    //分钟
+	    var minutes = Math.floor(modulo / 60);
+	    //秒
+	    var seconds = modulo % 60;
+	    //输出到页面
+	    document.getElementById(id).innerHTML = "剩余" + PrefixInteger(hours, 2) + ":" + PrefixInteger(minutes, 2) + ":" + PrefixInteger(seconds, 2);
+	    //延迟一秒执行自己
+	    setTimeout(function () {
+	      TimeDown(id, endDateStr);
+	    }, 1000)
+	  }
+	</script>
+	
+	<script>
+	  //判断当前是否存在拼单
+	  $.post(API_ROOT + "/new/sys/organize/own", { token_id: TOKEN_ID, activityId: ACTIVITY_ID, goodsId: GOODS_ID }, function (result) {
+	    if (result.ret != "200")
+	      alert(result.msg);
+	    else {
+	      if (result.data.id != null && result.data.id != undefined && result.data.id != "") {
+	        ORGANIZE_ID = result.data.id
+	      }
+	      if (ORGANIZE_ID == null || ORGANIZE_ID == undefined || ORGANIZE_ID == "") {
+	        $.post(API_ROOT + '/new/h5/share/',
+	          { url: location.href.split('#')[0], activityId: ACTIVITY_ID, token_id: TOKEN_ID },
+	          function (result) {
+	            wx.config({
+	              debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	              appId: result.data.appId,
+	              timestamp: result.data.timestamp,
+	              nonceStr: result.data.noncestr,
+	              signature: result.data.signature,
+	              jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "hideAllNonBaseMenuItem", "showMenuItems"]
+	            });
+	            wx.ready(function () {
+	              wx.hideAllNonBaseMenuItem();
+	              if (result.data.sharingFriend == 1)
+	                wx.showMenuItems({
+	                  menuList: ["menuItem:share:appMessage"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+	                });
+	              if (result.data.sharingCircl == 1)
+	                wx.showMenuItems({
+	                  menuList: ["menuItem:share:timeline"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+	                });
+	
+	              wx.onMenuShareTimeline({
+	                title: result.data.sharingTitle,
+	                link: 'http://' + location.host + "/new/sys/redirectUrl?activityId=" + ACTIVITY_ID + "&guideId=" + GUIDE_ID + "&token_id=" + TOKEN_ID,
+	                imgUrl: 'http://' + location.host + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + result.data.sharingImage,
+	                success: function () {
+	                },
+	                cancel: function () {
+	                }
+	              });
+	              wx.onMenuShareAppMessage({
+	                title: result.data.sharingTitle,
+	                desc: result.data.sharingDescribe,
+	                link: 'http://' + location.host + "/new/sys/redirectUrl?activityId=" + ACTIVITY_ID + "&guideId=" + GUIDE_ID + "&token_id=" + TOKEN_ID,
+	                imgUrl: 'http://' + location.host + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + result.data.sharingImage,
+	                type: 'link',
+	                dataUrl: '',
+	                success: function () {
+	                }
+	              });
+	            });
+	          });
+	      } else {
+	        //客户分享自己的拼团
+	        $.post(API_ROOT + '/user/share/order',
+	          { url: location.href.split('#')[0], activityId: ACTIVITY_ID, token_id: TOKEN_ID, organizeId: ORGANIZE_ID, goodsId: GOODS_ID },
+	          function (result) {
+	            wx.config({
+	              debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	              appId: result.data.appId,
+	              timestamp: result.data.timestamp,
+	              nonceStr: result.data.noncestr,
+	              signature: result.data.signature,
+	              jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "hideAllNonBaseMenuItem", "showMenuItems"]
+	            });
+	            wx.ready(function () {
+	              wx.hideAllNonBaseMenuItem();
+	              if (result.data.sharingFriend == 1)
+	                wx.showMenuItems({
+	                  menuList: ["menuItem:share:appMessage"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+	                });
+	              if (result.data.sharingCircl == 1)
+	                wx.showMenuItems({
+	                  menuList: ["menuItem:share:timeline"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+	                });
+	
+	              wx.onMenuShareTimeline({
+	                title: result.data.sharingTitle,
+	                link: 'http://' + location.host + "/new/sys/redirectUrl?activityId=" + ACTIVITY_ID + "&guideId=" + GUIDE_ID + "&indexPage=1&organizeId=" + ORGANIZE_ID + "&goodsId=" + GOODS_ID + "&token_id=" + TOKEN_ID,
+	                imgUrl: API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + result.data.sharingImage,
+	                success: function () {
+	
+	                },
+	                cancel: function () {
+	                }
+	              });
+	              wx.onMenuShareAppMessage({
+	                title: result.data.sharingTitle,
+	                desc: result.data.sharingDescribe,
+	                link: 'http://' + location.host + "/new/sys/redirectUrl?activityId=" + ACTIVITY_ID + "&guideId=" + GUIDE_ID + "&indexPage=1&organizeId=" + ORGANIZE_ID + "&goodsId=" + GOODS_ID + "&token_id=" + TOKEN_ID,
+	                imgUrl: API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + result.data.sharingImage,
+	                type: 'link',
+	                dataUrl: '',
+	                success: function () {
+	                }
+	              });
+	            });
+	          });
+	      }
+	    }
+	  });
+	
+	
+	  wx.error(function (res) {
+	    alert("出错了：" + res.errMsg);
+	  });
+	</script>
+	<script>
+		
+		function enroll(isOrganize,organizeId){
+			//拼团类型
+			IS_GRGANIZE = isOrganize
+			if(organizeId != null && organizeId != undefined && organizeId != ''){
+				ORGANIZE_ID = organizeId
+			}
+			$(".shadow-box").show();
+			$(".enroll-box").show();
+		}
+	</script>
+	<script>
+		function shadowHide(){
+			$(".shadow-box").hide();
+			$(".enroll-box").hide();
+		}
+	</script>
+	<script>
+		function groupGoodsOrder(){
+	    if (paying) return;
+	    paying = true;
+	    $.post(API_ROOT + "/new/client/order/save/", { token_id: TOKEN_ID, activityId: ACTIVITY_ID, goodsId: GOODS_ID, goodsNum: 1, isOrganize: IS_GRGANIZE, organizeId: _groupId, phone: $("[dom=enrollPhone]").val(), name: $("[dom=enrollName]").val(),orderType:1,guideId : GUIDE_ID,organizeId : ORGANIZE_ID}, function (result) {
+	      if (result.ret != "200") {
+	        alert(result.msg);
+	      }
+	      else {
+	        WeixinJSBridge.invoke('getBrandWCPayRequest',
+	          {
+	            "appId": result.data.appId, //公众号名称，由商户传入
+	            "timeStamp": result.data.timeStamp, //时间戳，自1970年以来的秒数
+	            "nonceStr": result.data.nonceStr, //随机串
+	            "package": result.data.prepayId, //数据包
+	            "signType": "MD5", //微信签名方式
+	            "paySign": result.data.paySign //微信签名
+	          },
+	          function (res) {
+	            if (res.err_msg == "get_brand_wcpay_request:ok") {
+					if(IS_GRGANIZE == 1 || IS_GRGANIZE == 2){
+						layer.open({ title: ['提示', 'background-color:#8DCE16; color:#fff;'], content: '下定成功', btn: ['确认'], yes: function (index) { location.href = location.href; } });
+					} else {
+					    layer.open({ title: ['提示', 'background-color:#8DCE16; color:#fff;'], content: '付款成功', btn: ['确认'], yes: function (index) { location.href = location.href; } });	
+					}
+	            } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+	                alert("取消支付");
+	                location.href = location.href;
+	            } else {
+					alert("支付失败")
+					location.href = location.href
+				}
+	          });
+	      }
+	      paying = false;
+	    });
+	  
+		}
+	</script>
+	<script>
+		function returnPage(){
+			window.history.go(-1);
+		}
+	</script>
+	<script>
+		function openGroupList(){
+			$.post(API_ROOT + "/new/client/open/group/list/", { goodsId: GOODS_ID,activityId:ACTIVITY_ID }, function (result) {
+			  if (result.data.length > 0) {
+				$("#groupsOuter").show();
+				$("#groupCount").text(result.data.length);
+				var divs = "";
+				for (var i = 0; i < result.data.length; i++) {
+				  divs += '<div style="display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: unset; font-size: 16px; line-height: 16px; padding: 15px 0;' + (i == result.data.length - 1 ? "" : " border-bottom: 1px solid #ccc;") + '">' +
+					'<div style="flex-grow: 1;white-space: nowrap;text-overflow: ellipsis;width: 0;overflow: hidden;"><img style="height: 30px; width: 30px;float: left;" src="' + result.data[i].customer.headPortraitImageUrl + '" /><div style="float: left; line-height: 30px; padding-left: 10px; padding-right: 10px;">' + formatTextMaxLength(result.data[i].customer.wxNickName, 8) + '</div></div>' +
+					'<div style="white-space: nowrap; font-size: 14px; padding-right: 10px;"><div style="color: black;">还差<span style="color: red;">' + result.data[i].surplusNumber + '人</span>拼成</div><div class="fc-light" id="timer' + result.data[i].organizeId + '">剩余21:59:40</div></div>' +
+					'<div style="width: 58px;white-space: nowrap;"><div style="border-radius:4px; background-color:red;color:white;height:30px;line-height:30px;text-align:center;display:inline-block;padding:0 8px;font-size:14px;" onclick="enroll(2, \'' + result.data[i].organizeId + '\');">去拼单</div></div>' +
+					'</div>';
+				}
+				$("#groups").html(divs);
+				for (var i = 0; i < result.data.length; i++) {
+				  TimeDown("timer" + result.data[i].organizeId, result.data[i].endTime);
+				}
+			  }
+			});	
+		}
+		openGroupList();
+	</script>
+
+</html>

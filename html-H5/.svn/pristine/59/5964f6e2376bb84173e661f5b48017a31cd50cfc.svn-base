@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		 content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="./../css/reset.css">
+		<script src="./../js/rem.js"></script>
+		<script src="./../js/jquery.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			.tment-wrap button {
+				padding: 0.2rem 0;
+				margin: 0 auto;
+				margin-top: 0.4rem;
+				border-radius: 4px;
+				outline: none;
+				width: 80%;
+				display: block;
+				color: #fff;
+				font-size: 16px;
+			}
+
+			.tment-img {
+				width: 3rem;
+				height: 3rem;
+				margin: 0 auto;
+				margin-top: 2.5rem;
+			}
+
+			.tment-img img {
+				width: 100%;
+				display: block;
+			}
+
+			.tment-font {
+				text-align: center;
+				font-size: 18px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tment-wrap">
+			<div class="tment-img">
+				<img src="./../images/logo_w.png">
+			</div>
+			<p class="tment-font">尚云销将给您发一条信息</p>
+			<button type="button" style="background: #19AC16;border: 1px solid #19AC16;">确定</button>
+			<button type="button" style="background: gainsboro;border: 1px solid gainsboro;" onclick="returnClick()">返回</button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	function returnClick() {
+		window.history.back(-1);
+	}
+</script>

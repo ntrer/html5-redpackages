@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+   content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <title>推广大使</title>
+	<link href="/css/normalize.css" rel="stylesheet" />
+    <link href="../css/nav.css" rel="stylesheet" />
+	
+  <style>
+    html, body { width: 100%; overflow-x: hidden; color: #666666; }
+    ul { margin: 0; padding: 0; }
+      ul * { margin: 0; padding: 0; }
+    img { max-width: 100%; }
+    .enterLog { margin-left: 10px; margin-right: 10px; }
+      .enterLog li { display: block; float: left; width: 12.5%; margin: 0; padding: 0; margin-bottom: 8px; }
+        .enterLog li img { border-radius: 50%; margin: 0; padding: 0; }
+        .enterLog li p { text-align: center; margin: 0; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; font-size: 10px; }
+    .orderLog { margin-left: 10px; margin-right: 10px; }
+      .orderLog li { display: block; width: 100%; clear: both; margin-bottom: 10px; }
+        .orderLog li > img { border-radius: 50%; margin: 0; padding: 0; height: 30px; width: auto; }
+        .orderLog li > div.nickName { margin: 0; padding: 0; height: 30px; line-height: 30px; margin-left: 8px; font-size: 12px; overflow: hidden; white-space: nowrap; }
+        .orderLog li > div.right { margin: 0; padding: 0; height: 30px; line-height: 15px; margin-left: 8px; font-size: 12px; overflow: hidden; white-space: nowrap; text-align: right; }
+
+    .clear { width: 100%; clear: both; height: 0; overflow: hidden; }
+    .covers { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 9999999; background: rgba(0, 0, 0, 0.8); }
+      .covers > div { display: table-cell; vertical-align: middle; text-align: center; width: 100%; height: 100%; color: white; }
+        .covers > div input[type=button] { padding: 10px; background-color: #eee; border: 0; margin-top: 20px; }
+    .covers1 { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 9999999; background: rgba(0, 0, 0, 0.8); }
+      .covers1 > div { display: table-cell; vertical-align: middle; text-align: center; width: 100%; height: 100%; color: white; }
+        .covers1 > div input[type=button] { padding: 10px; background-color: #eee; border: 0; margin-top: 20px; }
+    .content-box { margin-left: 10px; margin-right: 10px; clear: both; border: #ccc solid 1px; box-shadow: 3px 3px 9px #ccc; padding-bottom: 15px; }
+    .mt15 { margin-top: 15px; }
+    .mt10 { margin-top: 10px; }
+    .ta-center { text-align: center; }
+    .ta-right { text-align: right; }
+    body { padding-bottom: 15px; background: url(/img/reg/beijingtu.jpg) no-repeat #c9e3f9; background-size: 100% auto; }
+
+    .content-box-2 { border-radius: 8px; margin-left: 15px; margin-right: 15px; clear: both; border: #ccc solid 1px; padding-bottom: 15px; }
+      .content-box-2 .header { color: #555; border-bottom: 1px solid #ccc; }
+    ::-webkit-scrollbar { width: 0; height: 0; background-color: rgba(240,240,240,0) }
+    .covers * { max-width: 100%; }
+    .covers img { display: block; }
+    .covers1 * { max-width: 100%; }
+    .covers1 img { display: block; }
+
+    .hr1 { width: 100%; margin-left: auto; margin-right: auto; margin-top: 10px; height: 11px; border-top: 1px solid #ddd; overflow: hidden; clear: both; }
+    .discuss li { display: block; width: 100%; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 10px; }
+    .fc-light { color: #999; }
+    .fl { float: left; }
+    .fr { float: right; }
+    ::-webkit-input-placeholder { /* WebKit browsers */ color: #ccc; }
+    .mt20 { margin-top: 20px; }
+    .defaultTable { width: 100%; color: rgb(136, 186, 266); }
+      .defaultTable > tbody > tr > td { padding: 0; height: 60px; border-bottom: 1px solid rgb(136, 186, 266); white-space: nowrap; }
+      .defaultTable tr td input, select { border: 0; background-color: inherit; }
+    .hide { display: none; }
+	.reg-box{
+		width: 60%;
+		height: 2.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: white;
+		margin-top: 10%;
+		background: #1296DB;
+		color: white;
+		margin-left: 20%;
+	}
+	.shadow-box {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 999;
+		background: rgba(0, 0, 0, 0.8);
+	}
+	.reg-from-box{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+	}
+	.head-img{
+		width: 90%;
+		padding: 5%;
+	}
+	.head-img img{
+		width: 100%;
+		height: 100%;
+	}
+	.title-box{
+		border-top: 1px solid #A0A0A0;
+		border-bottom: 1px solid #A0A0A0;
+		margin: 0 5%;
+		display: flex;
+		flex-direction: row; 
+		padding-top: 0.8rem;
+		padding-bottom: 0.8rem;
+	}
+	.extension-reward-box{
+		width: 90%;
+		margin-left: 5%;
+		margin-top: 0.8rem;
+	}
+	.extension-reward-title-box{
+		display: flex;
+		align-items: center;
+		flex-direction: row; 
+	}
+	.extension-reward-img-box{
+		margin-top: 0.2rem;
+	}
+	.extension-reward-img-box img{
+		height: 1.5rem;
+		width: 1.5rem;
+	}
+	.extension-reward-title-text{
+		font-size: 1rem;
+		color: #000000;
+		margin-left: 0.5rem;
+	}
+	.title-text1{
+		font-size: 1.2rem;
+		color: #000000;
+		font-weight: 600;
+	}
+	.sumPirce{
+		color: #C8843C;
+	}
+	.sumPrice-text{
+		color: #A0A0A0;
+		margin-left: 0.4rem;
+	}
+	.share-botton-box{
+		height: 1rem;
+		border-radius: 0.2rem;
+		border: 1px solid #1296DB;
+		display: flex; 
+		margin-right: 0;
+		margin-left:auto;
+		flex-direction: row; 
+		padding: 0.4rem;
+	}
+	.share-img-box img{
+		height: 1rem;
+		width: 1rem;
+	}
+	.share-text-box{
+		color: #1296DB;
+		margin-left: 0.2rem;
+		font-size: 0.9rem;
+	}
+	.rule-box{
+		justify-content: center;
+		color: #999999;
+		margin-top: 0.5rem;
+		border-bottom: 1px solid #A0A0A0;
+		padding-bottom: 1rem;
+	}
+	.share-img{
+		display: none;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		z-index: 99999;
+		top: 0;
+	}
+	.share-img img{
+		width: 100%;
+	}
+  </style>
+
+
+
+</head>
+<body>
+	
+	<div class="head-img">
+		<img src="../images/15.png" />
+	</div>
+	
+	<div class="title-box">
+		<div class="title-text1">奖励规则</div>
+		<div class="title-text2"></div>
+	</div>
+	
+	
+	<div class="extension-reward-box">
+		<div class="extension-reward-title-box">
+			<div class="extension-reward-img-box">
+				<img src="../images/16.png"/>
+			</div>
+			<div class="extension-reward-title-text">
+				推广奖励
+			</div>
+			<div>
+				<span class="sumPrice-text">(已获得<span class="sumPirce">0元</span>)</span>
+			</div>
+			<div class="share-botton-box" onclick="showShareImg()">
+				<div class="share-img-box">
+					<img src="../images/17.png"/>
+				</div>
+				<div class="share-text-box">
+					推荐给好友
+				</div>
+			</div>
+		</div>
+		<div class="rule-box">
+			转发活动所在城市( <span dom="citys">西安市</span> )的好友，每次报名您可以获得一次报名金额 <span dom="percentage">40%</span> 的推广奖励。
+		</div>
+	</div>
+	
+	<div class="reg-box" onclick="regBoxShow()">
+		成为活动大使
+	</div>
+
+	<div class="shadow-box" onclick="shadowHide()">
+		
+	</div>
+	
+	<!-- 分享图片遮罩层 -->
+	<div  class="share-img" onclick="shadowHide()" style="opacity:0.9">
+		<img src="/live/images/11.png" style="width: 100%;z-index: 999;">
+	</div>
+	
+	
+<!--  <div style="margin-top: 50px; font-size: 0;">
+    <img src="/img/reg/A1.png" />
+  </div> -->
+  <div class="reg-from-box" style="top:20%;height: 40%;width: 80%;margin-left: 20px; margin-right: 20px; background-color: white;border-radius: 30px; padding: 20px;display: none;">
+    <form id="defaultForm">
+      <table class="defaultTable" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>姓名</td>
+          <td>
+            <input type="text" name="name">
+          </td>
+        </tr>
+        <tr>
+          <td>手机号</td>
+          <td>
+            <table style="width: 100%;">
+              <tr>
+                <td><input type="text" name="phone" style="width: 90%;"></td>
+                <td>
+                  <img class="fr" src="/img/btnGetSms.png" style="height: 30px;" onclick="javascript:sendSms();" id="btnGetSms" />
+                  <span id="btnGetSmsTimer" class="fr" style="display: none; padding: 8px 0;">正在发送</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>验证码</td>
+          <td>
+            <input type="text" name="code">
+          </td>
+        </tr>
+      </table>
+      <div style="margin-left: 45px; margin-right: 45px;" class="mt20">
+        <img src="/img/reg/xiayibu.png" class="regButton" style="margin-left: auto; margin-right: auto;" onclick="submitReg()" />
+      </div>
+    </form>
+  </div>
+
+<!--  <div style="margin-top: 20px; margin-left: 20px; margin-right: 20px;"><img dom="headImage" style="width: 100%; border-radius: 30px;" /></div>
+ -->
+ 
+ 
+<!-- 		<div class="bottom-nav">
+ 			<div class="bottom-nav-home" onclick="returnPage();">
+ 				<div class="nav-item">
+ 					<img src="../images/18.png" />
+ 				</div>
+ 				<div class="nav-item" style="display: contents;">首页</div>
+ 			</div>
+ 			<div class="bottom-nav-home" onclick="gotoMyOrder()" >
+ 				<div  class="nav-item">
+ 					<img src="../images/19.png" />
+ 				</div>
+ 				<div class="nav-item" style="display: contents;">我的订单</div>
+ 			</div>
+ 			<div class="bottom-nav-home" onclick="toExtensionReg();">
+ 				<div  class="nav-item">
+ 					<img src="../images/13.png">
+ 				</div>
+ 				<div class="nav-item" style="display: contents;">活动大使</div>
+ 			</div>
+ 		</div> -->
+
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript"></script>
+  <script src="../js/h5Common.js" </script>
+  </script>
+  <script>
+    var OPEN_ID = getQueryString("openId");
+	GUIDE_ID = getQueryString("guideId")
+	//本页加载默认分享设定
+	loadDefaultShareSettings();
+	
+	
+	function returnPage() {
+		// window.history.go(-1);
+		window.location.href = './h5.html?activityId=' + ACTIVITY_ID + "&token_id=" + TOKEN_ID + "&guideId=" + GUIDE_ID
+	}
+  </script>
+  <script>
+    // $.get(API_ROOT + "/new/h5/newActivity/details/?id=" + ACTIVITY_ID , function (result) {
+    //   document.title = result.data.activityName;
+    //   $("[dom=headImage]").attr("src", API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + result.data.activityImage);
+    // });
+  </script>
+
+
+  <script>
+    function submitReg() {
+      $.post(API_ROOT + "/new/sys/extension/register/", $("#defaultForm").serialize() + "&activityId=" + ACTIVITY_ID + "&token_id=" + TOKEN_ID + "&openId=" + OPEN_ID,
+        function (result) {
+          if (result.ret != "200") {
+            alert(result.msg);
+          } else {
+			  $(".regButton").removeAttr("onclick")
+            //location.href = "/h5.html?activityId=" + ACTIVITY_ID + "&userId=" + REFERRER_USER_ID + "&token_id=" + TOKEN_ID;
+            location.href = "/new/sys/redirectUrl?activityId=" + ACTIVITY_ID + "&guideId=" + GUIDE_ID +
+					"&token_id=" + TOKEN_ID;
+          }
+        });
+    }
+  </script>
+
+  <script>
+    // $.get(API_ROOT + "/new/client/regBrand/list/", { activityId: ACTIVITY_ID }, function (result) {
+    //   if (result.ret != "200") {
+    //     alert(result.msg)
+    //   } else {
+    //     var ops = "<option value=''>请选择品牌</option>";
+    //     for (var i = 0; i < result.data.length; i++) {
+    //       ops += "<option value='" + result.data[i].id + "'>" + result.data[i].brandName + "</option>"
+    //     }
+    //     $("[name=brandId]").html(ops);
+    //   }
+    // });
+  </script>
+  <script>
+	//input失去焦点回弹
+	$("input").blur(function () {
+		setTimeout(function () {
+			var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+			window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+		}, 100);
+	})
+  </script>
+  
+  
+  <script>
+    function sendSms() {
+      $("#btnGetSms").hide();
+      $("#btnGetSmsTimer").show();
+      $.get(API_ROOT + "/user/register/newSendCode/", $("#defaultForm").serialize() + "&activityId=" + ACTIVITY_ID + "&type=4", function (result) {
+        if (result.ret != "200") {
+          alert(result.msg);
+          $("#btnGetSms").show();
+          $("#btnGetSmsTimer").hide();
+        } else {
+          btnGetSmsTimerStart(60);
+        }
+      });
+    }
+    function btnGetSmsTimerStart(sec) {
+      if (sec <= 0) {
+        $("#btnGetSmsTimer").hide();
+        $("#btnGetSms").show();
+      } else {
+        $("#btnGetSmsTimer").html(sec + " s");
+        setTimeout(function () {
+          btnGetSmsTimerStart(--sec);
+        }, 1000);
+      }
+
+    }
+  </script>
+
+  <script>
+    // function fileLoad(ele) {
+    //   if ($(ele).val() == "")
+    //     return false;
+    //   //④创建一个formData对象
+    //   var formData = new FormData();
+    //   //⑤获取传入元素的val
+    //   var name = $(ele).val();
+    //   //⑥获取files
+    //   var files = $(ele)[0].files[0];
+    //   //⑦将name 和 files 添加到formData中，键值对形式
+    //   formData.append("file", files);
+    //   formData.append("name", name);
+    //   $.ajax({
+    //     url: API_ROOT + "/upload/image/?loginOS=0&type=1",
+    //     type: 'POST',
+    //     data: formData,
+    //     processData: false, // ⑧告诉jQuery不要去处理发送的数据
+    //     contentType: false, // ⑨告诉jQuery不要去设置Content-Type请求头
+    //     beforeSend: function () {
+    //     },
+    //     success: function (response) {
+    //       $("[name=headId]").val(response.data);
+    //       $("#cbImg").attr("src", "/image/show/?loginOs=0&fileId=" + response.data).removeClass("hide");
+    //     },
+    //     error: function (response) {
+    //       alert("上传图片失败");
+    //     }
+    //   });
+    // }
+  </script>
+  <script>
+	  function regBoxShow(){
+		  $(".reg-from-box").show();
+
+		  $(".shadow-box").show();
+	  }
+  </script>
+  <script>
+	  function shadowHide(){
+		$(".reg-from-box").hide();
+		$(".shadow-box").hide();
+		$(".share-img").hide();
+	  }
+  </script>
+  <script>
+	  function showShareImg(){
+		  $(".shadow-box").show();
+		  $(".share-img").show();
+	  }
+  </script>
+  <script>
+	  // $.get(API_ROOT + "/new/sys/extension/info/", activityId : ACTIVITY_ID,token_id : TOKEN_ID , function (result) {
+	  //   if (result.ret != "200") {
+			// alert(result.msg)
+	  //   } else {
+			// 
+	  //   }
+	  // });
+	  
+	  
+	  $.post(API_ROOT + "/new/sys/extension/info/", {
+	  	activityId: ACTIVITY_ID,
+		token_id:TOKEN_ID
+	  }, function (result) {
+	  	if(result.ret == "200"){
+			if(result.data.sumPrice == null) {
+				$(".sumPirce").text("0元")	
+			} else {
+				$(".sumPirce").text(result.data.sumPrice + "元")
+			}
+			$("[dom=citys]").text(result.data.activity.cityText)
+			if(result.data.activity.extensionRoyalty == null){
+				$("[dom=percentage]").text("0%")
+			} else {
+				$("[dom=percentage]").text(result.data.activity.extensionRoyalty + "%")	
+			}
+			
+			//如果已经注册成功  则删除注册按钮的点击事件 并且修改按钮文字
+			if(result.data.isExtension == 1){
+				$(".reg-box").text("您已成为推广大使");
+				$(".reg-box").removeAttr("onclick");	
+			}
+	  	} else {
+			alert(result.msg)
+		}
+	  });	
+  </script>
+</body>
+</html>

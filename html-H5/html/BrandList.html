@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>更多品牌</title>
+      <link href="../css/nav.css" rel="stylesheet" />
+  <link href="/css/normalize.css" rel="stylesheet" />
+  <style>
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .enterLog {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .enterLog li {
+      display: block;
+      float: left;
+      width: 12.5%;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 8px;
+    }
+
+    .enterLog li img {
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .enterLog li p {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      word-break: keep-all;
+      white-space: nowrap;
+      font-size: 10px;
+    }
+
+    .orderLog {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .orderLog li {
+      display: block;
+      width: 100%;
+      clear: both;
+      margin-bottom: 10px;
+    }
+
+    .orderLog li>img {
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+      height: 30px;
+      width: auto;
+    }
+
+    .orderLog li>div.nickName {
+      margin: 0;
+      padding: 0;
+      height: 30px;
+      line-height: 30px;
+      margin-left: 8px;
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .orderLog li>div.right {
+      margin: 0;
+      padding: 0;
+      height: 30px;
+      line-height: 15px;
+      margin-left: 8px;
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .clear {
+      width: 100%;
+      clear: both;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .covers {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999999;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .covers>div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      color: white;
+    }
+
+    .covers>div input[type=button] {
+      padding: 10px;
+      background-color: #eee;
+      border: 0;
+      margin-top: 20px;
+    }
+
+    .covers1 {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999999;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .covers1>div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      color: white;
+    }
+
+    .covers1>div input[type=button] {
+      padding: 10px;
+      background-color: #eee;
+      border: 0;
+      margin-top: 20px;
+    }
+
+    .content-box {
+      margin-left: 10px;
+      margin-right: 10px;
+      clear: both;
+      border: #ccc solid 1px;
+      box-shadow: 3px 3px 9px #ccc;
+      padding-bottom: 15px;
+    }
+
+    .mt15 {
+      margin-top: 15px;
+    }
+
+    .mt10 {
+      margin-top: 10px;
+    }
+
+    .ta-center {
+      text-align: center;
+    }
+
+    .ta-right {
+      text-align: right;
+    }
+
+    .content-box-2 {
+      border-radius: 8px;
+      margin-left: 10px;
+      margin-right: 10px;
+      clear: both;
+      border: #ccc solid 1px;
+      padding-bottom: 15px;
+    }
+
+    .content-box-2 .header {
+      color: #555;
+      border-bottom: 1px solid #ccc;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      background-color: rgba(240, 240, 240, 0)
+    }
+
+    .covers * {
+      max-width: 100%;
+    }
+
+    .covers img {
+      display: block;
+    }
+
+    .covers1 * {
+      max-width: 100%;
+    }
+
+    .covers1 img {
+      display: block;
+    }
+
+    .hr1 {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      height: 9px;
+      border-top: 1px solid #ddd;
+      overflow: hidden;
+      clear: both;
+    }
+
+    .discuss li {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .fc-light {
+      color: #999;
+    }
+
+    .brandintroduce {
+      text-indent: 2em;
+      margin: 0 2%;
+    }
+
+    .brand-box {
+      display: flex;
+      flex-direction: inherit;
+      flex-wrap: wrap;
+      width: 100%;
+      flex-direction: row;
+    }
+
+    .brand-item {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      margin: 5px 0;
+    }
+
+    .brand-logo {
+      border: 1px solid #999;
+      border-radius: 6px;
+    }
+
+    .brand-name {
+      height: 60px;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .brand-item2 {
+      width: 96%;
+      min-height: 100px;
+      padding-bottom: 10px;
+      margin-top: 5px;
+      margin-left: 15px;
+    }
+
+    .brand-name2 {
+      height: 20px;
+      width: 96%;
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    .brand-text-box {
+      width: 100%;
+      font-size: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div dom="brand-box" class="brand-box" style="margin-top: 10px;">
+  </div>
+  
+<!--  <div class="bottom-nav">
+  			<div class="bottom-nav-home" onclick="returnPage();">
+  				<div class="nav-item">
+  					<img src="../images/18.png" />
+  				</div>
+  				<div class="nav-item" style="display: contents;">首页</div>
+  			</div>
+  			<div class="bottom-nav-home" onclick="gotoMyOrder()" >
+  				<div  class="nav-item">
+  					<img src="../images/19.png" />
+  				</div>
+  				<div class="nav-item" style="display: contents;">我的订单</div>
+  			</div>
+  			<div class="bottom-nav-home" onclick="toExtensionReg();">
+  				<div  class="nav-item">
+  					<img src="../images/13.png">
+  				</div>
+  				<div class="nav-item" style="display: contents;">活动大使</div>
+  			</div>
+  		</div> -->
+
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript"></script>
+  <script src="/js/h5Common.js"></script>
+  <script>
+    //本页加载默认分享设定
+    //loadDefaultShareSettings();
+  </script>
+  <script>
+    function brandList() {
+      $.post(API_ROOT + "/new/client/brandmore/list/", {
+        activityId: ACTIVITY_ID
+      }, function (result) {
+        if (result.ret != "200")
+          alert(result.msg);
+        else {
+          var lis = "";
+          for (var i = 0; i < result.data.length; i++) {
+            lis +=
+              '<div class="brand-item2" style="' + (i == result.data.length - 1 ? "" :
+                " border-bottom: 1px solid #ccc;") + '">' +
+              '<div style="display: flex; flex-direction: row; margin-top: 5px;align-items:center;">' + '<div>' +
+              '<img src="' + API_ROOT + '/image/show/?token_id=' + TOKEN_ID + '&loginOs=0&imgType=&fileId=' + result
+              .data[i].brandLogo + '" style="height: 110px; width: 110px;" />' + '</div>' +
+              '<div style = "font-size: 10px; flex-grow: 1;display: flex; flex-direction: column; margin-left: 10px;" > ' +
+              '<div style="font-size:18px;line-height:18px;font-weight:bold;">' + result.data[i].brandName +
+              '</div>' +
+              '<div class="brand-text-box text-hide3" style="margin-top:5px"> 简介：' + (result.data[i].introduce ||
+                "") + '</div>' +
+              '<div class="brand-text-box" style = "margin-top: 5px;height: 20px; line-height: 20px;overflow: hidden;"> ' +
+              '联系方式: ' + (result.data[i].phone || "") + '</div> ' +
+              '<div class="brand-text-box">地址：' + (result.data[i].address || "") + '</div > ' +
+              '</div> ' +
+              '<div style = " border-radius: 50%;  margin-right: 10px; "><a style="display:block;" href="tel:' +
+              result.data[i].phone + '"><img style="width:40px;height:40px;" src="/img/h5/bohao.png"></a></div>' +
+              '</div> ' +
+              '</div> ';
+          }
+          $("[dom=brand-box]").html(lis);
+        }
+      });
+    }
+  </script>
+  <script>
+    $(function () {
+      brandList();
+    });
+  </script>
+</body>
+
+</html>

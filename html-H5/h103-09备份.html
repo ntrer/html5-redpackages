@@ -1,0 +1,3065 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" initial-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="./../css/reset.css">
+		<link rel="stylesheet" href="./../css/h5.css">
+		<link href="../../js/layer-v3.1.1/layer/mobile/need/layer.css" rel="stylesheet" />
+		<link href="../css/barrager.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/GB-canvas-turntable.css">
+		<link rel="stylesheet" type="text/css" href="../css/hlhs.css">
+		<link rel="stylesheet" type="text/css" href="./../css/liMarquee.css" />
+		<script src="./../js/rem.js"></script>
+		<script src="./../js/jquery.min.js"></script>
+		<script src="./../js/lazyload.js"></script>
+		<script src="../../js/layer-v3.1.1/layer/mobile/layer.js"></script>
+			<!-- <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script> -->
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript"></script>
+		<script src="../../js/jquery.barrager.js-master/dist/js/jquery.barrager.fixed.min.js"></script>
+		<script src="../../js/layer-v3.1.1/layer/mobile/layer.js"></script>
+		<script src="../js/h5Common.js?_r=1451235"></script>
+		<script src="../js/html2canvas.js?_r=1451234"></script>
+		<script src="../js/GB-canvas-turntable.js"></script>
+		<script src="./../js/jquery.liMarquee.js"></script>
+		<script src="../js/qrcode.min.js"></script>
+		<title>首页</title>
+		<style>
+			video::-webkit-media-controls-fullscreen-button {
+			display: none;
+		}
+		.appointment-live{
+			height: 0.8rem;
+			line-height: 0.8rem;
+			background: rgba(0,0,0,0.5);
+			color: #fff;
+			font-size: 14px;
+			position: fixed;
+			top: 0;
+			z-index: 999;
+			width: 100%;
+			/* display: flex; */
+			display: none;
+			flex-direction: row; 
+		}
+		.appointment-live>div{
+			margin-left: 5%;
+		}
+		.appointment-live>button{
+			margin-right: 2%;
+			margin-left: auto;
+		}
+		.live-y{
+			position: absolute;
+			right: 0.2rem;
+			top: 0.15rem;
+			background: #FF5800;
+			border: 1px solid #FF5800;
+			padding: 0.12rem;
+			outline: none;
+			border-radius: 0.2rem;
+			color: #fff;
+			font-size: 12px;
+		}
+
+		/* .live-y {
+			width: 1.2rem;
+			height: 0.6rem;;
+			position: fixed;
+			right: 0.1rem;
+			bottom: 1rem;
+			z-index: 999999;
+		} */
+		.horse-racelamp{
+			display: flex;
+			align-items: center;
+			margin: 0.2rem 5% 0 5%;
+		}
+		.horse-l{
+			font-size: 14px;
+		}
+		.horse-r{
+			display: flex;
+			width: 80%;
+		}
+		.horse-r-img>img{
+			margin-left: 0.1rem;
+			width:70px;
+			height:40px;
+			border: 1px solid gainsboro;
+		}
+		.main-sponsor{
+			display: flex;
+			margin:0.2rem 5%;
+		}
+		.sponsor-l{
+			width: 1.1rem;
+			height: 1.2rem;
+		}
+		.sponsor-l img{
+			width: 100%;
+			height: 100%;
+			display: block;
+			border-radius: 50%;
+		}
+		.sponsor-r{
+			margin-left: 0.2rem;
+			flex:1;
+			display:flex;
+		}
+		.sponsor-r-header{
+			display: flex;
+			width:75%;
+		}
+		.sponsor-r-header>p{
+			font-size: 16px;
+			color: #000000;
+		}
+		.sponsor-r-header>span{
+			text-align: center;
+			height: 0.14rem;
+			display:inline-block;
+			width:22%;
+			/* width:2rem; */
+			/* flex:1; */
+			line-height: 0.14rem;
+			/* text-align: center; */
+			margin-left: 0.2rem;
+			color: #fff;
+			font-size: 12px;
+			border-radius: 0.1rem;
+			padding:0.1rem 0.1rem;
+			background: linear-gradient(135deg, red, orange);
+		}
+		.sponsor-center{
+			color: gray;
+			font-size: 14px;
+			margin: 0.2rem 0;
+		}
+		.sponsor-bottom{
+			border: 1px solid orangered;
+			color: orangered;
+			font-size: 12px;
+			border-radius:40px;
+			width: 30%;
+			padding:0.04rem 0.1rem;
+			text-align: center;
+			margin-top: .16rem;
+			text-decoration: none !important;
+		}
+		.str_wrap{
+			padding-left: 3em;
+			padding-right: 3em;
+			background: #fefefe;
+			line-height: 2em;
+			font-size: 1.2em;
+			height: 100%;
+			width: 80%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#profile{
+			width:100%;
+			word-break:normal;
+			white-space: pre-wrap;
+			word-wrap:  break-word;
+		    margin-top:	0.1rem;
+			color: #333333b2;
+
+		}
+		.str3-2 { background:none !important;}
+		.str3-2 span { border:1px solid #F0F0F0; background:#f1f1f1; color:#999; margin:0 5px; text-align:center; font:40px/100px Arial, Helvetica, sans-serif; width:100px; height:100px; display:inline-block; vertical-align:top;}
+		.str3-2 img { border:1px solid #F0F0F0; background:#f1f1f1; color:#999; margin:0 2px; text-align:center; font:40px/100px Arial, Helvetica, sans-serif; width:65px; height:45px; display:inline-block; vertical-align:top;}
+		
+		.brand-roll-box{
+			height: 1rem;
+			width: 100%;
+			margin: 0.2rem 0;
+			flex-direction: row; 
+			display: flex;
+		}
+		.brand-roll-title-box{
+			height: 100%;
+			width: 25%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #151515;	
+			font-family: fantasy;
+			font-weight: 1000;
+			font-size: 13px;
+		}
+		.brand-roll-brand-box{
+			height: 100%;
+			width: 15%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.sponsor-box{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column; 
+			width: 95%;
+			margin: 0.1rem 0.2rem;
+		}
+		#sponTitle{
+			flex: 1;
+			word-break: normal;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+
+		}
+		.sponsor-box-bot{
+			/* 需求暂未讨论暂时隐藏 */
+			display: none;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column; 
+			width: 95%;
+			margin: -1.5rem 0.2rem 2rem 0.2rem;
+		}
+		.sponsor-top-box{
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			width: 95%;
+			height: 1rem;
+		}
+		.sponsor-top-img-box{
+			width: 0.6rem;
+			height: 0.5rem;
+		}
+		.sponsor-top-img-box>img{
+			height: 100%;
+			width: 100%;
+		}
+		.sponsor-top-title-box{
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: left;
+			margin-left: 2%;
+			color: #000000;
+			font-size: 17px;
+			font-family: unset;
+			font-weight: 600;
+			max-width: 60%;
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+		}
+		.sponsor-top-title-box>span{
+			width: 100%;
+			word-break:normal; 
+			font-size: 14px;
+			display:block; 
+			white-space:pre-wrap;
+			word-wrap : break-word ;
+			text-align: center;
+			/* overflow: hidden ; */
+		}
+		.sponsor-top-icon{
+			width: 1rem;
+			height: 0.35rem;
+			line-height: 0.35rem;
+			margin-left: 0.2rem;
+			color: #fff;
+			font-size: 8px;
+			border-radius: 0.1rem;
+			background: linear-gradient(135deg, red, orange);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.sponsor-introduce-box{
+			width: 80%;
+			margin-left: 10%;
+			color: gray;
+			font-size: 14px;
+		}
+		.sponsor-contact{
+			border: 1px solid orangered;
+			color: orangered;
+			font-size: 12px;
+			border-radius: 40px;
+			width: 15%;
+			padding: 0.04rem 0.1rem;
+			height: 0.4rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: 0.4rem;
+		}
+		.sponsor-contact>a{
+			color: orangered;
+		}
+		.more-blue{
+			color: #1F86FF;
+			font-size: 14px;
+			margin-top: 0.2rem;
+			margin-left: 4.8rem;
+		}
+		.sponsor-font{
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			line-height: 0.4rem;
+		}
+		 .all-txt{
+		    overflow : hidden;
+		    text-overflow: ellipsis;
+		    display: -webkit-box;
+		    -webkit-line-clamp: 100;
+		    -webkit-box-orient: vertical;
+			line-height: 0.4rem;
+		}
+		.see-click{
+			color: #1F86FF;
+			font-size: 13px;
+		}
+		.enroll-code-box{
+			display: flex;
+			justify-content: space-between;
+			height: 0.75rem;
+			margin-bottom: 0.3rem;
+		}
+		.enroll-code-box input{
+			width: 60%;
+			height: 100%;
+			margin-left: 4%;
+			padding: 0 1%;
+			border-radius: 0.1rem;
+			border: none;
+			font-size: 0.3rem;
+		}
+		.enroll-code-box button{
+			background: #fff;
+			border: 1px solid #fff;
+			font-size: 0.3rem;
+			color: gold;
+			width: 1.6rem;
+			border-radius: 5px;
+			margin-right: 0.3rem;
+		}
+		.fr{
+			    background: gainsboro;
+				border: 1px solid gainsboro;
+				font-size: 0.3rem;
+				color: #fff;
+				width: 1.6rem;
+				border-radius: 5px;
+				margin-right: 0.3rem;
+				text-align: center;
+		}
+		.vip-card-box {
+			background-image: url("./../images/9.png");
+			background-size: 100% 100%;
+			height: 4rem;
+			width: 100;
+			/* margin-left: 5%; */
+			display: flex;
+			color: white;
+			border-bottom: 1px solid rgb(237, 237, 237, 0.5);
+			border-top: 1px solid rgb(237, 237, 237, 0.5);
+			margin-bottom: 0.03rem;
+			position: relative;
+		}
+		#vip_p{
+			position: absolute;
+    		left: 50%;
+    		top: 40%;
+			/* font-size:16px; */
+    		transform: translate(-50%,-50%);
+   			width: 100%;
+    		text-align: center;
+		}
+		#vip_p1{
+			position: absolute;
+    		left: 50%;
+    		top: 38%;
+    		transform: translate(-50%,-50%);
+   			width: 80%;
+			word-break:normal;
+			white-space:pre-warp;
+			word-wrap:break-word;
+			font-size:16px;
+    		
+		}
+		#vip_p2{
+			position: absolute;
+    		left: 50%;
+    		top: 50%;
+    		transform: translate(-50%,-50%);
+   			width: 72%;
+			word-break:normal;
+			white-space:pre-warp;
+			word-wrap:break-word;
+			font-size:16px;	
+		}
+		.vip-text-box{
+/* 			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.4rem;
+			margin-left: -15%;
+			font-weight: bold;
+			font-size: 0.4rem;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			text-align: center;
+			bottom: 0;
+			right: 0; */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.4rem;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform:translate(-50%,0)!important;
+			margin:0px;
+		}
+		.enroll-bottom{
+			margin-top:95% ;
+		}
+
+		.head-live-tips-box{
+			margin-top:78% !important;
+		}
+		#touch {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        right: 25px;
+        bottom: 20px;
+        margin-left: -30px;
+        margin-bottom: -30px;
+        z-index: 99999;
+    }
+	
+	.coupon-item-bottom-box{
+		display: flex;
+		background: #F1F1F1;
+		min-height: 0.5rem;
+		padding-top: 0.1rem;
+		padding-bottom: 0.1rem;
+	}
+	
+	.coupon-item-bottom{
+		line-height: 0.3rem;
+		padding-left: 0;
+	}
+	.zhuyi{
+		padding-top: 0.05rem;
+	}
+	
+	</style>
+	</head>
+
+	<body onbeforeunload="checkLeave()">
+		<!-- <div id="capture" style="padding: 10px; background: #f5da55">
+		    <h4 style="color: #000; ">Hello world!</h4>
+			<img src="../../img/bg.png" />
+		</div> -->
+		<div class="appointment-live" id="toTop">
+			<div class="appointment-live-title">
+				直播开始后，预约提醒观看直播！
+			</div>
+			<button class="live-y">预约直播</button>
+		</div>
+		<!-- <div class="live-y">
+			<img src="../images/yuyue.png" style="width: 100%; height: 100%;" />
+		</div>
+	 -->
+		<div id="app">
+			<div style="width:100%;box-sizing:border-box;">
+				<ul class="shadow-wrap">
+					<li class="shadow-img">
+						<img dom="shadow-wrap-img" alt="">
+					</li>
+					<li class="shadow-font">
+						<span dom="shadow-wrap-name"></span>
+						<span style="color: red;">抢到了</span>
+						<span dom="shadow-wrap-type"></span>
+					</li>
+				</ul>
+
+				<div class="headImg-box ">
+					<div class="img-box">
+						<!-- onclick="liveQrCodeShow(1)" -->
+						<div class="headImg-left-float-box" id="live-QrCode-top-buttom" dom="liveQrCodeButton" style="margin-top: 15%;margin-bottom:10px;display: none;">
+							<span>直播二维码</span>
+						</div>
+						<div class="headImg-left-float-box" dom="guideQrCodeButton" style="margin-top: 48%;display: none;" onclick="guideQrCodeShow()">
+							<span>微信客服</span>
+						</div>
+						<div class="headImg-left-float-box" dom="qunQrCodeButton" style="margin-top: 73%;display: none;" onclick="qunQrCodeShow(1)">
+							<span>群二维码</span>
+						</div>
+						<div class="head-live-tips-box">
+							<div class="head-live-time-tips-box">
+								<span>
+									<!-- 09月28日 19:30准时直播开抢 -->
+								</span>
+							</div>
+							<div class="head-live-time-tips-box-bottom">
+								<div class="time-item dd"></div>
+								<div class="time-item mm"></div>
+								<div class="time-item ss"></div>
+								<div class="liveStart time-item" style="display: none;" onclick="liveQrCodeShow()">直播已开始
+								</div>
+								<!-- 						<div class="appointment-box">
+							<div class="appointment-text">
+								<span>预约报名</span>
+								<img src="./../images/2.png" />
+							</div>
+						</div> -->
+							</div>
+						</div>
+						<div class="enroll-bottom" onclick="enroll()">点击报名</div>
+						<!-- <img style="width: 100%; height: auto;" dom="headImage" /> -->
+					</div>
+					<div class="activity-data-box">
+						<div class="activity-data-item">
+							<div dom="enrollCount"></div>
+							<div>已报名客户数</div>
+						</div>
+						<div class="activity-data-item">
+							<div dom="shareCount"></div>
+							<div>已分享人次</div>
+						</div>
+						<div class="activity-data-item">
+							<div dom="browseCount"></div>
+							<div>已浏览人次</div>
+						</div>
+					</div>
+				</div>
+				<div id="privilegeTop">
+					<div class="enroll-title-box">
+						<div class="enroll-title-icon">
+							<img src="./../images/10.png" alt="">
+						</div>
+						<div class="enroll-title">特权卡限量购</div>
+					</div>
+					<div class="vip-card-box vip-card-box-top"onclick="enroll()">
+						<div class="vip-end-time">
+							<div>
+								<span>截至:</span>
+								<span dom="dayCard"></span>
+								<span dom="mcnuteCard"></span>
+								<span dom="secondCard"></span>
+							</div>
+						</div>
+						<div class="vip-text-box">
+							点击报名
+						</div>
+						<div class="vip-enroll-count">
+
+						</div>
+					</div>
+				</div>
+				<div class="vip-card-show-box vip-card-show-box-top">
+					<div class="vip-end-time">
+						<div>
+							<span>截至：</span>
+							<span dom="dayCard"></span>
+							<span dom="mcnuteCard"></span>
+							<span dom="secondCard"></span>
+						</div>
+					</div>
+					<div class="vip-enroll-count">
+
+					</div>
+					<div class="vip-enroll-date">
+						报名时间：
+					</div>
+					<div class="vip-enroll-cardNum">
+
+					</div>
+					<div class="vip-enroll-name">
+
+					</div>
+					<div class="vip-enroll-phone">
+
+					</div>
+
+				</div>
+				<!-- 				<div class="scroll-wrapper" style="-webkit-overflow-scrolling: touch;overflow: scroll;width: 100%;height: 12rem;display: none;">
+					<iframe id="vlkmc" src="http://www.vlkmc.com/cx/vlcx.asp" style="height: 100%;width: 100%;overflow: scroll;"  frameborder="0" width="100%" scrolling="yes"  leftmargin="0" topmargin="0">
+						
+					</iframe>
+				</div>
+
+				<!-- 主办方 -->
+				<!-- <div class="sponsor-box">
+					<div class="sponsor-top-box">
+						<div class="sponsor-top-img-box">
+							<img id="sponImg" src="../../img/face1.png" />
+						</div>
+						<div class="sponsor-top-title-box">
+							<span id="sponTitle"></span>
+						</div>
+						<div class="sponsor-top-icon">
+							主办方
+						</div>
+						<div class="sponsor-contact">
+							<a id="zbtel">联系TA</a>
+						</div>
+					</div>
+					<div class="sponsor-introduce-box">
+						<p class="sponsor-font" id="sponCenter">
+						</p>
+						<div class="see-click" id="dropDown">更多</div>
+					</div>
+				</div> -->
+ 
+				<!-- <div class="brand-roll-box">
+					<div class="brand-roll-title-box">
+						推荐品牌
+					</div>
+					<div class="str3-2 str_wrap">
+
+					</div>
+				</div> -->
+
+				<div class="index-wrap ">
+					<!-- 活动详情图 -->
+					<div dom="activityDetailsImage" style="font-size: 0; line-height: 0;"></div>
+					<!-- 主办方 -->
+					<ul class="main-sponsor">
+						<li class="sponsor-l">
+							<img  id="sponImg" style="width:100%;height: 100%;">
+						</li>
+						<li class="sponsor-r" style="flex-direction: column;" >
+							<div style="width:100%;display: flex;">
+								<div class="sponsor-r-header" >
+									<p id="sponTitle"></p>
+									<span>主办方</span>
+								</div>
+								<div style="width:25%;text-align: right;">
+									<p class="sponsor-center" id="sponCenter" style="display:inline-block; margin:0.11rem 0"></p>
+										<a class="sponsor-bottom" id ="d">联系TA</a>
+									</p>
+								</div>
+							</div>
+							<p id="profile"></p>
+						</li>
+					</ul>
+					<!-- 品牌 -->
+					<div class="brand-title-box">
+						<div></div>
+						<div dom="cypp" style="font-size: 0.3rem;">参与品牌(<span dom="brandCount"></span>)</div>
+						<div dom="gdpp" onclick='javascript:location.href = BRAND_LIST_URL' >更多品牌 <img src="./../images/7.png" />
+						</div>
+					</div>
+
+
+					<div dom="brand-box" class="brand-box" id="brand_yclist_id" style="display: none;"></div>
+
+					<div>
+
+						<div class="new-brand-box" style="display: none;">
+						</div>
+
+
+						<!-- VIP卡 -->
+						<!-- 					<div class="enroll-title-box">
+						<div class="enroll-title-icon">
+							<img src="./../images/10.png" alt="">
+						</div>
+						<div class="enroll-title">特权卡限量购</div>
+					</div>
+					<div class="vip-card-box" onclick="enroll()">
+						<div class="vip-end-time">
+							<div>
+								<span>截至:</span>
+								<span dom="dayCard"></span>
+								<span dom="mcnuteCard"></span>
+								<span dom="secondCard"></span>
+							</div>
+						</div>
+						<div class="vip-text-box">
+							点击报名
+						</div>
+						<div class="vip-enroll-count">
+
+						</div>
+					</div>
+
+					<div class="vip-card-show-box">
+						<div class="vip-end-time">
+							<div>
+								<span>截至：</span>
+								<span dom="dayCard"></span>
+								<span dom="mcnuteCard"></span>
+								<span dom="secondCard"></span>
+							</div>
+						</div>
+						<div class="vip-enroll-count">
+
+						</div>
+						<div class="vip-enroll-date">
+							报名时间：
+						</div>
+						<div class="vip-enroll-cardNum">
+
+						</div>
+						<div class="vip-enroll-name">
+
+						</div>
+						<div class="vip-enroll-phone">
+
+						</div>
+
+					</div> -->
+
+
+						<!-- 优惠劵 -->
+						<div class="coupon-box">
+							<div class="coupon-img">
+								<div class="coupon-text1">每张优惠券仅限使用一次</div>
+								<div class="coupon-text2">已有<span dom="couponCount">0</span>人领取</div>
+							</div>
+							<div class="coupon-time-box">
+								<div>领劵倒计时：</div>
+								<div class="coupon-time-day"></div>
+								<div>&nbsp;时&nbsp;</div>
+								<div class="coupon-time-hour"></div>
+								<div>&nbsp;分&nbsp;</div>
+								<div class="coupon-time-s"></div>
+								<div>&nbsp;秒&nbsp;</div>
+							</div>
+							<div class="coupon-list">
+
+
+							</div>
+						</div>
+						<div class="group-title-box" style="border-bottom: 1px solid #ededed;">
+							<div></div>
+							<span class="group-title">拼团购</span>
+							<div onclick='javascript:location.href = GROUP_LIST_URL'>更多 <img src="./../images/7.png" />
+							</div>
+						</div>
+						<ul class="spike-content">
+
+						</ul>
+						<!-- 
+					<div class="myOrder-box"> 
+						我的订单
+					</div> -->
+
+						<!-- 					<div class="rightButton"
+						style="position: fixed; right: 0; bottom: 116px; width: 79px; height: 46px; background-color: rgba(255, 255, 255, 0.9); border-top-left-radius: 23px; border-bottom-left-radius: 23px; text-align: right; line-height: 46px; box-shadow: 1px 2px 3px #666;">
+						<a onclick="gotoMyOrder();"><img src="../../img/wddd.png" style="height: 100%;" /></a>
+					</div> -->
+
+						<div class="advertisingGoods-box  advertisingGoods-first" onclick="enroll()" style="display: none;">
+							<img />
+						</div>
+
+
+						<div class="seckill-title-box" style="border-bottom: 1px solid #ededed;">
+							<div class="seckill-time-box">
+								<div></div>
+								<span class="seckill-title">群龙夺宝</span>
+								<div class="seckill-time-item" style="margin-left: 0.2rem;"><span dom="seckill-hour"></span>时</div>
+								<div class="seckill-time-yh" style="margin-top: 0.07rem;color: #C0392E;">&nbsp;:&nbsp;</div>
+								<div class="seckill-time-item"><span dom="seckill-minute"></span>分</div>
+								<div class="seckill-time-yh" style="margin-top: 0.07rem;color: #C0392E;">&nbsp;:&nbsp;</div>
+								<div class="seckill-time-item"><span dom="seckill-second"></span>秒</div>
+								<div onclick='javascript:location.href = SECKILL_LIST_URL'>更多 <img src="./../images/7.png" /> </div>
+							</div>
+						</div>
+						<ul class="spike-content-seckill">
+
+						</ul>
+
+						<div id="privilegeBot">
+							<div class="enroll-title-box">
+								<div class="enroll-title-icon">
+									<img src="./../images/10.png" alt="">
+								</div>
+								<div class="enroll-title">特权卡限量购</div>
+							</div>
+							<div class="vip-card-box" id="vipCard" onclick="enroll()">
+								<div class="vip-end-time">
+									<div>
+										<span>截至:</span>
+										<span dom="dayCard"></span>
+										<span dom="mcnuteCard"></span>
+										<span dom="secondCard"></span>
+									</div>
+								</div>
+								<div class="vip-enroll-count">
+								</div>
+								<div class="vip-text-box" >
+									点击报名
+								</div>
+							</div>
+						</div>
+
+
+						<div class="vip-card-show-box">
+							<div class="vip-end-time">
+								<div>
+									<span>截至：</span>
+									<span dom="dayCard"></span>
+									<span dom="mcnuteCard"></span>
+									<span dom="secondCard"></span>
+								</div>
+							</div>
+							<div class="vip-enroll-count">
+
+							</div>
+							<div class="vip-enroll-date">
+								报名时间：
+							</div>
+							<div class="vip-enroll-cardNum">
+
+							</div>
+							<div class="vip-enroll-name">
+
+							</div>
+							<div class="vip-enroll-phone">
+
+							</div>
+
+							<div class="vip-code">
+								<img style="width: 0.8rem;" src="../images/20.png" onclick="generateSignCode()" />
+							</div>
+
+						</div>
+
+
+						<div class="advertisingGoods-box  advertisingGoods-last" onclick="enroll()" style="display: none;">
+							<img />
+						</div>
+
+						<div class="comment-title-box" style="border-bottom: 1px solid #ededed;">
+							<div></div>
+							<span class="group-title">讨论</span>
+							<div onclick="commentShow()">发表评论</div>
+						</div>
+
+						<!--        <div class="index-label">家居建材如何买才便宜？</div>
+        <div class="banner-img">
+            <img src="./../images/img1.jpg" alt="">
+        </div>
+        
+        <ul class="speed-wrap">
+            <li class="speed-wrap-top">
+                <div>好友<span>wuxinming</span>的集赞进度:</div>
+                <div><span style="color: orangered">0</span>/19</div>
+            </li>
+            <li class="speed-wrap-bot">
+                <img src="./../images/img1.jpg" alt="">
+            </li>
+        </ul>
+        <div class="speed-btn-red">为@<span>wuxinming</span>助力集赞</div>
+        <div class="partake-btn">我也要参与集赞领豪礼</div>
+        <div class="banner-share">
+            <img src="./../images/img1.jpg" alt="">
+        </div> -->
+
+						<!-- 						<div class="taolunbox" style="padding: 0 0.3rem;padding-bottom:0.2rem;padding-bottom:0.2rem;margin-top:0.2rem;font-size:0.25rem;border-bottom: 1px solid #ededed;">
+							<div style=""></div>
+							<div style="float: left;">讨论（<span dom="discussCount"></span>）</div>
+							<div style="float: right; color: #33A1EC;"><a onclick="commentShow()">发表讨论</a></div>
+							<div class="clear">&nbsp;</div>
+						</div> -->
+						<div class="hr1">&nbsp;</div>
+						<div>
+							<ul class="discuss" dom="discuss"></ul>
+						</div>
+
+
+						<div class="turntable-box">
+
+						</div>
+
+
+
+						<!-- 评论发表弹出框 -->
+						<!-- 					<div id="SellCardModal" class="covers" onclick="hide">
+						<div>
+						</div>
+					</div> -->
+
+						<div class="comment-box" style="display: none;">
+							<div style="width: 75%;	padding: 0 0.4rem;margin-left: auto; margin-right: auto; background-color: white; padding-top: 15px;    border-radius: 4px;">
+								<div style="color: #666; font-size: 15px;">请填写评论内容</div>
+								<textarea style="width: 95%; height: 100px; margin-top: 10px; padding: 4px 2.5%; border-radius: 2px; font-size: 13px;  border-color:#c3c3c3"
+								 placeholder="写评论..."></textarea>
+								<div style="line-height: 40px; margin-top: 0px;height: 0.6rem;padding-left:0.6rem">
+									<div style="float: left; width: 40%; color: black;display:contents; font-size: 15px;" onclick="shadowHide()">取消</div>
+									<div style="float: right; width: 49%; color: #26a2ff; border: none; align-items: center; justify-content: center; display: flex;"
+									 onclick="submitSellCardModal()">
+										<div style="float: right; width: 80px; height: 30px; background: #26a2ff; border-radius: 6px; align-items: center; justify-content: center; display: flex; color: #ffffff; border: none; margin-top: 5px; font-size: 15px; margin-left: 30px;">
+											发表
+										</div>
+									</div>
+								</div>
+								<div class="clear">&nbsp;</div>
+							</div>
+						</div>
+
+						<div class="small-video">
+							<video ref="myVideo" id="myVideo" preload="auto" style="width:100%;height:4.22rem;" :src="" autoplay controls
+							 webkit-displaying-fullscreen="false" x-webkit-airplay="true" x5-playsinline="true" webkit-playsinline="true"
+							 playsinline="true">
+							</video>
+						</div>
+
+						<div class="message" style="height: 100%;height: 0.8rem;">
+
+						</div>
+						<!-- 			<div class="foot-gray">
+				<div>
+					<img src="./../images/img1.jpg" alt="">
+				</div>
+				<div>
+					好友<span style="color: red;">wuxinming</span>邀请您参加活动
+				</div>
+			</div> -->
+					</div>
+					<div class="shadow-box" onclick="shadowHide()">
+
+					</div>
+					<div class="enroll-box" style="position: fixed;top:50%;left:50%;transform:translate(-50%,-75%)">
+						<div class="enroll-title">活动报名</div>
+						<div class="enroll-count">已有<span dom="enrollCount"></span>人报名成功！</div>
+						<div class="enroll-input-box">
+							<input class="name-inout" dom="enrollNameInput" placeholder="请填写姓名" />
+						</div>
+						<div class="enroll-input-box" id="mobile-ph-inout">
+							<input dom="enrollPhoneInput" placeholder="请填写手机号码" />
+						</div>
+						<div class="enroll-code-box">
+							<input dom="code" placeholder="验证码" />
+							<button type="button" onclick="sendSms()" id="btnGetSms">获取</button>
+							<span id="btnGetSmsTimer" class="fr" style="display: none; padding: 8px 0;">正在发送</span>
+						</div>
+						<div class="enroll-tisp">*手机号仅用于本次报名</div>
+						<div class="enroll-sub" onclick="enrollSub()">
+							立即报名
+						</div>
+					</div>
+
+
+					<div class="couponSub-box">
+						<div class="enroll-title">优惠劵</div>
+						<div class="enroll-count">已有<span dom="couponCount"></span>人领取！</div>
+						<div class="enroll-input-box">
+							<input dom="couponNameInput" placeholder="请填写姓名" />
+						</div>
+						<div class="enroll-input-box">
+							<input dom="couponPhoneInput" placeholder="请填写手机号码" />
+						</div>
+						<div class="enroll-sub" onclick="couponSub()">
+							立即领取
+						</div>
+					</div>
+
+
+
+
+					<!-- 直播二维码弹出层 -->
+					<!-- 					<div class="liveQrCode">
+						<img />
+						<div dom="enroll-success-text1" style="display: none;">您已报名成功</div>
+						<div dom="enroll-success-live-text">长按识别二维码进入直播间 </div>
+					</div> -->
+					<!-- 					<div id="capture" style="padding: 10px; background: #f5da55">
+					    <h4 style="color: #000; ">Hello world!</h4>
+						<img src="../../img/bg.png" />
+					</div> -->
+					<div class="liveQrCode-box" id="capture">
+						<div class="liveQrCode-box" style="height: 100%;width: 100%;margin-top:-10%;">
+							<div class="liveQrCode-head-img">
+								<img id="liveQrCode-head-img" />
+							</div>
+							<div class="liveQrCode-guide-img">
+								<img />
+							</div>
+							<div class="liveQrCode-guide-text">
+								<span></span>
+							</div>
+							<div class="liveQrCode-qrCode-box" id="liveQrCode-qrCode-box">
+								<img id="liveQrCode-qrCode-box-img" />
+							</div>
+							<div class="qrCode-text">
+								<span>长按识别二维码进入</span>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="liveQrCode-canvas-box">
+						<img id="canvas-img" />
+					</div>
+					<!-- 导购二维码弹出层 -->
+					<div class="guideQrCode">
+						<img />
+					</div>
+					<!-- 群二维码弹出层 -->
+					<div class="qunQrCode">
+						<img />
+						<div dom="enroll-success-text1" style="display: none;">您已报名成功</div>
+						<div dom="enroll-success-qun-text">扫码进入业主福利群</div>
+						<!-- <img dom="qunQrCodeTips" class="codeTips"  /> -->
+					</div>
+
+					<!-- 弹出层 -->
+					<div class="signQrCode">
+						<img />
+						<div dom="sign-text" style="display: none;">您已报名成功</div>
+						<div dom="sign-text2" style="text-align: center;margin-top: 5%;">活动现场扫码签到</div>
+						<!-- <img dom="qunQrCodeTips" class="codeTips"  /> -->
+					</div>
+
+
+					<div class="shadowSx-box" onclick="shadowSxHide()">
+
+					</div>
+
+					<!-- 				<div class="timerStr">
+					15s
+				</div> -->
+				</div>
+
+				<!-- 				<div dom="downTime">
+					15
+				</div> -->
+				<div><audio preload="preload" id="car_audio" src="" loop=""></audio></div>
+				<div style="z-index:99999999999999;position:fixed;top:60px;right:20px;">
+					<a href="javascript:playPause();"><img src="/img/play.png" height="30" id="music_btn2" border="0"></a>
+				</div>
+			</div>
+
+
+			<div class="bottom-promoters">
+				<div class="promoters-img-box">
+					<img />
+				</div>
+				<div class="promoters-text"></div>
+				<div class="promoters-clear">
+					<img src="../images/14.png" onclick="claerPromoters()" />
+				</div>
+			</div>
+
+
+			<div class="bottom-nav">
+				<!-- 			<div class="bottom-nav-home" onclick="returnPage();">
+				<div class="nav-item">
+					<img src="../images/18.png" />
+				</div>
+				<div class="nav-item" style="display: contents;">首页</div>
+			</div> -->
+				<div class="bottom-nav-home" onclick="gotoMyOrder()">
+					<div class="nav-item">
+						<img src="../images/19.png" />
+					</div>
+					<div class="nav-item" style="display: contents;">我的订单</div>
+				</div>
+				<div class="bottom-nav-home" onclick="toExtensionReg();">
+					<div class="nav-item">
+						<img src="../images/13.png">
+					</div>
+					<div class="nav-item" style="display: contents;">活动大使</div>
+				</div>
+				<div class="activity-bm-box" style="width: 35%;" onclick="enroll()">
+					活动报名
+				</div>
+			</div>
+
+			<div class="sponsor-box-bot">
+				<div class="sponsor-top-box">
+					<div class="sponsor-top-img-box">
+						<img id="sponlogo" src="./../images/logo-l.png" />
+					</div>
+					<div class="sponsor-top-title-box">
+						<span id="sponFont">上海数尚网络科技有限公司</span>
+					</div>
+					<div class="sponsor-contact">
+						<a id="contact" href="tel:13564872592">联系TA</a>
+					</div>
+				</div>
+				<div class="sponsor-introduce-box">
+					<p class="sponsor-font" id="sponContact">
+						数尚科技在国内首推CRM+生态服务,,即可满足企业级用户CRM之外的
+						信息化需求,又可保障其数据的一致性和平台的完整性期望能够更大,更
+						好,更广的为企业级用户提供优质,便捷的服务,为每一个用户的信息化生
+						命周期保驾护航!<br />
+						创数时代,品尚至臻!
+					</p>
+					<div class="see-click" id="dropMore">更多</div>
+				</div>
+			</div>
+
+			<!-- 		<div class="zhuanp">
+			<section id="turntable" class="gb-turntable">
+				<div class="gb-turntable-container">
+					<canvas class="gb-turntable-canvas" width="300" height="300px">抱歉！浏览器不支持。</canvas>
+				</div>
+		
+				<a class="gb-turntable-btn" href="javascript:;">抽奖</a>
+			</section>
+		</div> -->
+<script>
+$(function(){
+	//注册加载失败事件,再次加载时先重新设置url,在清空原先的注册加载失败事件
+	$(".commentImg").attr("onerror","this.src='../images/commentImg.jpg;this.onerror=null;'");
+	//遍历img标签,再次重新加载
+	$(".commentImg").each(function(){
+		this.src = this.src;
+	});
+	
+});
+</script>
+		<script>
+
+			// // 最好放在DIV下方，避免DIV没有加载完，获取不到
+			// $('#touch').on('touchmove', function(e) {
+		
+			// 	// 阻止其他事件
+			// 	e.preventDefault();
+		
+			// 	// 判断手指数量
+			// 	if (e.originalEvent.targetTouches.length == 1) {
+		
+			// 		// 将元素放在滑动位置
+			// 		var touch = e.originalEvent.targetTouches[0];  
+		
+			// 		$("#touch").css({'left': touch.pageX + 'px',
+			// 			'top': touch.pageY + 'px'});
+			// 	}
+			// });
+		</script>
+			<script>
+				
+				let sponContact = document.getElementById("sponContact");
+				let btnt = document.getElementById("dropMore");
+				btnt.onclick = function() {
+					if (this.innerHTML == "更多") {
+						sponContact.classList.remove("sponsor-font");
+						sponContact.classList.add("all-txt");
+						this.innerHTML = "收起";
+					} else {
+						sponContact.classList.remove("all-txt");
+						sponContact.classList.add("sponsor-font");
+						this.innerHTML = "更多";
+					}
+				}
+
+				// 是否显示隐藏预约直播
+				function appoIntment() {
+					$.post(API_ROOT + "/new/h5/verification/list/appointment", {
+						token_id: TOKEN_ID,
+					}, function(result) {
+						if (result.ret != "200") {
+							alert(result.msg);
+						} else {
+							if (result.data == 1) {
+								$("#toTop").html("");
+								$("#toTop").css("background", "rgba(0,0,0,0)");
+							}
+						}
+					});
+				}
+				appoIntment()
+				//获取验证码
+				function sendSms() {
+					$.post(API_ROOT + "/user/register/newSendCode", {
+						activityId: ACTIVITY_ID,
+						type: 2,
+						phone: $("[dom=enrollPhoneInput]").val()
+					}, function(result) {
+						if (result.ret != "200") {
+							alert(result.msg);
+						} else {
+							$("#btnGetSms").hide();
+							$("#btnGetSmsTimer").show();
+							btnGetSmsTimerStart(60);
+						}
+					});
+
+				}
+
+				function btnGetSmsTimerStart(sec) {
+					if (sec <= 0) {
+						$("#btnGetSmsTimer").hide();
+						$("#btnGetSms").show();
+					} else {
+						$("#btnGetSmsTimer").html(sec + " s");
+						setTimeout(function() {
+							btnGetSmsTimerStart(--sec);
+						}, 1000);
+					}
+
+				}
+				$(window).load(function() {
+					$('.str3-2').liMarquee();
+				});
+				$(".live-y").click(function() {
+					console.log(window.location.href)
+					location.href = "/live/book/authorization/link?activityId=" + ACTIVITY_ID + "&userId=" + GUIDE_ID + "&token_id=" +
+						TOKEN_ID + "&url=" + window.location.href;
+				});
+				// 预约直播滑动
+				var div = document.getElementById("toTop");
+
+				$(document).scroll(function() {
+					var scroH = $(document).scrollTop(); //滚动高度
+					var viewH = $(window).height(); //可见高度 
+					var contentH = $(document).height(); //内容高度
+
+					if (scroH > 200) { //距离顶部大于100px时
+						$("#toTop").show();
+						// div.style.display = "block";
+					} else {
+						$("#toTop").hide();
+						// div.style.display = "none";	
+					}
+				});
+
+				document.body.onscroll = function() {
+					// console.log("1")
+					// var heightTop = document.documentElement.scrollTop;
+					// if (heightTop >= 200) {
+					// 	alert("1")
+					// 	$("#toTop").css("display","flex")
+					// 	// div.style.display = "block";
+					// } else {
+					// 	// $("#toTop").hide();
+					// 	// div.style.display = "none";	
+					// }
+
+				}
+
+				function goToTop() {
+					document.documentElement.scrollTop = 0;
+				}
+				loadDefaultShareSettings();
+
+				// shareInset();
+				// redEnvelopeSending();
+
+				var isDraw = 0;
+
+				var radarStartDate = getFormatDate();
+
+				//离开页面时触发监听事件
+				window.addEventListener('pagehide', () => {
+					var radarEndDate = getFormatDate();
+					console.log("离开页面");
+					console.log(radarStartDate);
+					console.log(radarEndDate);
+					$.ajax({
+						url: API_ROOT + "/new/radar/radar/add",
+						type: 'post',
+						data: {
+							token_id: TOKEN_ID,
+							startDate: radarStartDate,
+							endDate: radarEndDate,
+							type: 1,
+							guideId: GUIDE_ID,
+							activityId: ACTIVITY_ID,
+							functionType: 0
+						},
+						async: false,
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+						},
+						error: function(e) {
+							console.log(e);
+						}
+					});
+				})
+
+				function liveQrCodeQrCodeBoxImgLoad() {
+					return new Promise(function(resolve, reject) {
+						var img = document.getElementById("liveQrCode-qrCode-box-img");
+						img.onload = function() { //加载成功
+							resolve(img);
+						}
+					})
+				}
+
+				function liveQrCodeHeadImgLoad() {
+					return new Promise(function(resolve, reject) {
+						var img = document.getElementById("liveQrCode-head-img");
+						img.onload = function() { //加载成功
+							resolve(img);
+						}
+					})
+				}
+				Promise.all([liveQrCodeHeadImgLoad(), liveQrCodeQrCodeBoxImgLoad()]).then(function(value) {
+					//绘制直播海报
+					html2canvasFunction()
+					// var timeCanvas = setInterval(function() {
+					// 	html2canvasFunction()
+					// 	clearInterval(timeCanvas);
+					// }, 1000);
+					// 
+					// var timeCanvas2 = setInterval(function() {
+					// 	html2canvasFunction();
+					// 	clearInterval(timeCanvas2);
+					// 	$("#live-QrCode-top-buttom").css("background","#FFEF00");
+					// 	$("#live-QrCode-top-buttom").css("color","#000000");
+					// 	$("#live-QrCode-top-buttom").bind("click",function(){
+					// 	   liveQrCodeShow(1);
+					// 	});
+					// }, 2000);
+				});
+				// renderAll();
+
+				var COUPON_ID = "";
+				var IS_ACTIVE_PROMPT_CODE = "";
+				var LIVE_START_DATE = "";
+				var LIVE_END_DATE = "";
+				var IS_LIVE = "";
+				console.log(GUIDE_ID)
+
+				GUIDE_ID = getQueryString("guideId");
+				SHARE_ID = getQueryString("shareId");
+			</script>
+			<script>
+				function downTime() {
+					var djs = $("[dom=downTime]").val();
+					if (djs == 0) {
+
+					}
+				}
+
+				function PrefixInteger(num, n) {
+					return (Array(n).join(0) + num).slice(-n);
+				}
+
+				function TimeDown(endDateStr) {
+					//结束时间
+					var endDate = new Date(endDateStr.replace(/\-/g, '/'));
+					//当前时间
+					var nowDate = new Date();
+					if (endDate - nowDate < 0) {
+						$(".dd").hide();
+						$(".mm").hide();
+						$(".ss").hide();
+						$(".liveStart").show();
+						return;
+					}
+					//相差的总秒数
+					var totalSeconds = parseInt((endDate - nowDate) / 1000);
+					//天数
+					var days = Math.floor(totalSeconds / (60 * 60 * 24));
+
+					var dh = days * 24
+
+					//取模（余数）
+					var modulo = totalSeconds % (60 * 60 * 24);
+					//小时数
+					var hours = Math.floor(modulo / (60 * 60));
+
+					hour = hours + dh
+					modulo = modulo % (60 * 60);
+					//分钟
+					var minutes = Math.floor(modulo / 60);
+					//秒
+					var seconds = modulo % 60;
+					//输出到页面
+					$(".dd").html(hour + "时");
+					$(".mm").html(minutes + "分");
+					$(".ss").html(seconds + "秒");
+					//延迟一秒执行自己
+					setTimeout(function() {
+						TimeDown(endDateStr);
+					}, 1000)
+				}
+
+				function TimeDown(endDateStr) {
+					//结束时间
+					var endDate = new Date(endDateStr.replace(/\-/g, '/'));
+					//当前时间
+					var nowDate = new Date();
+					if (endDate - nowDate < 0) {
+						$(".dd").hide();
+						$(".mm").hide();
+						$(".ss").hide();
+						$(".liveStart").show();
+						return;
+					}
+					//相差的总秒数
+					var totalSeconds = parseInt((endDate - nowDate) / 1000);
+					//天数
+					var days = Math.floor(totalSeconds / (60 * 60 * 24));
+					//取模（余数）
+					var modulo = totalSeconds % (60 * 60 * 24);
+					//小时数
+					var hours = Math.floor(modulo / (60 * 60));
+					var daysHours = days * 24
+					modulo = modulo % (60 * 60);
+					//分钟
+					var minutes = Math.floor(modulo / 60);
+					//秒
+					var seconds = modulo % 60;
+
+					daysHours = daysHours + hours
+
+					//输出到页面
+					$(".dd").html(daysHours + "时");
+					$(".mm").html(minutes + "分");
+					$(".ss").html(seconds + "秒");
+					//延迟一秒执行自己
+					setTimeout(function() {
+						TimeDown(endDateStr);
+					}, 1000)
+				}
+				/**
+				 * 计算秒杀倒计时
+				 * @param {Object} endDateStr 结束时间
+				 */
+				function seckillTimeDown(endDateStr) {
+					//结束时间
+					var endDate = new Date(endDateStr.replace(/\-/g, '/'));
+					//当前时间
+					var nowDate = new Date();
+					if (endDate - nowDate < 0) {
+						$(".seckill-time-yh").hide();
+						$(".seckill-time-item").hide();
+						$("[dom=seckill-hour]").hide();
+						$("[dom=seckill-minute]").hide();
+						$("[dom=seckill-second]").hide();
+						return;
+					}
+					//相差的总秒数
+					var totalSeconds = parseInt((endDate - nowDate) / 1000);
+					//天数
+					var days = Math.floor(totalSeconds / (60 * 60 * 24));
+					var daysHours = days * 24
+
+					//取模（余数）
+					var modulo = totalSeconds % (60 * 60 * 24);
+					//小时数
+					var hours = Math.floor(modulo / (60 * 60));
+					modulo = modulo % (60 * 60);
+					//分钟
+					var minutes = Math.floor(modulo / 60);
+					//秒
+					var seconds = modulo % 60;
+
+					daysHours = daysHours + hours
+
+					// alert(hours)
+					//输出到页面
+					$("[dom=seckill-hour]").text(daysHours);
+					$("[dom=seckill-minute]").text(minutes);
+					$("[dom=seckill-second]").text(seconds);
+					//延迟一秒执行自己
+					setTimeout(function() {
+						seckillTimeDown(endDateStr);
+					}, 1000)
+				}
+
+
+				/**
+				 * 计算优惠劵领取倒计时
+				 * @param {Object} endDateStr  结束时间
+				 */
+				function couponTimeDown(endDateStr) {
+					//结束时间
+					var endDate = new Date(endDateStr.replace(/\-/g, '/'));
+					//当前时间
+					var nowDate = new Date();
+					if (endDate - nowDate < 0) {
+						$(".coupon-time-day").html("00");
+						$(".coupon-time-hour").html("00");
+						$(".coupon-time-s").html("00");
+						return;
+					}
+					//相差的总秒数
+					var totalSeconds = parseInt((endDate - nowDate) / 1000);
+					//天数
+					var days = Math.floor(totalSeconds / (60 * 60 * 24));
+					//取模（余数）
+					var modulo = totalSeconds % (60 * 60 * 24);
+					//小时数
+					var hours = Math.floor(modulo / (60 * 60));
+					var daysHours = days * 24
+					modulo = modulo % (60 * 60);
+					//分钟
+					var minutes = Math.floor(modulo / 60);
+					//秒
+					var seconds = modulo % 60;
+					hours = hours + daysHours
+					//输出到页面
+					$(".coupon-time-day").html(hours);
+					$(".coupon-time-hour").html(minutes);
+					$(".coupon-time-s").html(seconds);
+					//延迟一秒执行自己
+					setTimeout(function() {
+						couponTimeDown(endDateStr);
+					}, 1000)
+				}
+
+
+				/**
+				 * 计算报名结束时间
+				 * @param {Object} endDateStr  报名倒计时
+				 */
+				function vipCardTimeDown(endDateStr) {
+					//结束时间
+					var endDate = new Date(endDateStr.replace(/\-/g, '/'));
+					//当前时间
+					var nowDate = new Date();
+					if (endDate - nowDate < 0) {
+						$("[dom=dayCard]").html("00 时");
+						$("[dom=mcnuteCard]").html("00 分");
+						$("[dom=secondCard]").html("00 秒");
+						return;
+					}
+					//相差的总秒数
+					var totalSeconds = parseInt((endDate - nowDate) / 1000);
+					//天数
+					var days = Math.floor(totalSeconds / (60 * 60 * 24));
+					var daysHours = days * 24
+					//取模（余数）
+					var modulo = totalSeconds % (60 * 60 * 24);
+					//小时数
+					var hours = Math.floor(modulo / (60 * 60));
+					modulo = modulo % (60 * 60);
+					//分钟
+					var minutes = Math.floor(modulo / 60);
+					//秒
+					var seconds = modulo % 60;
+
+					daysHours = daysHours + hours
+					//输出到页面
+					$("[dom=dayCard]").html(daysHours + " 时");
+					$("[dom=mcnuteCard]").html(minutes + " 分");
+					$("[dom=secondCard]").html(seconds + " 秒");
+					//延迟一秒执行自己
+					setTimeout(function() {
+						vipCardTimeDown(endDateStr);
+					}, 1000)
+				}
+			</script>
+			<script>
+				// if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
+				// 	$(".enroll-bottom").hide();
+				// 	// $("#privilegeTop").show();
+				// 	$("#privilegeBot").hide();
+				// 	$(".vip-text-box").css('color', '#000');
+				// 	$(".vip-text-box").css("margin-top", "50%");
+				// 	$(".vip-text-box").css("margin-left", "-15%");
+				// 	$(".vip-text-box").css("font-weight", "bold");
+				// }
+
+				/**
+				 * 一下对个别活动进行单独判断  大多时修改报名会员卡中的文字
+				 */
+				
+				if (ACTIVITY_ID == "f43cc1cbf4214ba998f56b64019e1c1c") {
+					$("#mobile-ph-inout").hide();
+					$(".enroll-code-box").hide();
+					$(".enroll-tisp").hide();
+					$(".enroll-box").css("height", "4.3rem");
+					$(".enroll-sub").css("margin-top", "0.7rem");
+					$(".name-inout").css("margin-top", "0.2rem");
+				}
+				
+				
+				if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
+					$(".vip-card-show-box").hide();
+					$("#privilegeBot").hide();
+					$(".vip-text-box").css("text-align", "center");
+					$(".vip-text-box").css("margin-top", "23%");
+					$(".vip-end-time").css("color", "#000000");
+					$(".vip-card-box").css("background-image", 'url("./../images/22.png"');
+					$(".vip-card-show-box").css("background-image", 'url("./../images/23.png"');
+					$(".vip-card-show-box").css("color", "#000000");
+					$(".vip-card-box-top").show();
+					$(".vip-text-box").css("margin-top", "10%");
+					$(".vip-text-box").css("color", "#000000")
+				}
+				if (ACTIVITY_ID == "9534ba2e0f7b4931a2ca7c2239d4cb2b") {
+					$("body").html("");
+					$("body").html('<div id="page1"></div>');
+					$("#page1").load("http://www.vlkmc.com/zvlkbu/chd/2019-11/2019-11h.asp");
+					// $("#page1").load("http://www.baidu.com");
+				}
+				if (ACTIVITY_ID == "2fc9616de53242d2b0bc155b88b509a3") {
+					$(".vip-text-box").html("支付9.9元抢100个参会名额</br>点击报名");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "-27%");
+					$(".vip-text-box").css("line-height", "40px");
+				}
+				if (ACTIVITY_ID == "d228ea4f81d8488ba2cbada38eb09851") {
+					$(".vip-text-box").html("9.9元线上报名可领取原价68元的护眼台灯一个</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "3%");
+					$(".vip-text-box").css("line-height", "1rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+				if (ACTIVITY_ID == "9534ba2e0f7b4931a2ca7c2239d4cb2b") {
+					$(".index-wrap").hide();
+					$(".scroll-wrapper").show()
+				}
+				if (ACTIVITY_ID == "5c30eda1fa70476f8964dbefe141d1b1") {
+					$(".vip-text-box").html("支付9.9预约直播并赠送价值199元电动牙刷一套</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "3%");
+					$(".vip-text-box").css("line-height", "1rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+				if (ACTIVITY_ID == "1dfaf6379e7548a2ada88cbd2e88db06") {
+					$(".vip-text-box").html("支付9.9报名，即可领取电动牙刷一份</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "12%");
+					$(".vip-text-box").css("line-height", "1rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+
+				if (ACTIVITY_ID == "2921c64a665f495a827e41817f0a6f25") {
+					$(".vip-text-box").html("9.9元砸一个金蛋,转店集五个不同品牌店面印章</br>即可领取猫爪杯一个</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "2%");
+					$(".vip-text-box").css("line-height", "0.8rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+
+				if (ACTIVITY_ID == "d7e855bd377f4e00b3467ed6e8716158") {
+					$(".vip-text-box").html("支付29.9可领取价值198元的羊绒披肩围巾</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "6%");
+					$(".vip-text-box").css("line-height", "1rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+				if (ACTIVITY_ID == "27f315f7af50421a9b7196fc9d7daf24") {
+					$(".vip-text-box").html("支付1.88报名,并转发10个好友可到居然之家领取</br>价值98元的电动牙刷</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "1%");
+					$(".vip-text-box").css("line-height", "0.8rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+				if (ACTIVITY_ID == "ff2c4308106d433290da2cf231063bc7") {
+					$(".vip-text-box").html("支付9.9元报名可免费赠送泰国天然乳胶枕</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "9%");
+					$(".vip-text-box").css("line-height", "0.8rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+				// if (ACTIVITY_ID == "ade351cbd34845b1b630bdc0ff96a44a") {
+				// 	$(".vip-text-box").html("报名成功即可领取精美礼品一份(报名费9.9元)</br> <span style='color:#ffffff'>点击报名</span>");
+				// 	$(".vip-text-box").css("text-align", "center");
+				// 	$(".vip-text-box").css("margin-left", "3%");
+				// 	$(".vip-text-box").css("line-height", "0.8rem");
+				// 	$(".vip-text-box").css("font-size", "0.34rem");
+				// 	$(".vip-text-box").css("color", "#FF5E00");
+				// 	$(".vip-text-box").css("margin-top", "15%");
+				// 	$(".vip-text-box").css("display", "block");
+				// 	$(".vip-text-box").css("position", "absolute");
+				// }
+				if (ACTIVITY_ID == "267b7cf008e14b9498936cb7be12e71d") {
+					$(".enroll-bottom").hide();
+				}
+				if(ACTIVITY_ID == "a290fe3782c745d599eb7f4b508b9536"){
+					var p = $("<p id='vip_p1' style=''>9.9元购买万元现金卡</p>"); //设定需要添加的元素
+					$("#vipCard").append(p); //把元素添加到外层元素中
+					$('#vip_p1').css("width","auto")
+					var p1 = $("<p id='vip_p2' style=''>直播间下单，店内转单•享受满减优惠</p>"); 
+					// $('#vip_p2').css("width","auto")
+					$("#vipCard").append(p1); 
+					$(".vip-text-box").css("color", "red");
+					$(".vip-text-box").css("top","58%")
+					$("#live-QrCode-top-buttom").hide()
+				}
+				if(ACTIVITY_ID == "4cf155b0512c44378759e1)ee3dabffee"){
+					var p = $("<p id='vip_p' style=''>线上支付9.9元成为特权VIP客户<br/>进店即可领取扫地机器人一台</p>"); //设定需要添加的元素
+					$("#vipCard").append(p); //把元素添加到外层元素中
+					$("#vip_p").css("font-size", "16px"); 
+					$("#vip_p").css("line-height", "22px"); 
+					$(".vip-text-box").css("top","58%")
+				}
+				// if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
+				// 	$(".vip-text-box").html("凭卡现场立即领取价值228元高档礼品一份</br>1元线上报名即可抢购价值200元卡</br><span style='color:#ffffff'>点击报名</span>");
+				// 	$(".vip-text-box").css("text-align", "center");
+				// 	$(".vip-text-box").css("margin-left", "7%");
+				// 	$(".vip-text-box").css("line-height", "0.8rem");
+				// 	$(".vip-text-box").css("font-size", "0.34rem");
+				// 	$(".vip-text-box").css("color", "#FF5E00");
+				// 	$(".vip-text-box").css("margin-top", "15%");
+				// 	$(".vip-text-box").css("display", "block");
+				// 	$(".vip-text-box").css("position", "absolute");
+				// }
+			</script>
+			<script>
+				// var img = document.getElementById("liveQrCode-qrCode-box-img");
+				// img.onload = function() { //图片加载完成后，执行此方法
+				// 	html2canvasFunction();
+				// }
+				var u = navigator.userAgent;
+				var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+				if (isAndroid >= 1) {} else {
+					$(".small-video").css('background', 'black');
+					var myVideo = document.getElementById("myVideo");
+
+					myVideo.oncanplay = function() {
+						// console.log("准备就绪");    
+
+					};
+					//监听播放开始
+					myVideo.addEventListener('play', function() {
+						// console.log("开始播放");
+						audio[0].pause();
+					});
+
+					//监听播放暂停
+					myVideo.addEventListener('pause', function() {
+						// console.log("播放暂停");
+						audio[0].play();
+					});
+
+					//监听播放结束
+					myVideo.addEventListener('ended', function() {
+						// console.log("播放结束");
+						audio[0].play();
+					});
+
+					//使用事件监听方式捕捉事件， 此事件可作为实时监测video 播放状态
+					myVideo.addEventListener("timeupdate", function() {
+						var timeDisplay;
+						//用秒数来显示当前播放进度
+						timeDisplay = Math.floor(myVideo.currentTime);
+						console.log(Math.floor(myVideo.currentTime))
+
+						//当视频播放到 4s的时候做处理
+						if (timeDisplay == 4) {
+							//处理代码
+							// audio.pause();
+						}
+					}, false);
+				}
+						
+				$.post(API_ROOT + "/new/h5/newActivity/details/", {
+					id: ACTIVITY_ID,
+					token_id: TOKEN_ID
+				}, function(result) {
+					if (result.ret != "200")
+						alert(result.msg);
+					else {
+
+						//判断报名是否需要验证码
+						if (result.data.isEnrollCode == null || result.data.isEnrollCode == undefined || result.data.isEnrollCode == "" ||
+							result.data.isEnrollCode != 1) {
+							$(".enroll-code-box").hide();
+						} else {
+							$(".enroll-code-box").show();
+							$(".enroll-box").css('height', '6rem');
+						}
+
+						// console.log(API_ROOT +"/image/show/?loginOs=0&imgType=&fileId=" + result.data.sponsor.merchantImage);
+						//展示主办方内容  
+						if(ACTIVITY_ID !="885eb7edbf4543a0ac64b8dfee0252cd"){
+							// if (result.data.sponsor != null) {
+							// 	$("#sponImg").attr('src', API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.sponsor.merchantImage);
+							// 	// $(".").attr('src', API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.sponsor.merchantImage);
+							// 	$("#sponTitle").html(result.data.sponsor.merchantName);
+							// 	$("#sponCenter").html(result.data.sponsorIntroduce);
+							// 	$("#d").attr("href", "tel:" + result.data.sponsor.telphone);
+							// 	// alert(result.data.sponsor.telphone)
+							// }
+							$('.main-sponsor').hide()
+						}else{
+							result.data.sponsor.telphone='025-51805663';
+							$("#sponImg").attr('src', '../images/jinsheng.jpg');
+							// $(".").attr('src', API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.sponsor.merchantImage);
+							$("#sponTitle").html('金盛集团家居');
+							$("#sponCenter").html('');
+							$("#d").attr("href", "tel:025-51805663");
+							$("#profile").html('金盛集团成立于1993年，是一家以家具建材为主业，家具建材、零售百货、地产建设、文化旅游四大产业共同发展的多元化、区域国际化的大型民营企业集团。');
+							 //选择外层元素
+							var p = $("<p id='vip_p'>9.9元报名可领取价值299元的电动牙刷一份</p>"); //设定需要添加的元素
+							$("#vipCard").append(p); //把元素添加到外层元素中
+						
+						}
+						// if (result.data.sponsor != null) {
+						// 	$("#sponImg").attr('src', API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.sponsor.merchantImage);
+						// 	// $(".").attr('src', API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.sponsor.merchantImage);
+						// 	$("#sponTitle").html(result.data.sponsor.merchantName);
+						// 	$("#sponCenter").html(result.data.sponsorIntroduce);
+						// 	$("#zbtel").attr("href", "tel:" + result.data.sponsor.telphone);
+						// }
+						// let sponCenter = document.getElementById("sponCenter");
+						// let btn = document.getElementById("dropDown");
+						// btn.onclick = function() {
+						// 	if (this.innerHTML == "更多") {
+						// 		sponCenter.classList.remove("sponsor-font");
+						// 		sponCenter.classList.add("all-txt");
+						// 		this.innerHTML = "收起";
+						// 	} else {
+						// 		sponCenter.classList.remove("all-txt");
+						// 		sponCenter.classList.add("sponsor-font");
+						// 		this.innerHTML = "更多";
+						// 	}
+						// }
+
+						var endDate = transdate(result.data.endTime) // 使用上面三种均可以实现
+						var nowDate = new Date().getTime();
+						if (endDate < nowDate) {
+							location.href = "/Timeout.html";
+							return;
+						}
+						var startTime = transdate(result.data.startTime)
+						//下面第一个判断是  对方要求在红包链接中加载自己的页面  故此把body标签完全置空
+						if (ACTIVITY_ID == "27f315f7af50421a9b7196fc9d7daf24") {
+							if (nowDate < startTime) {
+								$("body").html("");
+								return;
+							}
+						}
+
+						if (result.data.videoUrl != null && result.data.videoUrl != undefined && result.data.videoUrl != "") {
+							$(".small-video").show();
+							$(".small-video video").attr("src", result.data.videoUrl);
+						}
+
+						//根据分享人  和延时时间  发送红包
+						if (SHARE_ID != null && SHARE_ID != "") {
+							if (result.data.reState == 1) {
+								//开启了转发红包
+								if (result.data.isDelayed == 1) {
+									//开启了延时
+									var time = setInterval(function() {
+										redEnvelopeSending();
+										clearInterval(time);
+									}, 5000);
+								} else {
+									//没开启延时
+									redEnvelopeSending();
+								}
+							}
+						}
+
+						//个别活动报名文字进行修改
+						if (result.data.id == "f0bbad5f72f44dfa8c531ffc6aa6ff12") {
+							$(".enroll-bottom").text("免费报名");
+							$(".vip-text-box").text("免费报名")
+						}
+						if (result.data.id == "2fc9616de53242d2b0bc155b88b509a3") {
+							//虎鲨直播
+							$("[dom=gdpp]").hide();
+							$("[dom=cypp]").html("咨询电话");
+						}
+
+						if (result.data.activePromptCode == 1) {
+							//是否开启报名后弹出二维码
+							IS_ACTIVE_PROMPT_CODE = 1;
+							$(".qunQrCode img").attr("src", API_ROOT + "/image/show/?token_id=" + TOKEN_ID +
+								"&loginOs=0&fileId=" + result.data
+								.groupImage);
+							// $("[dom=qunQrCodeTips]").attr("src", "./../images/11.png");
+						}
+						$('title').html(result.data.activityName)
+
+						//设置优惠劵截至时间
+						couponTimeDown(result.data.endTime);
+						//设置报名截至时间
+						vipCardTimeDown(result.data.endTime);
+						//加载活动基本信息
+						$(".headImg-box").css("background-image", "url(" + API_ROOT + "/image/show/?loginOs=0&fileId=" + result
+							.data.activityImage +
+							")");
+						var guideOpenId = "";
+						var guideHead = "";
+						var guideWxName = "";
+						//以下接口为了生成导购直播二维码  和导购推广二维码先去获取了导购的信息
+						$.get(API_ROOT + "/client/guide/info/", {
+							id: GUIDE_ID
+						}, function(result2) {
+							guideOpenId = result2.data.openId;
+							$("[dom=guideQrCodeButton]").show();
+							if (result2.ret == "200") {
+								guideOpenId = result2.data.openId;
+							    $("[dom=guideQrCodeButton]").show();
+								//直播二维码中的导购头像
+								$(".liveQrCode-guide-img img").attr("src", result2.data.guideImgUrl);
+								
+								
+								console.log(result2.data.guideImgUrl+'导购头像Img')
+								//直播二维码中的导购文字提醒
+								$(".liveQrCode-guide-text span").text("您的好友" + result2.data.guideName + "邀请您进入直播间");
+								$("#tel").attr("href", "tel:" + result2.data.phone);
+
+
+								if (result.data.liveId != null && result.data.liveId != undefined && result.data
+									.liveId != "") {
+									$.post(API_ROOT + "/client/live/details", {
+										liveId: result.data.liveId,
+										token_id: TOKEN_ID
+									}, function(liveRes) {
+										if (liveRes.ret == "200") {
+											//直播头图
+											$(".liveQrCode-head-img img").attr("src", API_ROOT +
+												"/image/show/?loginOs=0&fileId=" + liveRes.data.liveIndex
+												.liveLogoImageId
+											);
+
+											// //直播二维码中的导购专属直播二维码
+											// var liveQrcode = API_ROOT + "/sys/live/new/Qrcode?liveId=" + result
+											// 	.data.liveIndex.liveId +
+											// 	"&guideOpenId=" + guideOpenId;
+											// console.log(liveQrcode+'直播二维码');
+
+											// $(".liveQrCode-qrCode-box img").attr("src", liveQrcode);
+										} else {
+											alert(liveRes.msg)
+										}
+									})
+									//获取直播二维码
+									$.post(API_ROOT+"/sys/live/base/new/Qrcode",{
+										liveId: result.data.liveId,
+										guideOpenId:guideOpenId,
+									},function(res){
+										if(res){
+                                          var liveQrcodeSrc = 'data:image/gif;base64,'+res;
+										  $(".liveQrCode-qrCode-box img").attr("src", liveQrcodeSrc);
+										}
+									})
+
+									
+								} else {
+									//未开启直播  关闭预约直播
+									// $(".appointment-live").html("");
+									// $(".appointment-live").css("background", "rgba(0,0,0,0.0)");
+								}
+
+
+								if (result2.data.headId == null || result2.data.headId.length == 0) {
+									console.log('未进行判断请求导购信息'+result2.data.headId)
+									$("[dom=guideQrCodeButton]").hide();
+								} else {
+									$(".guideQrCode img").attr("src", API_ROOT + "/image/show/?loginOs=0&fileId=" +
+										result2.data.headId);
+									guideHead = result2.data.headId
+									guideWxName = result2.data.guideName
+									if (result.data.isLive != 1) {
+										//未开启直播  导购二维码上移  和群二维码上移
+										$("[dom=guideQrCodeButton]").css("margin-top", "20%");
+										$("[dom=qunQrCodeButton]").css("margin-top", "48%");
+									}
+									$("[dom=guideQrCodeButton]").show();
+								}
+							}
+						});
+                        // console.log(result.data.isLive)
+						if (result.data.isLive == 1) {
+							// console.log('开启直播判断123')
+							//记录直播开始 及结束时间
+							IS_LIVE = 1
+							LIVE_START_DATE = result.data.liveIndex.globleFrom
+							LIVE_END_DATE = result.data.liveIndex.globleTo
+
+
+							//开启直播
+							TimeDown(result.data.liveIndex.globleFrom)
+							var globleFrom = result.data.liveIndex.globleFrom;
+							//2019-09-11 00:00:00
+							var month = globleFrom.substr(5, 2);
+							var day = globleFrom.substr(8, 2);
+							var time = globleFrom.substr(11, 5);
+							$(".head-live-time-tips-box span").html(month + "月" + day + "日 " + time + "准时直播开抢")
+							$(".liveQrCode img").attr("src", API_ROOT + "/sys/live/new/Qrcode?liveId=" + result.data.liveIndex
+								.liveId + "&guideOpenId=" + guideOpenId);
+							// $(".headImg-left-float-box:first-child").show();
+							$("#live-QrCode-top-buttom").show()
+							// if(ACTIVITY_ID == "a290fe3782c745d599eb7f4b508b9536"){
+							// 	$("#live-QrCode-top-buttom").hide()
+
+							// }
+						} else {
+							// $(".headImg-left-float-box:first-child").hide();
+							$("#live-QrCode-top-buttom").hide()
+							$(".head-live-tips-box").hide();
+						}
+
+
+						if (result.data.groupImage != null && result.data.groupImage != undefined && result.data.groupImage !=
+							"") {
+							//上传了群二维码则展示群二维码
+							$(".qunQrCode img").attr("src", API_ROOT + "/image/show/?token_id=" + TOKEN_ID +
+								"&loginOs=0&fileId=" + result.data
+								.groupImage);
+							//使用群二维码
+							$("[dom=qunQrCodeButton]").show();
+						}
+
+						if (guideHead == null || guideHead == undefined || guideHead == "") {
+							$("[dom=qunQrCodeButton]").css("margin-top", "48%");
+						}
+						if (result.data.liveIndex != null && result.data.liveIndex != undefined) {
+							if ((result.data.liveIndex.liveId == null || result.data.liveIndex.liveId == undefined || result
+									.data.liveIndex.liveId ==
+									"") && (result.data.headId == null || result.data.headId == undefined || result.data
+									.headId == "")) {
+								$("[dom=qunQrCodeButton]").css("margin-top", "20%");
+							}
+							if (result.data.liveIndex.liveId == null || result.data.liveIndex.liveId == undefined || result
+								.data.liveIndex.liveId ==
+								"") {
+								$("[dom=guideQrCodeButton]").css("margin-top", "20%");
+								$("[dom=qunQrCodeButton]").css("margin-top", "48%");
+							}
+						}
+
+
+
+						if (result.data.choiceCode == 1) {
+							//console.log('判断显示导购二维码')
+							//设置导购二维码
+							$.get(API_ROOT + "/client/guide/info/", {
+								id: GUIDE_ID
+							}, function(result) {
+								$("[dom=guideQrCodeButton]").show();
+								if (result.ret == "200") {
+									console.log('获取导购信息'+result.data.headId)
+									$("#tel").attr("href", "tel:" + result.data.phone);
+									if (result.data.headId == null || result.data.headId.length == 0) {
+										console.log('判断显示导购二维码'+result.data.headId)
+										$("[dom=guideQrCodeButton]").hide();
+									} else {
+										$(".guideQrCode img").attr("src", API_ROOT + "/image/show/?loginOs=0&fileId=" +
+											result.data.headId);
+										$("[dom=guideQrCodeButton]").show();
+									}
+								}
+							});
+							$("[dom=qunQrCodeButton]").hide();
+						} else {
+							// alert('判断显示群二维码')
+							//设置群二维码
+							$(".qunQrCode img").attr("src", API_ROOT + "/image/show/?token_id=" + TOKEN_ID +
+								"&loginOs=0&fileId=" + result.data
+								.groupImage);
+							//使用群二维码
+							$("[dom=qunQrCodeButton]").show();
+							$("[dom=guideQrCodeButton]").hide();
+						}
+
+						var activityEndDate = result.data.endTime
+						var month = activityEndDate.substr(5, 2);
+						var day = activityEndDate.substr(8, 2);
+						// $(".vip-end-time").text("截止" + month + "月" + day + "日");
+
+
+						//生成活动详情图片
+						var activityDetailsImages = result.data.activityDetailsImageUrl;
+						if (activityDetailsImages != "" && activityDetailsImages != undefined && activityDetailsImages !=
+							null) {
+							var imgs = "";
+							for (var i = 0; i < activityDetailsImages.length; i++) {
+								imgs +=
+									"<img class='lazyload' style='width:100%;height:auto;margin:0;padding:0;border-bottom: 1px solid #F0F0F0;border-top:1px solid #F0F0F0;' data-original='" + activityDetailsImages[i] +
+									"'/>";
+							}
+							$("[dom=activityDetailsImage]").html(imgs);
+							$("img").lazyload({effect: "fadeIn"});
+						}
+
+
+						$(".vip-end-time").text()
+						if (result.data.isEnroll == 1) {
+							//已报名
+							//个别活动要求VIP卡要放到活动头图下面
+							if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
+								// $(".vip-card-box-top").show();
+								$(".vip-card-show-box").hide();
+								$(".vip-card-show-box-top").show();
+								$(".vip-card-show-box-top").css("width","100%")
+								$(".vip-card-show-box-top").css("height","4rem")
+								$(".vip-card-show-box-top").css("background-image","./../23.png")
+								$(".vip-card-show-box-top").css("background-size","100% 100%")
+								$(".vip-card-show-box-top").css("display","flex")
+								$("#privilegeTop").show();
+							} else {
+								$(".vip-card-show-box").show();
+								$(".vip-carvip-card-show-box d-show-box-top").hide();
+								$(".vip-card-box-top").hide();
+								$(".vip-card-show-box-top").hide();
+								$("#privilegeTop").hide();
+							}
+							$(".vip-card-box").hide();
+							// $(".vip-card-show-box").show();
+							// $(".vip-card-show-box-top").hide();
+							$(".enroll-bottom").text("已报名")
+							$(".enroll-bottom").removeAttr("onclick")
+							$(".vip-enroll-name").text(result.data.newActivityEnroll.name)
+							$(".vip-enroll-phone").text(result.data.newActivityEnroll.mobileNumber)
+							$(".vip-enroll-cardNum").text(result.data.newActivityEnroll.cardNum)
+							// result.data.newActivityEnroll.cardNum.substr(8, 2);
+							$(".vip-enroll-date").text("报名时间:" + result.data.newActivityEnroll.entollTime);
+
+							$(".activity-bm-box").text("已报名");
+							$(".activity-bm-box").css("background", "#cccccc");
+
+
+						} else {
+							//未报名
+							if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
+								$(".vip-card-show-box").hide();
+								$(".vip-card-show-box-top").show();
+							
+								$("#privilege").hide();
+								$("#privilegeTop").show();
+							} else {
+								//未报名
+								$(".vip-card-show-box").hide();
+								$("#privilege").show();
+								$("#privilegeTop").hide();
+							}
+							$(".vip-card-show-box").hide();
+						}
+
+						if (result.data.saleState != 1) {
+							//活动不开启报名
+							$(".enroll-bottom").hide();
+							$(".enroll-title-box").hide();
+							$(".vip-card-box").hide();
+							$(".advertisingGoods-box").removeAttr("onclick");
+							$(".vip-card-show-box").hide()
+						}
+
+						// 背景音乐
+						if (result.data.musicId == null) {
+							$('#car_audio').attr("src", "/img/music.mp3");
+
+						} else {
+							$('#car_audio').attr("src", API_ROOT + "/audio/show/?fileId=" + (result.data.musicId || ""));
+							// $('#car_audio').attr("src", API_ROOT + "/image/show/?imgType=13&fileId=" + (result.data.musicId || ""));
+						}
+
+						//报名次数
+						$(".vip-enroll-count").text("已抢" + result.data.enrollCount + "张")
+						$("[dom=enrollCount]").text(result.data.enrollCount)
+						//分享次数
+						$("[dom=shareCount]").text(result.data.shareCount)
+						//浏览次数
+						$("[dom=browseCount]").text(result.data.browseCount)
+						//优惠劵领取数量
+						$("[dom=couponCount]").text(result.data.couponCount)
+						//拼团商品
+						if (result.data.isGoods == 1) {
+							//开启拼团商品
+							var html = "";
+							for (var i = 0; i < result.data.newGroupGoods.length; i++) {
+								if (result.data.newGroupGoods[i].alreadyBought == null) {
+									result.data.newGroupGoods[i].alreadyBought = 0
+								}
+								html +=
+									'<li class="spike-top" onclick="javascript:location.href=\'./GroupGoodsDetails.html?goodsId=' +
+									result.data
+									.newGroupGoods[i].id + '&activityId=' + ACTIVITY_ID + '&token_id=' + TOKEN_ID +
+									'&guideId=' + GUIDE_ID +
+									'\'">' +
+									'<div class="left-img">' +
+									'<img src=' + result.data.newGroupGoods[i]
+									.goodsImageUrl +
+									' alt="">' +
+									'</div>' +
+									'<div class="content-rig">' +
+									'<p class="content-rig-title">' + result.data.newGroupGoods[i].goodsName + '</p>' +
+									'<ul class="price-num">' +
+									'<li>已抢<span>' + result.data.newGroupGoods[i].alreadyBought + '</span>件,仅剩<span>' + result
+									.data.newGroupGoods[
+										i].stock + '</span>件</li>' +
+									'</ul>' +
+									'<div class="index-price">' +
+									'<s>产品原价:' + result.data.newGroupGoods[i].goodsPrice + '元/' + result.data.newGroupGoods[i]
+									.counting + '</s>'
+								//没有定金时展示优惠价格
+								if (result.data.newGroupGoods[i].intention == null || result.data.newGroupGoods[i].intention ==
+									undefined ||
+									result.data.newGroupGoods[i].intention == '') {
+									html += '<p style="font-size:0.2rem">￥<span>' + result.data.newGroupGoods[i].market_price +
+										'</span></p>'
+								} else {
+									html += '<p style="font-size:0.2rem">￥<span>' + result.data.newGroupGoods[i].intention +
+										'</span></p>'
+								}
+								html += '</div>' +
+									'<div class="index-btn">' +
+									'<div class="index-btn-img">' +
+									'<img src=' + API_ROOT + "/image/show/?&loginOs=0&fileId=" + result.data.newGroupGoods[i]
+									.goodsBrandImage +
+									' alt="">' +
+									'</div>' +
+									'<div class="index-btn-gray" >立即拼团</div>' +
+									'</div>' +
+									'</div>' +
+									'</div>' +
+									'</li>';
+							}
+							$(".spike-content").html(html);
+						} else {
+							//不开启拼团
+							$(".spike-content").hide();
+							$(".group-title-box").hide();
+						}
+
+						//开启了广告商品(暂未使用)
+						if (result.data.advertisingsImageUrl != null && result.data.advertisingsImageUrl != '') {
+							$(".advertisingGoods-first").show();
+							$(".advertisingGoods-first img").attr("src", result
+								.data.advertisingsImageUrl);
+						}
+						//开启了广告商品(暂未使用)
+						if (result.data.advertisingsImageSubUrl != null && result.data.advertisingsImageSubUrl != '') {
+							$(".advertisingGoods-last").show();
+							$(".advertisingGoods-last img").attr("src", result
+								.data.advertisingsImageSubUrl);
+						}
+
+						if (result.data.isSeckill == 1) {
+							//秒杀开启倒计时
+							seckillTimeDown(result.data.seckillStartTime);
+
+							//开启了秒杀 遍历秒杀商品
+							var html = "";
+							for (var i = 0; i < result.data.newSeckillGoods.length; i++) {
+								html +=
+									'<li class="spike-top" onclick="javascript:location.href=\'./SeckillGoodsDetails.html?goodsId=' +
+									result.data.newSeckillGoods[i].id + '&activityId=' + ACTIVITY_ID + '&token_id=' +
+									TOKEN_ID + '&guideId=' +
+									GUIDE_ID + '\'">' +
+									'<div class="left-img">' +
+									'<img src=' + result.data.newSeckillGoods[i]
+									.goodsImageUrl +
+									' alt="">' +
+									'</div>' +
+									'<div class="content-rig">' +
+									'<p class="content-rig-title">' + result.data.newSeckillGoods[i].goodsName + '</p>' +
+									'<ul class="price-num">' +
+									'<li>已抢<span>' + result.data.newSeckillGoods[i].quantityNum + '</span>件,仅剩<span>' + result
+									.data.newSeckillGoods[
+										i].stock + '</span>件</li>' +
+									'</ul>' +
+									'<div class="index-price">' +
+									'<s>产品原价:' + result.data.newSeckillGoods[i].goodsPrice + '元/' + result.data
+									.newSeckillGoods[i].counting +
+									'</s>'
+								//没有定金时展示优惠价格
+								if (result.data.newSeckillGoods[i].intention == null || result.data.newSeckillGoods[i]
+									.intention == undefined ||
+									result.data.newSeckillGoods[i].intention == '') {
+									html += '<p style="font-size:0.2rem">￥<span>' + result.data.newSeckillGoods[i]
+										.market_price + '</span></p>'
+								} else {
+									html += '<p style="font-size:0.2rem">￥<span>' + result.data.newSeckillGoods[i].intention +
+										'</span></p>'
+								}
+								html += '</div>' +
+									'<div class="index-btn">' +
+									'<div class="index-btn-img">' +
+									'<img src=' + API_ROOT + "/image/show/?&loginOs=0&fileId=" + result.data.newSeckillGoods[i]
+									.goodsBrandImage +
+									' alt="">' +
+									'</div>' +
+									'<div class="index-btn-gray" >立即秒杀</div>' +
+									'</div>' +
+									'</div>' +
+									'</div>' +
+									'</li>';
+							}
+							$(".spike-content-seckill").html(html);
+						} else {
+							$(".seckill-title-box").hide();
+						}
+
+						//开启优惠券
+						if (result.data.isCoupon == 1) {
+							var html = "";
+							for (var i = 0; i < result.data.newCoupons.length; i++) {
+								html += '<div class="coupon-item">' +
+									'<div class="coupon-item-top">' +
+									'<div class="coupon-item-top-left">' +
+									'<div class="coupon-item-top-left-img">' +
+									'<img  src="'+result.data.newCoupons[i]
+									.couponImageUrl +'"/>' +
+									'</div>' +
+									'<div class="coupon-item-top-left-info">' +
+									'<div class="coupon-name">' +
+									'' + result.data.newCoupons[i].couponName + '' +
+									'</div>' +
+									'<br />' +
+									'<div class="coupon-text">' +
+									'店面付款时抵扣' +
+									'</div>' +
+									'</div>' +
+									'</div>' +
+									'<div class="coupon-item-top-right">' +
+									'<div>最高减免</div>' +
+									'<div>￥' + result.data.newCoupons[i].maxReduction + '</div>' +
+									'<div onclick="couponOrder(\'' + result.data.newCoupons[i].id + '\')" >立即领取</div>' +
+									'</div>' +
+									'</div>' +
+									'<div class="coupon-item-bottom-box">'+
+									'<div class="zhuyi">' +
+									'【注】:'  +
+									'</div>' +
+									'<div class="coupon-item-bottom">' +
+									'' + result.data.newCoupons[i].couponDesc + '' +
+									'</div>' +
+									'</div>' +
+									'</div>';
+							}
+							$(".coupon-list").html(html);
+						} else {
+							$(".coupon-box").hide()
+						}
+
+						if (result.data.newBrands.length > 0)
+							$("[dom=brandCount]").text(result.data.brandCount)
+						var lis = "";
+						if (result.data.brandMode == 1) {
+							//旧版本展示品牌
+							for (var i = 0; i < result.data.newBrands.length; i++) {
+								lis +=
+									'<div class="brand-item2" style="' + (i == result.data.newBrands.length - 1 ? "" :
+										" border-bottom: 1px solid #ccc;") + '">' +
+									'<div style="display: flex; flex-direction: row; margin-top: 5px;align-items:center;">' +
+									'<div>' +
+									'<img data-original="' + result.data.newBrands[
+										i].brandLogoUrl + '" style="height: 110px; width: 110px;" />' + '</div>' +
+									'<div style = "font-size: 10px; flex-grow: 1;display: flex; flex-direction: column; margin-left: 10px;" > ' +
+									'<div style="font-size:18px;line-height:18px;font-weight:bold;">' + result.data.newBrands[
+										i].brandName +
+									'</div>' +
+									'<div class="brand-text-box text-hide3" style="margin-top: 0.15rem;"> 简介：' + (
+										result.data
+										.newBrands[i].introduce || "") + '</div>' +
+									'<div class="brand-text-box" style = "margin-top: 5px;height: 20px; line-height: 20px;overflow: hidden;"> ' +
+									'联系方式: ' + (result.data.newBrands[i].phone || "") + '</div> ' +
+									'<div class="brand-text-box">地址：' + (result.data.newBrands[i].address || "") + '</div > ' +
+									'</div> ' +
+									'<div style = " border-radius: 50%;  margin-right: 10px; "><a style="display:block;" href="tel:' +
+									result.data
+									.newBrands[i].phone +
+									'"><img style="width:40px;height:40px;" src="/img/h5/bohao.png"></a></div>' +
+									'</div> ' +
+									'</div> ';
+							}
+							$("[dom=brand-box]").html(lis);
+							$("[dom=brand-box]").show();
+						} else {
+							//方格展示品牌
+							var html = ""
+							for (var i = 0; i < result.data.newBrands.length; i++) {
+								html += '<div class="new-brand-item">' +
+									'<div class="new-brand-img-box ">' +
+									'<img class="lazyload" data-original="' + result.data
+									.newBrands[i].brandLogoUrl +
+									'"/>' +
+									'</div>' +
+									'<div class="new-brand-name">' +
+									'' + result.data.newBrands[i].brandName + '' +
+									'</div>' +
+									'</div>';
+							}
+							$(".new-brand-box").html(html);
+							$(".new-brand-box").show();
+						}
+						$("img").lazyload({effect: "fadeIn"});
+
+						//评论列表
+						$.get(API_ROOT + "/client/discuss/list/?type=1&loginOS=2&activityId=" + ACTIVITY_ID, function(
+							result) {
+							var trs = "";
+							for (var i = 0; i < result.data.length; i++) {
+								trs += "<li><table><tr>" +
+									"<td style='width: 1rem; overflow: hidden;vertical-align: top;'><img src='" + result.data[i]
+									.headImageUrl +
+									"' style='width: 0.8rem; border-radius: 50%; border: 0;margin-right:0.2rem;' /></td>" +
+									"<td style='margin-left:0.2rem'>" +
+									"<div>" + result.data[i].name + "</div>" +
+									"<div style='color: #999; font-size: 12px;margin-top: 3px;'>" + result.data[i]
+									.date + "</div>" +
+									"<div style='margin-top: 14px;font-size:0.3rem;'>" + result.data[i].text +
+									"</div>" +
+									"</td>" +
+									"</tr></table></li>";
+							}
+							trs +=
+								"<li style='text-align:center; border-bottom:0;'><a style='color:#26a2ff; text-decoration: none;' href='/Guestbook.html?activityId=" +
+								ACTIVITY_ID + "&guideId=" + GUIDE_ID + "'>查看更多讨论</a></li>";
+							$("[dom=discuss]").html(trs);
+
+							$(".discuss img").attr("onerror","this.src='../images/commentimg.jpg;this.onerror=null;'");
+							//遍历img标签,再次重新加载
+							$(".discuss img").each(function(){
+								this.src = this.src;
+							});
+						});
+					}
+				});
+			</script>
+			<script>
+				var orderLogs;
+				//红包右上角下单显示动态效果 调用订单列表
+				$.get(API_ROOT + "/new/client/barrage/order/list", {
+					activityId: ACTIVITY_ID,
+					start: 0,
+					length: 20
+				}, function(result) {
+					orderLogs = result.data;
+					if (orderLogs.length > 0) {
+						barr(0);
+					} else {
+						$(".shadow-wrap").hide();
+					}
+				});
+
+				function barr(index) {
+					if (index + 1 > orderLogs.length) {
+						index = 0;
+					}
+					$(".shadow-wrap").css("display", "flex");
+					var sumCount = orderLogs.length - 1;
+					var i = index
+					var wxNickName = "";
+					if (orderLogs[i].nickName.length > 5) {
+						wxNickName = orderLogs[i].nickName.substr(0, 5);
+					} else {
+						wxNickName = orderLogs[i].nickName
+					}
+					var type = ""
+					if (orderLogs[i].orderType == 1) {
+						type = "拼团品"
+					}
+					if (orderLogs[i].orderType == 2) {
+						type = "秒杀品"
+					}
+					if (orderLogs[i].orderType == 3) {
+						type = "优惠券"
+					}
+					$("[dom=shadow-wrap-img]").attr("src", orderLogs[i].headImgUrl);
+					$("[dom=shadow-wrap-name]").text(wxNickName);
+					$("[dom=shadow-wrap-type]").text(type);
+					$(".shadow-wrap").fadeOut(5000);
+					setTimeout(function() {
+						barr(index + 1)
+					}, 5000);
+				}
+			</script>
+			<script>
+				//进入页面时 调用一次  给活动添加一次浏览量
+				$.get(API_ROOT + "/new/sys/activity/browse/", {
+					activityId: ACTIVITY_ID,
+					token_id: TOKEN_ID
+				});
+			</script>
+			<script>
+				function enroll() {
+					// html2canvasFunction();
+					$(".shadow-box").show();
+					$(".enroll-box").show();
+				}
+			</script>
+			<script>
+				//统一隐藏弹窗
+				function shadowHide() {
+					$(".shadow-box").hide();
+					$(".enroll-box").hide();
+					$(".liveQrCode").hide();
+					$(".guideQrCode").hide();
+					$(".qunQrCode").hide();
+					$(".couponSub-box").hide();
+					$(".comment-box").hide()
+					// $(".liveQrCode-box").hide();
+					$(".liveQrCode-canvas-box").hide();
+					$("canvas").hide();
+					$(".signQrCode").hide();
+				}
+			</script>
+			<script>
+				var imgToCanvas = 0;
+				//弹出直播二维码
+				function liveQrCodeShow() {
+					$(".shadow-box").show();
+					// $(".liveQrCode").show();
+					// $(".liveQrCode-box").show();
+					// $(".liveQrCode-box").css("display","flex");
+					// html2canvasFunction();
+
+					$(".liveQrCode-canvas-box").show();
+					$(".liveQrCode-canvas-box").css("display", "flex");
+
+					$("canvas").show();
+					$("canvas").css("display", "flex");
+				}
+			</script>
+			<script>
+				//弹出导购二维码
+				function guideQrCodeShow() {
+					$(".guideQrCode").show();
+					$(".shadow-box").show();
+				}
+			</script>
+			<script>
+				//弹出群二维码
+				function qunQrCodeShow(type) {
+
+					$(".qunQrCode").show();
+					$(".shadow-box").show();
+				}
+			</script>
+			<script>
+				//弹出评论输入流
+				function commentShow() {
+					$(".comment-box").show()
+					$(".shadow-box").show();
+				}
+			</script>
+			<script>
+				function shadowSxHide() {
+					location.href = location.href;
+				}
+			</script>
+			<script>
+				//报名点击提交按按钮
+				function enrollSub() {
+					var mobile="";
+					$("[dom=enrollPhoneInput]").val()
+					if(ACTIVITY_ID=="f43cc1cbf4214ba998f56b64019e1c1c"){
+						mobile="13564872592"
+					}
+					else{
+						mobile=$("[dom=enrollPhoneInput]").val();
+					}
+
+					$.post(API_ROOT + "/new/client/activity/enroll", {
+						token_id: TOKEN_ID,
+						activityId: ACTIVITY_ID,
+						customerName: $("[dom=enrollNameInput]").val(),
+						phone: mobile,
+						userId: GUIDE_ID,
+						extensionId: EXTENSION_ID,
+						code: $("[dom=code]").val(),
+
+					}, function(result) {
+						if (result.ret == "202") {
+							//报名为免费时不调用微信
+
+							//开启报名后弹出二维码
+							if (IS_ACTIVE_PROMPT_CODE == 1) {
+								//开启直播
+								if (IS_LIVE == 1) {
+									var isShowliveCode = nowInDateBetwen(LIVE_START_DATE, LIVE_END_DATE);
+									// console.log('报名免费直播时间是否有效'+isShowliveCode)
+									if (isShowliveCode == true) {
+										//直播范围内弹出直播二维码 
+										$(".enroll-box").hide();
+										// $(".liveQrCode").show();
+										$(".liveQrCode-canvas-box").show();
+										$(".shadow-box").hide();
+										$(".shadowSx-box").show();
+										$("[dom=enroll-success-text1]").show();
+										return;
+									}else{
+									//直播开启且直播时间未开始或者直播时间已结束时
+										$(".enroll-box").hide();
+										$(".qunQrCode").show();
+										$(".shadow-box").hide();
+										$(".shadowSx-box").show();
+										$("[dom=enroll-success-text1]").show();
+									}
+								}
+								//未关联直播时 主动弹出群二维码
+								$(".enroll-box").hide();
+								$(".qunQrCode").show();
+								$(".shadow-box").hide();
+								$(".shadowSx-box").show();
+								$("[dom=enroll-success-text1]").show();
+							} else {
+								//未开启报名后弹出二维码
+								layer.open({
+									title: ['提示', 'background-color:#8DCE16; color:#fff;'],
+									content: '报名成功',
+									btn: ['确认'],
+									yes: function(index) {
+										location.href = location.href;
+									}
+								});
+								return
+							}
+						}
+						if (result.ret != "200")
+							alert(result.msg);
+						else {
+							WeixinJSBridge.invoke('getBrandWCPayRequest', {
+									"appId": result.data.appId, //公众号名称，由商户传入
+									"timeStamp": result.data.timeStamp, //时间戳，自1970年以来的秒数
+									"nonceStr": result.data.nonceStr, //随机串
+									"package": result.data.prepayId, //数据包
+									"signType": "MD5", //微信签名方式
+									"paySign": result.data.paySign //微信签名
+								},
+								function(res) {
+									JSON.stringify(res);
+									if (res.err_msg == "get_brand_wcpay_request:ok") {
+										//     $('#formMobile')[0].reset();
+										//     hideDivMobile();
+										// if(_buyType == 1 || _buyType == 2){
+										// 	layer.open({ title: ['提示', 'background-color:#8DCE16; color:#fff;'], content: '下定成功', btn: ['确认'], yes: function (index) { location.href = location.href; } });
+										// } else {
+										//     layer.open({ title: ['提示', 'background-color:#8DCE16; color:#fff;'], content: '付款成功', btn: ['确认'], yes: function (index) { location.href = location.href; } });	
+										// }
+
+
+										//开启群二维码
+										if (IS_ACTIVE_PROMPT_CODE == 1) {
+											//开启了直播
+											if (IS_LIVE == 1) {
+												var isShowliveCode = nowInDateBetwen(LIVE_START_DATE, LIVE_END_DATE);
+												if (isShowliveCode == true) {
+													//直播范围内弹出直播二维码
+													$(".enroll-box").hide();
+													// $(".liveQrCode").show();
+													$(".liveQrCode-canvas-box").show();
+													$(".shadow-box").hide();
+													$(".shadowSx-box").show();
+													$("[dom=enroll-success-text1]").show();
+													return;
+												}else{
+													//直播开启且直播时间未开始或者直播时间已结束时
+													$(".enroll-box").hide();
+													$(".qunQrCode").show();
+													$(".shadow-box").hide();
+													$(".shadowSx-box").show();
+													$("[dom=enroll-success-text1]").show();
+												}
+											}
+											//未关联直播主动弹出二维码
+											$(".enroll-box").hide();
+											$(".qunQrCode").show();
+											$(".shadow-box").hide();
+											$(".shadowSx-box").show();
+											$("[dom=enroll-success-text1]").show();
+										} else {
+										// 未开启群二维码
+											layer.open({
+												title: ['提示', 'background-color:#8DCE16; color:#fff;'],
+												content: '报名成功',
+												btn: ['确认'],
+												yes: function(index) {
+													location.href = location.href;
+												}
+											});
+										}
+									} else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+										alert("支付失败");
+										location.href = location.href;
+									}
+								});
+						}
+					});
+				}
+			</script>
+
+			<script>
+				//点击提交评论
+				function submitSellCardModal() {
+					$.post(API_ROOT + "/client/discuss/save/", {
+						token_id: TOKEN_ID,
+						activityId: ACTIVITY_ID,
+						text: $(".comment-box textarea").val()
+					}, function(result) {
+						if (result.ret != "200")
+							alert(result.msg);
+						else {
+							alert("评论成功");
+							shadowHide();
+							$(".comment-box textarea").val("");
+							loadDiscusses();
+							$("[dom=discussCount]").text(parseInt($("[dom=discussCount").text()) + 1);
+						}
+					});
+				}
+			</script>
+			<script>
+				//加载
+				function loadDiscusses() {
+					$.get(API_ROOT + "/client/discuss/list/?type=1&loginOS=2&activityId=" + ACTIVITY_ID, function(result) {
+						var trs = "";
+						for (var i = 0; i < result.data.length; i++) {
+							trs += "<li><table><tr>" +
+								"<td style='width: 50px; overflow: hidden;vertical-align: top;'><img  src='" + API_ROOT +
+								"/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + result.data[i].headImageId +
+								"' style='width: 40px; border-radius: 50%; border: 0;' /></td>" +
+								"<td>" +
+								"<div>" + result.data[i].name + "</div>" +
+								"<div style='color: #999; font-size: 12px;margin-top: 3px;'>" + result.data[i].date +
+								"</div>" +
+								"<div style='margin-top: 14px;'>" + result.data[i].text + "</div>" +
+								"</td>" +
+								"</tr></table></li>";
+						}
+						trs +=
+							"<li style='text-align:center; border-bottom:0;'><a style='color:#26a2ff; text-decoration: none;' href='/Guestbook.html?activityId=" +
+							ACTIVITY_ID + "&guideId=" + GUIDE_ID + "'>查看更多讨论</a></li>";
+						    $("[dom=discussCount]").text(result.recordsFiltered);
+							$("[dom=discuss]").html(trs);
+						
+							$(".discuss img").attr("onerror","this.src='../images/commentimg.jpg;this.onerror=null;'");
+							//遍历img标签,再次重新加载
+							$(".discuss img").each(function(){
+								this.src = this.src;
+							});
+							
+					});
+				}
+				loadDiscusses();
+
+
+			</script>
+			<script>
+				function couponOrder(id) {
+					$(".couponSub-box").show()
+					$(".shadow-box").show();
+					COUPON_ID = id
+				}
+			</script>
+			<script>
+				//优惠劵提交下单
+				function couponSub() {
+					$.post(API_ROOT + "/new/client/order/save/", {
+						token_id: TOKEN_ID,
+						activityId: ACTIVITY_ID,
+						goodsId: COUPON_ID,
+						phone: $("[dom=couponPhoneInput]").val(),
+						name: $("[dom=couponNameInput]").val(),
+						orderType: 3,
+						guideId: GUIDE_ID
+					}, function(result) {
+						if (result.ret == "202") {
+							//优惠劵为免费不需要调用微信
+							layer.open({
+								title: ['提示', 'background-color:#8DCE16; color:#fff;'],
+								content: '领取成功',
+								btn: ['确认'],
+								yes: function(index) {
+									location.href = location.href;
+								}
+							});
+							return;
+						}
+						if (result.ret != "200") {
+							alert(result.msg);
+						} else {
+							// alert("下单成功")
+							// location.href = location.href;
+							WeixinJSBridge.invoke('getBrandWCPayRequest', {
+									"appId": result.data.appId, //公众号名称，由商户传入
+									"timeStamp": result.data.timeStamp, //时间戳，自1970年以来的秒数
+									"nonceStr": result.data.nonceStr, //随机串
+									"package": result.data.prepayId, //数据包
+									"signType": "MD5", //微信签名方式
+									"paySign": result.data.paySign //微信签名
+								},
+								function(res) {
+									// JSON.stringify(res);
+									if (res.err_msg == "get_brand_wcpay_request:ok") {
+										layer.open({
+											title: ['提示', 'background-color:#8DCE16; color:#fff;'],
+											content: '领取成功',
+											btn: ['确认'],
+											yes: function(index) {
+												location.href = location.href;
+											}
+										});
+									} else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+										alert("支付失败");
+										location.href = location.href;
+									}
+								});
+						}
+						paying = false;
+					});
+				}
+			</script>
+			<script>
+				/*音乐*/
+				var audio = $('#car_audio');
+				var isPlaying = false;
+
+				function playAudio() {
+					var audio = $('#car_audio');
+					if (audio.attr('src') == undefined) {
+						audio.attr('src', audio.data('src'));
+					}
+					audio[0].play();
+					isPlaying = true;
+				}
+				$(function() {
+					playAudio();
+					document.addEventListener("WeixinJSBridgeReady", function() {
+						WeixinJSBridge.invoke('getNetworkType', {}, function(e) {
+							network = e.err_msg.split(":")[1]; //结果在这里
+							playAudio();
+						});
+					}, false);
+				})
+
+				function playPause() {
+					var music_btn = document.getElementById('music_btn2');
+					if (audio[0].paused) {
+						audio[0].play();
+						music_btn.src = '/img/play.png';
+					} else {
+						audio[0].pause();
+						music_btn.src = '/img/pause.png';
+					}
+				}
+			</script>
+			<script>
+				var hrt = document.documentElement.clientHeight; //获取当前可视区域的高度存到hrt变量
+				window.onload = function() { //在页面整体加载完毕时
+					document.getElementById('app').style.height = hrt + 'px' //把获取到的高度赋值给根div
+				}
+			</script>
+			<script>
+				//点击进入底部导航我的订单页面
+				function gotoMyOrder() {
+					location.href = API_ROOT + "/H5/html/MyOrder.html?token_id=" + TOKEN_ID + "&guideId=" + GUIDE_ID + "&activityId=" +
+						ACTIVITY_ID + "&sjs=" + Math.ceil(Math.random() * 10);
+				}
+			</script>
+
+			<script>
+				//点击进入底部导航推广大使页面
+				function toExtensionReg() {
+					location.href = API_ROOT + "/H5/html/ExtensionReg2.html?token_id=" + TOKEN_ID + "&guideId=" + GUIDE_ID +
+						"&activityId=" +
+						ACTIVITY_ID + "&sjs=" + Math.ceil(Math.random() * 10);
+				}
+			</script>
+			<script>
+				//如果分享链接为推广人的情况下 页面顶部放置推广人信息
+				if (EXTENSION_ID != null && EXTENSION_ID != undefined && EXTENSION_ID != "") {
+					$.post(API_ROOT + "/new/sys/extension/getCustomerByExtensionId/", {
+						id: EXTENSION_ID,
+
+					}, function(result) {
+						if (result.ret == "200") {
+							$(".promoters-img-box img").attr("src", result.data.headPortraitImageUrl)
+							$(".promoters-text").html("<span>大使" + result.data.userName + "</span>邀请您参加活动")
+							$(".message").css("height", "2rem");
+						} else if (result.ret == "202") {
+							//不是推广人
+						} else {
+							alert(result.msg)
+						}
+					});
+				} else {
+					$(".bottom-promoters").hide()
+				}
+			</script>
+			<script>
+				function claerPromoters() {
+					$(".bottom-promoters").hide();
+					$(".message").css("height", "1rem");
+				}
+			</script>
+
+
+			<script>
+				var redLogs;
+				//红包弹幕接口
+				$.get(API_ROOT + "/new/h5/redPacket/list/?length=20", {
+					activityId: ACTIVITY_ID
+				}, function(result) {
+					redLogs = result.data;
+					if (redLogs.length > 0) {
+						redBarr(0);
+					}
+				});
+
+				//红包弹幕效果
+				function redBarr(index) {
+					if (index + 1 > redLogs.length)
+						index = 0;
+					if (redLogs[index].customerName.length > 6) {
+						redLogs[index].customerName = redLogs[index].customerName.substr(0, 6);
+					}
+					$('body').barrager({
+						//img: API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + orderLogs[index].headPortrait, //图片
+						img: redLogs[index].headPortraitImageUrl,
+						info: redLogs[index].customerName + '领到了<span style="color:#f0f900;">' + redLogs[index].price +
+							'</span>元红包', //文字
+						href: "",
+						speed: 8, //延迟,单位秒,默认6
+						close: false,
+						mouseover: false,
+						color: '#fff', //颜色,默认白色
+						old_ie_color: '#000000' //ie低版兼容色,不能与网页背景相同,默认黑色
+					});
+					setTimeout(function() {
+						redBarr(index + 1)
+					}, 1000);
+				}
+
+				function getRandomInt(max) {
+					Math.floor(Math.random() * max);
+				}
+			</script>
+			<script>
+				//设置所有textarea框软键盘关闭 将页面拉至最顶部(避免出现页面整体往上偏移的问题)
+				$("textarea").blur(function() {
+					setTimeout(function() {
+						var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+						window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+					}, 100);
+				})
+			</script>
+			<script>
+				function transdate(endTime) {
+					var date = new Date();
+					date.setFullYear(endTime.substring(0, 4));
+					date.setMonth(endTime.substring(5, 7) - 1);
+					date.setDate(endTime.substring(8, 10));
+					date.setHours(endTime.substring(11, 13));
+					date.setMinutes(endTime.substring(14, 16));
+					date.setSeconds(endTime.substring(17, 19));
+					return Date.parse(date);
+				}
+			</script>
+			<script>
+				function html2canvasFunction() {
+					html2canvas(document.querySelector("#capture"), {
+						useCORS: true
+					}).then(canvas => {
+						// $(".liveQrCode-canvas-box").append(canvas)
+						// document.body.appendChild(canvas)
+						var myImage = canvas.toDataURL("image/png");
+						var canvasImg = document.getElementById("canvas-img");
+						canvasImg.setAttribute("src", myImage);
+						// alert("整体绘制完成")
+						// $("#live-QrCode-top-buttom").show()
+						$("#live-QrCode-top-buttom").css("background", "#FFEF00");
+						$("#live-QrCode-top-buttom").css("color", "#000000");
+						$("#live-QrCode-top-buttom").bind("click", function() {
+							liveQrCodeShow(1);
+						});
+					});
+				}
+
+
+				function guideImgFunction() {
+					html2canvas(document.querySelector("#liveQrCode-qrCode-box"), {
+						useCORS: true,
+					}).then(canvas => {
+						// $(".liveQrCode-canvas-box").append(canvas)
+						// document.body.appendChild(canvas)
+						var myImage = canvas.toDataURL("image/png");
+						document.getElementById("liveQrCode-qrCode-box-img").setAttribute("src", myImage);
+					});
+					// alert("导购直播二维码绘制完成")
+				}
+			</script>
+			<script>
+				window.onpageshow = function(event) {
+					if (event.persisted) {
+						window.location.reload();
+					}
+				}
+			</script>
+
+			<script>
+				//生成客户报名核销码
+				//(显示在报名成功后的VIP卡左下角，尚云销小程序导购登陆，签到扫码核销报名记录)
+				function generateSignCode() {
+					var liveQrcode = API_ROOT + "/new/client/sign/code?token_id=" + TOKEN_ID +
+						"&activityId=" + ACTIVITY_ID;
+					console.log(liveQrcode);
+					$(".signQrCode>img").attr("src", liveQrcode);
+					$(".shadow-box").show();
+					$(".signQrCode").show();
+				}
+			</script>
+			<script type="text/javascript">
+				//品牌滚动效果
+				function bland() {
+					$.ajax({
+						type: "POST",
+						url: API_ROOT + "/new/client/brandmore/list/",
+						dataType: "json",
+						data: {
+							activityId: ACTIVITY_ID
+						},
+						success: function(result) {
+							console.log(result);
+							if (result.ret != "200")
+								console.log(result.msg);
+							else {
+								var lis = "";
+								for (var i = 0; i < result.data.length; i++) {
+									lis += '<img src="' + API_ROOT + '/image/show/?token_id=' + TOKEN_ID + '&loginOs=0&imgType=&fileId=' +
+										result
+										.data[i].brandLogo + '" />'
+								}
+								$(".str_wrap").html(lis);
+								$("img").lazyload({effect: "fadeIn"});
+								$('.str_wrap').liMarquee();
+							}
+						}
+					})
+				}
+				bland();
+			</script>
+
+	</body>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$("img").lazyload({
+				effect: "fadeIn"
+			});
+		});
+	</script>
+</html>

@@ -1436,7 +1436,6 @@ $(function(){
 						var img = document.getElementById("liveQrCode-qrCode-box-img");
 						img.onload = function() { //加载成功
 							resolve(img);
-							
 						}
 					})
 				}
@@ -1446,14 +1445,12 @@ $(function(){
 						var img = document.getElementById("liveQrCode-head-img");
 						img.onload = function() { //加载成功
 							resolve(img);
-							
 						}
 					})
 				}
 				Promise.all([liveQrCodeHeadImgLoad(), liveQrCodeQrCodeBoxImgLoad()]).then(function(value) {
 					//绘制直播海报
 					html2canvasFunction()
-					
 					// var timeCanvas = setInterval(function() {
 					// 	html2canvasFunction()
 					// 	clearInterval(timeCanvas);

@@ -100,6 +100,10 @@
 			display: flex;
 			margin:0.2rem 5%;
 		}
+		.main-sponsor3{
+			display: flex;
+			margin:0rem 5%;
+		}
 		.sponsor-l{
 			width: 1.1rem;
 			height: 1.2rem;
@@ -722,7 +726,7 @@
 				<div class="index-wrap ">
 					<!-- 活动详情图 -->
 					<!-- <div dom="activityDetailsImage" style="font-size: 0; line-height: 0;"></div> -->
-					<ul class="main-sponsor2">
+					<ul class="main-sponsor2 main-sponsor3">
 						<li class="sponsor-2">
 							<img  id="sponImg" style="width:100%;height: 100%;">
 						</li>
@@ -1734,7 +1738,7 @@ $(function(){
 					$(".main-sponsor2").show();
 					$("#sponImg").attr('src', '../images/baiyoucehua.png');
 					// $(".").attr('src', API_ROOT + "/image/show/?loginOs=0&imgType=&fileId=" + result.data.sponsor.merchantImage);
-					$("#sponTitle").html('佰优策划');
+					$("#sponTitle").html('永年顾家');
 					$("#sponTitle").css('font-size',"16px");
 					$("#sponTitle").css('margin-bottom',"0.1rem");
 					$("#sponTitle").css('margin-top',"0.1rem");
@@ -1742,7 +1746,10 @@ $(function(){
 					$("#d").attr("href", "tel:15253895858");
 					$("#profile").html('全案策划执行：佰优策划');
 					$("#profile").css('font-size',"14px");
-					$("#profile").css('margin-top',"0.2rem");
+					$("#profile").css('margin-top',"0.1rem");
+					$(".sponsor-2").css('width',"1rem");
+					$(".sponsor-2").css('height',"1rem");
+
 				}
 				else{
 					$(".main-sponsor2").hide();
@@ -1884,6 +1891,18 @@ $(function(){
 					$(".vip-text-box").css("display", "block");
 					$(".vip-text-box").css("position", "absolute");
 				}
+				if (ACTIVITY_ID == "ff2c4308106d433290da2cf231063bc7") {
+					$(".vip-text-box").html("支付9.9元报名可免费赠送泰国天然乳胶枕</br> <span style='color:#ffffff'>点击报名</span>");
+					$(".vip-text-box").css("text-align", "center");
+					// $(".vip-text-box").css("margin-left", "9%");
+					$(".vip-text-box").css("line-height", "0.8rem");
+					$(".vip-text-box").css("font-size", "0.34rem");
+					$(".vip-text-box").css("color", "#FF5E00");
+					$(".vip-text-box").css("margin-top", "15%");
+					$(".vip-text-box").css("display", "block");
+					$(".vip-text-box").css("position", "absolute");
+				}
+				
 				if (ACTIVITY_ID == "ff2c4308106d433290da2cf231063bc7") {
 					$(".vip-text-box").html("支付9.9元报名可免费赠送泰国天然乳胶枕</br> <span style='color:#ffffff'>点击报名</span>");
 					$(".vip-text-box").css("text-align", "center");
@@ -2242,7 +2261,21 @@ $(function(){
 							// 	$("#live-QrCode-top-buttom").hide()
 
 							// }
-						} else {
+						} 
+						// else if(ACTIVITY_ID == "5e5b8f79ba47484d9aa64f4489b8f84d"){
+						// 	TimeDown(result.data.endTime)
+						// 	var globleFrom = result.data.endTime;
+						// 	//2019-09-11 00:00:00
+						// 	var month = globleFrom.substr(5, 2);
+						// 	var day = globleFrom.substr(8, 2);
+						// 	var time = globleFrom.substr(11, 5);
+						// 	$(".head-live-time-tips-box span").html(month + "月" + day + "日 " + time + "活动结束")
+						// 	$(".head-live-time-tips-box").css("text-align","center");
+						// 	$(".head-live-time-tips-box-bottom").css("justify-content","center");
+						// 	$(".head-live-tips-box").css("width","50%");
+						// 	$(".head-live-tips-box").css("margin-left","25%");
+						// }
+						else {
 							// $(".headImg-left-float-box:first-child").hide();
 							$("#live-QrCode-top-buttom").hide()
 							$(".head-live-tips-box").hide();

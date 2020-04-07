@@ -1903,18 +1903,6 @@ $(function(){
 					$(".vip-text-box").css("position", "absolute");
 				}
 				
-				if (ACTIVITY_ID == "ff2c4308106d433290da2cf231063bc7") {
-					$(".vip-text-box").html("支付9.9元报名可免费赠送泰国天然乳胶枕</br> <span style='color:#ffffff'>点击报名</span>");
-					$(".vip-text-box").css("text-align", "center");
-					// $(".vip-text-box").css("margin-left", "9%");
-					$(".vip-text-box").css("line-height", "0.8rem");
-					$(".vip-text-box").css("font-size", "0.34rem");
-					$(".vip-text-box").css("color", "#FF5E00");
-					$(".vip-text-box").css("margin-top", "15%");
-					$(".vip-text-box").css("display", "block");
-					$(".vip-text-box").css("position", "absolute");
-				}
-				
 		
 				// if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
 				// 	$(".vip-text-box").html("现在报名可️元抢购价值200元vlP特权卡(有机会分享家博会百万䃼贴钜惠)。凭卡活动现场签到领取价值228元高档礼品一份</br> <span style='color:#ffffff'>点击报名</span>");
@@ -2262,19 +2250,8 @@ $(function(){
 
 							// }
 						} 
-						else if(ACTIVITY_ID == "5e5b8f79ba47484d9aa64f4489b8f84d"){
-							TimeDown(result.data.endTime)
-							var globleFrom = result.data.endTime;
-							//2019-09-11 00:00:00
-							var month = globleFrom.substr(5, 2);
-							var day = globleFrom.substr(8, 2);
-							var time = globleFrom.substr(11, 5);
-							$(".head-live-time-tips-box span").html(month + "月" + day + "日 " + time + "活动结束")
-							$(".head-live-time-tips-box").css("text-align","center");
-							$(".head-live-time-tips-box-bottom").css("justify-content","center");
-							$(".head-live-tips-box").css("width","50%");
-							$(".head-live-tips-box").css("margin-left","25%");
-						}
+						
+						
 						else {
 							// $(".headImg-left-float-box:first-child").hide();
 							$("#live-QrCode-top-buttom").hide()

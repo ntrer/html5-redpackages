@@ -151,7 +151,6 @@
             "<td style='width: 80px; overflow: hidden;vertical-align: top;'><img src='" + API_ROOT + "/image/show/?token_id=" + TOKEN_ID + "&loginOs=0&fileId=" + result.data[i].goodsImageUrl + "' style='width: 90%; border: 0;' /></td>" +
             "<td>" +
             "<div>" + result.data[i].goodsName + "</div>";
-            
 			if(result.data[i].orderType == 1){
 				//拼团订单号
 				trs += "<div style='color: #999; font-size: 12px;margin-top: 3px;'>拼团订单号" + result.data[i].orderNum + " </br>下单时间" + result.data[i].payFinishTime + "</div>";
@@ -164,10 +163,6 @@
 				//优惠券码
 				trs += "<div style='color: #999; font-size: 12px;margin-top: 3px;'>优惠券码" + result.data[i].couponNum + " </br>下单时间" + result.data[i].payFinishTime + "</div>";
 			}
-			
-			trs += "<div style='color: #999; font-size: 12px;margin-top: 3px;'>商户门店地址" + result.data[i].address + " </br>联系电话" + result.data[i].phone + "</div>";
-			
-			
             // trs += "<div style='color: #999; font-size: 12px;margin-top: 3px;'>" + result.data[i].id + " </br>下单时间" + result.data[i].payFinishTime + "</div>" +
             if(result.data[i].orderType == 1  && result.data[i].groupType == 1){
             	//拼团成功
@@ -193,7 +188,7 @@
 				//优惠券
 				trs += "<div style='font-size: 12px;margin-top: 3px;'>优惠券领取成功</div>";
 			}
-			trs += "<div style='margin-top: 5px;'>¥" + result.data[i].payPrice + "</div>" + 
+			trs += "<div style='margin-top: 14px;'>¥" + result.data[i].payPrice + "</div>" + 
 			"<div style='font-size: 12px;margin-top: 7px;color: #999;text-decoration: line-through;'>¥" + result.data[i].goodsPrice + "</div>" +	
             "</td>" +
 			"<td style='margin-rigth:1rem;margin-left: 2rem;display: table-cell;align-items: center;justify-content: center;'><img src='../images/21.png' style='width:2rem;margin-left:2rem'   onclick='writeOrders(\"" + result.data[i].orderId + "\")' ></td>" + 

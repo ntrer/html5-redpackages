@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./../css/reset.css">
+		<link rel="stylesheet" href="./../css/h5.css">
+		<link href="../../js/layer-v3.1.1/layer/mobile/need/layer.css" rel="stylesheet" />
+		<link href="../css/barrager.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/GB-canvas-turntable.css">
+		<link rel="stylesheet" type="text/css" href="../css/hlhs.css">
+		<link rel="stylesheet" type="text/css" href="./../css/liMarquee.css" />
+		<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+		<script src="./../js/rem.js"></script>
+		<script src="./../js/jquery.min.js"></script>
+		<script src="./../js/lazyload.js"></script>
+		<script src="../../js/layer-v3.1.1/layer/mobile/layer.js"></script>
+			<!-- <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script> -->
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript"></script>
+		<script src="../../js/jquery.barrager.js-master/dist/js/jquery.barrager.fixed.min.js"></script>
+		<script src="../../js/layer-v3.1.1/layer/mobile/layer.js"></script>
+		<script src="../js/h5Common.js?_r=1451235"></script>
+		<script src="../js/html2canvas.js?_r=1451234"></script>
+		<script src="../js/GB-canvas-turntable.js"></script>
+		<script src="./../js/jquery.liMarquee.js"></script>
+		<script src="../js/qrcode.min.js"></script>
+		<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+    <title>优惠券</title>
+	<style>
+				video::-webkit-media-controls-fullscreen-button {
+				display: none;
+			}
+			.appointment-live{
+				height: 0.8rem;
+				line-height: 0.8rem;
+				background: rgba(0,0,0,0.5);
+				color: #fff;
+				font-size: 14px;
+				position: fixed;
+				top: 0;
+				z-index: 999;
+				width: 100%;
+				/* display: flex; */
+				display: none;
+				flex-direction: row; 
+			}
+			.appointment-live>div{
+				margin-left: 5%;
+			}
+			.appointment-live>button{
+				margin-right: 2%;
+				margin-left: auto;
+			}
+			.live-y{
+				position: absolute;
+				right: 0.2rem;
+				top: 0.15rem;
+				background: #FF5800;
+				border: 1px solid #FF5800;
+				padding: 0.12rem;
+				outline: none;
+				border-radius: 0.2rem;
+				color: #fff;
+				font-size: 12px;
+			}
+	
+			/* .live-y {
+				width: 1.2rem;
+				height: 0.6rem;;
+				position: fixed;
+				right: 0.1rem;
+				bottom: 1rem;
+				z-index: 999999;
+			} */
+			.horse-racelamp{
+				display: flex;
+				align-items: center;
+				margin: 0.2rem 5% 0 5%;
+			}
+			.horse-l{
+				font-size: 14px;
+			}
+			.horse-r{
+				display: flex;
+				width: 80%;
+			}
+			.horse-r-img>img{
+				margin-left: 0.1rem;
+				width:70px;
+				height:40px;
+				border: 1px solid gainsboro;
+			}
+			.main-sponsor{
+				display: flex;
+				margin:0.2rem 5%;
+			}
+			.main-sponsor2{
+				display: flex;
+				margin:0.2rem 5%;
+			}
+			.main-sponsor3{
+				display: flex;
+				margin:0rem 5%;
+			}
+			.sponsor-l{
+				width: 1.1rem;
+				height: 1.2rem;
+			}
+			
+			.sponsor-2{
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+			
+			.sponsor-l img{
+				width: 100%;
+				height: 100%;
+				display: block;
+				border-radius: 50%;
+			}
+			.sponsor-2 img{
+				width: 100%;
+				height: 100%;
+				display: block;
+				border-radius: 50%;
+			}
+			
+			.sponsor-r{
+				margin-left: 0.2rem;
+				flex:1;
+				display:flex;
+			}
+			.sponsor-r-header{
+				display: flex;
+				width:75%;
+			}
+			
+			.sponsor-r-header>p{
+				font-size: 16px;
+				color: #000000;
+			}
+			.sponsor-r-header>span{
+				text-align: center;
+				height: 0.14rem;
+				display:inline-block;
+				width:22%;
+				/* width:2rem; */
+				/* flex:1; */
+				line-height: 0.14rem;
+				/* text-align: center; */
+				margin-left: 0.2rem;
+				color: #fff;
+				font-size: 12px;
+				border-radius: 0.1rem;
+				padding:0.1rem 0.1rem;
+				background: linear-gradient(135deg, red, orange);
+			}
+			
+			.sponsor-r-header2{
+				display: flex;
+				width:75%;
+				align-items: center;
+			}
+			
+			.sponsor-r-header2>p{
+				font-size: 16px;
+				color: #000000;
+			}
+			.sponsor-r-header2>span{
+				text-align: center;
+				height: 0.14rem;
+				display:inline-block;
+				width:22%;
+				/* width:2rem; */
+				/* flex:1; */
+				line-height: 0.14rem;
+				/* text-align: center; */
+				margin-left: 0.2rem;
+				color: #fff;
+				font-size: 12px;
+				border-radius: 0.1rem;
+				padding:0.1rem 0.1rem;
+				background: linear-gradient(135deg, red, orange);
+			}
+			
+			
+			.sponsor-center{
+				color: gray;
+				font-size: 14px;
+				margin: 0.2rem 0;
+			}
+			.sponsor-bottom{
+				border: 1px solid orangered;
+				color: orangered;
+				font-size: 12px;
+				border-radius:40px;
+				width: 30%;
+				padding:0.04rem 0.1rem;
+				text-align: center;
+				margin-top: .16rem;
+				text-decoration: none !important;
+			}
+			
+			.sponsor-bottom2{
+				border: 1px solid orangered;
+				color: orangered;
+				font-size: 12px;
+				border-radius:40px;
+				padding:0.05rem 0.1rem;
+			}
+			
+			.str_wrap{
+				padding-left: 3em;
+				padding-right: 3em;
+				background: #fefefe;
+				line-height: 2em;
+				font-size: 1.2em;
+				height: 100%;
+				width: 80%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			#profile{
+				width:100%;
+				word-break:normal;
+				white-space: pre-wrap;
+				word-wrap:  break-word;
+			    margin-top:	0.1rem;
+				color: #333333b2;
+	
+			}
+			.str3-2 { background:none !important;}
+			.str3-2 span { border:1px solid #F0F0F0; background:#f1f1f1; color:#999; margin:0 5px; text-align:center; font:40px/100px Arial, Helvetica, sans-serif; width:100px; height:100px; display:inline-block; vertical-align:top;}
+			.str3-2 img { border:1px solid #F0F0F0; background:#f1f1f1; color:#999; margin:0 2px; text-align:center; font:40px/100px Arial, Helvetica, sans-serif; width:65px; height:45px; display:inline-block; vertical-align:top;}
+			
+			.brand-roll-box{
+				height: 1rem;
+				width: 100%;
+				margin: 0.2rem 0;
+				flex-direction: row; 
+				display: flex;
+			}
+			.brand-roll-title-box{
+				height: 100%;
+				width: 25%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #151515;	
+				font-family: fantasy;
+				font-weight: 1000;
+				font-size: 13px;
+			}
+			.brand-roll-brand-box{
+				height: 100%;
+				width: 15%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.sponsor-box{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column; 
+				width: 95%;
+				margin: 0.1rem 0.2rem;
+			}
+			#sponTitle{
+				flex: 1;
+				word-break: normal;
+				white-space: pre-wrap;
+				word-wrap: break-word;
+	
+			}
+			.sponsor-box-bot{
+				/* 需求暂未讨论暂时隐藏 */
+				display: none;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column; 
+				width: 95%;
+				margin: -1.5rem 0.2rem 2rem 0.2rem;
+			}
+			.sponsor-top-box{
+				display: flex;
+				align-items: center;
+				flex-direction: row;
+				width: 95%;
+				height: 1rem;
+			}
+			.sponsor-top-img-box{
+				width: 0.6rem;
+				height: 0.5rem;
+			}
+			.sponsor-top-img-box>img{
+				height: 100%;
+				width: 100%;
+			}
+			.sponsor-top-title-box{
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: left;
+				margin-left: 2%;
+				color: #000000;
+				font-size: 17px;
+				font-family: unset;
+				font-weight: 600;
+				max-width: 60%;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+			}
+			.sponsor-top-title-box>span{
+				width: 100%;
+				word-break:normal; 
+				font-size: 14px;
+				display:block; 
+				white-space:pre-wrap;
+				word-wrap : break-word ;
+				text-align: center;
+				/* overflow: hidden ; */
+			}
+			.sponsor-top-icon{
+				width: 1rem;
+				height: 0.35rem;
+				line-height: 0.35rem;
+				margin-left: 0.2rem;
+				color: #fff;
+				font-size: 8px;
+				border-radius: 0.1rem;
+				background: linear-gradient(135deg, red, orange);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.sponsor-introduce-box{
+				width: 80%;
+				margin-left: 10%;
+				color: gray;
+				font-size: 14px;
+			}
+			.sponsor-contact{
+				border: 1px solid orangered;
+				color: orangered;
+				font-size: 12px;
+				border-radius: 40px;
+				width: 15%;
+				padding: 0.04rem 0.1rem;
+				height: 0.4rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-left: 0.4rem;
+			}
+			.sponsor-contact>a{
+				color: orangered;
+			}
+			.more-blue{
+				color: #1F86FF;
+				font-size: 14px;
+				margin-top: 0.2rem;
+				margin-left: 4.8rem;
+			}
+			.sponsor-font{
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				line-height: 0.4rem;
+			}
+			 .all-txt{
+			    overflow : hidden;
+			    text-overflow: ellipsis;
+			    display: -webkit-box;
+			    -webkit-line-clamp: 100;
+			    -webkit-box-orient: vertical;
+				line-height: 0.4rem;
+			}
+			.see-click{
+				color: #1F86FF;
+				font-size: 13px;
+			}
+			.enroll-code-box{
+				display: flex;
+				justify-content: space-between;
+				height: 0.75rem;
+				margin-bottom: 0.3rem;
+			}
+			.enroll-code-box input{
+				width: 60%;
+				height: 100%;
+				margin-left: 4%;
+				padding: 0 1%;
+				border-radius: 0.1rem;
+				border: none;
+				font-size: 0.3rem;
+			}
+			.enroll-code-box button{
+				background: #fff;
+				border: 1px solid #fff;
+				font-size: 0.3rem;
+				color: gold;
+				width: 1.6rem;
+				border-radius: 5px;
+				margin-right: 0.3rem;
+			}
+			.fr{
+				    background: gainsboro;
+					border: 1px solid gainsboro;
+					font-size: 0.3rem;
+					color: #fff;
+					width: 1.6rem;
+					border-radius: 5px;
+					margin-right: 0.3rem;
+					text-align: center;
+			}
+			.vip-card-box {
+				background-image: url("./../images/9.png");
+				background-size: 100% 100%;
+				height: 4rem;
+				width: 100;
+				/* margin-left: 5%; */
+				display: flex;
+				color: white;
+				border-bottom: 1px solid rgb(237, 237, 237, 0.5);
+				border-top: 1px solid rgb(237, 237, 237, 0.5);
+				margin-bottom: 0.03rem;
+				position: relative;
+			}
+			#vip_p{
+				position: absolute;
+	    		left: 50%;
+	    		top: 40%;
+				/* font-size:16px; */
+	    		transform: translate(-50%,-50%);
+	   			width: 100%;
+	    		text-align: center;
+			}
+			#vip_p1{
+				position: absolute;
+	    		left: 50%;
+	    		top: 38%;
+	    		transform: translate(-50%,-50%);
+	   			width: 80%;
+				word-break:normal;
+				white-space:pre-warp;
+				word-wrap:break-word;
+				font-size:16px;
+	    		
+			}
+			#vip_p2{
+				position: absolute;
+	    		left: 50%;
+	    		top: 50%;
+	    		transform: translate(-50%,-50%);
+	   			width: 72%;
+				word-break:normal;
+				white-space:pre-warp;
+				word-wrap:break-word;
+				font-size:16px;	
+			}
+			.vip-text-box{
+	/* 			display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.4rem;
+				margin-left: -15%;
+				font-weight: bold;
+				font-size: 0.4rem;
+				position: absolute;
+				left: 0;
+				top: 50%;
+				text-align: center;
+				bottom: 0;
+				right: 0; */
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.4rem;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform:translate(-50%,0)!important;
+				margin:0px;
+			}
+			.enroll-bottom{
+				margin-top:95% ;
+			}
+	
+			.head-live-tips-box{
+				margin-top:78% !important;
+			}
+			#touch {
+	        width: 60px;
+	        height: 60px;
+	        position: absolute;
+	        right: 25px;
+	        bottom: 20px;
+	        margin-left: -30px;
+	        margin-bottom: -30px;
+	        z-index: 99999;
+	    }
+		
+		.coupon-item-bottom-box{
+			display: flex;
+			background: #F1F1F1;
+			min-height: 0.5rem;
+			padding-top: 0.1rem;
+			padding-bottom: 0.1rem;
+		}
+		
+		.coupon-item-bottom{
+			line-height: 0.3rem;
+			padding-left: 0;
+		}
+		.zhuyi{
+			padding-top: 0.05rem;
+		}
+		
+		.swiper-pagination-bullet {  // 小圆点未激活的css
+		    background: #fff !important;
+		    opacity: 0.5 !important;
+		}
+		
+		.swiper-pagination-bullet-active {  //小圆点激活的样式
+		    background: #fff !important;
+		    opacity: 1 !important;
+		}
+		
+		.swiper-container {
+		    width: 100%;
+		    height: 250px;
+		} 
+		
+		.swiper-wrapper {
+		    width: 100%;
+		    height: 250px;
+		} 
+		
+		.swiper-slide {
+			width: 100%;
+			height: 250px;
+		}
+		
+		.swiper-slide>img{
+			width: 100%;
+			height: 250px;
+		}
+		
+		</style>
+</head>
+<body>
+	<div class="shadow-box" onclick="shadowHide()"></div>
+	<div class="couponSub-box">
+		<div class="enroll-title">优惠劵</div>
+		<div class="enroll-count">已有<span dom="couponCount"></span>人领取！</div>
+		<div class="enroll-input-box">
+			<input dom="couponNameInput" placeholder="请填写姓名" />
+		</div>
+		<div class="enroll-input-box">
+			<input dom="couponPhoneInput" placeholder="请填写手机号码" />
+		</div>
+		<div class="enroll-sub" onclick="couponSub()">
+			立即领取
+		</div>
+	</div>
+    <div class="coupon-box">
+        
+        <div class="coupon-time-box">
+            
+        </div>
+        <div class="coupon-list">
+        </div>
+        
+        
+    </div>
+
+	<script>
+	  function openList() {
+	   $.post(API_ROOT + "/new/h5/newActivity/details/", {
+	   			id: ACTIVITY_ID,
+	   			token_id: TOKEN_ID
+	   		}, function (result) {
+	      if (result.ret != "200")
+	        alert(result.msg);
+	      else {
+			$("[dom=couponCount]").text(result.data.couponCount)
+	       if (result.data.isCoupon == 1) {
+	       	var html = "";
+	       	for (var i = 0; i < result.data.newCoupons.length; i++) {
+	       		html += '<div class="coupon-item">' +
+	       			'<div class="coupon-item-top">' +
+	       			'<div class="coupon-item-top-left">' +
+	       			'<div class="coupon-item-top-left-img">' +
+	       			'<img  src="'+result.data.newCoupons[i]
+	       			.couponImageUrl +'"/>' +
+	       			'</div>' +
+	       			'<div class="coupon-item-top-left-info">' +
+	       			'<div class="coupon-name">' +
+	       			'' + result.data.newCoupons[i].couponName + '' +
+	       			'</div>' +
+	       			'<br />' +
+	       			'<div class="coupon-text">' +
+	       			'店面付款时抵扣' +
+	       			'</div>' +
+	       			'</div>' +
+	       			'</div>' +
+	       			'<div class="coupon-item-top-right">' +
+	       			'<div>最高减免</div>' +
+	       			'<div>￥' + result.data.newCoupons[i].maxReduction + '</div>' +
+	       			'<div onclick="couponOrder(\'' + result.data.newCoupons[i].id + '\')" >立即领取</div>' +
+	       			'</div>' +
+	       			'</div>' +
+	       			'<div class="coupon-item-bottom-box">'+
+	       			'<div class="zhuyi">' +
+	       			'【注】:'  +
+	       			'</div>' +
+	       			'<div class="coupon-item-bottom">' +
+	       			'' + result.data.newCoupons[i].couponDesc + '' +
+	       			'</div>' +
+	       			'</div>' +
+	       			'</div>';
+	       	}
+	       	$(".coupon-list").html(html);
+	       } else {
+	       	$(".coupon-box").hide()
+	       }
+	      }
+	    });
+	  }
+    </script>
+    <script>
+        $(function () {
+        openList();
+        });
+	  </script>
+	  <script>
+		function couponOrder(id) {
+			$(".couponSub-box").show()
+			$(".shadow-box").show();
+			COUPON_ID = id
+		}
+	</script>
+	<script>
+		//优惠劵提交下单
+		function couponSub() {
+			$.post(API_ROOT + "/new/client/order/save/", {
+				token_id: TOKEN_ID,
+				activityId: ACTIVITY_ID,
+				goodsId: COUPON_ID,
+				phone: $("[dom=couponPhoneInput]").val(),
+				name: $("[dom=couponNameInput]").val(),
+				orderType: 3,
+				guideId: GUIDE_ID
+			}, function(result) {
+				if (result.ret == "202") {
+					console.log(11111);
+					
+					//优惠劵为免费不需要调用微信
+					layer.open({
+					
+						title: ['提示', 'background-color:#8DCE16; color:#fff;'],
+						content: '领取成功',
+						btn: ['确认'],
+						yes: function(index) {
+							location.href = location.href;
+						}
+
+					});
+					return;
+				}
+				if (result.ret != "200") {
+					alert(result.msg);
+				} else {	
+					
+					// alert("下单成功")
+					// location.href = location.href;
+					WeixinJSBridge.invoke('getBrandWCPayRequest', {
+							"appId": result.data.appId, //公众号名称，由商户传入
+							"timeStamp": result.data.timeStamp, //时间戳，自1970年以来的秒数
+							"nonceStr": result.data.nonceStr, //随机串
+							"package": result.data.prepayId, //数据包
+							"signType": "MD5", //微信签名方式
+							"paySign": result.data.paySign //微信签名
+						},
+						function(res) {
+							// JSON.stringify(res);
+							if (res.err_msg == "get_brand_wcpay_request:ok") {
+								layer.open({
+									title: ['提示', 'background-color:#8DCE16; color:#fff;'],
+									content: '领取成功',
+									btn: ['确认'],
+									yes: function(index) {
+										location.href = location.href;
+									}
+								});
+							} else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+								alert("支付失败");
+								location.href = location.href;
+							}
+						});
+				}
+				paying = false;
+			});
+		}
+	</script>
+	 <script>
+	$("[dom=couponCount]").text(result.data.couponCount)
+		//统一隐藏弹窗
+		function shadowHide() {
+			$(".shadow-box").hide();
+			$(".enroll-box").hide();
+			$(".liveQrCode").hide();
+			$(".guideQrCode").hide();
+			$(".qunQrCode").hide();
+			$(".couponSub-box").hide();
+			$(".comment-box").hide()
+			// $(".liveQrCode-box").hide();
+			$(".liveQrCode-canvas-box").hide();
+			$("canvas").hide();
+			$(".signQrCode").hide();
+		}
+	</script>
+	<!-- <script>
+
+function getQueryString(name) { 
+     // var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i")); 
+     var result = window.location.href.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i")); 
+     if (result == null || result.length < 1) {
+         return ""; 
+     } 
+     return result[1];
+ }
+ let aaaa = getQueryString("guideId");
+ 
+		$.get(API_ROOT + "/client/guide/info/", {
+							id: aaaa
+						},function(result){
+							console.log(result.data)
+							
+						})
+	</script> 
+	 -->
+	
+	
+</body>
+</html>

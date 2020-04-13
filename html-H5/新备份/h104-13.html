@@ -816,8 +816,6 @@
 							<p id="profile"></p>
 						</li>
 					</ul>
-					
-					
 					<!-- 品牌 -->
 					<div class="brand-title-box">
 						<div></div>
@@ -917,22 +915,6 @@
 						<ul class="spike-content-seckill">
 
 						</ul>
-						
-						<!-- 品牌调换位置在秒杀下面 -->
-						<div class="brand-title-box  brand-pos">
-							<div></div>
-							<div dom="cypp" style="font-size: 0.3rem;">参与品牌(<span dom="brandCount"></span>)</div>
-							<div dom="gdpp" onclick='javascript:location.href = BRAND_LIST_URL' >更多品牌 <img src="./../images/7.png" />
-							</div>
-						</div>
-						
-						
-						<div dom="brand-box" class="brand-box brand-box-pos" id="brand_yclist_id" style="display: none;"></div>
-						
-						<div>
-						
-						
-						
 						
 						<div class="group-title-box" style="border-bottom: 1px solid #ededed;">
 							<div></div>
@@ -2724,21 +2706,8 @@ $(function(){
 									'</div> ' +
 									'</div> ';
 							}
-							
-							if(ACTIVITY_ID=="07ad468884554475a08aebf960d30474"){
-								$(".brand-box-pos").html(lis);
-								$(".brand-box-pos").show();
-								$(".brand-title-box").hide();
-								$(".brand-pos").show();
-							}
-							else{
-								$("[dom=brand-box]").html(lis);
-								$(".brand-title-box").show();
-								$(".brand-pos").hide();
-								$(".brand-box").show();
-								$(".brand-box-pos").hide();
-							}
-							
+							$("[dom=brand-box]").html(lis);
+							$("[dom=brand-box]").show();
 						} else {
 							//方格展示品牌
 							var html = ""

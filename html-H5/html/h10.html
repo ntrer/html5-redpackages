@@ -578,6 +578,32 @@
 		width: 0.3rem;
     height: 0.3rem;
 	}
+	
+	.gdpp{
+		text-align: center;
+		    padding: 0.2rem;
+		    font-size: 16px;
+		    color: #33A1EC;
+	}
+	.gddd{
+		text-align: center;
+		    padding: 0.2rem;
+		    font-size: 16px;
+		    color: #33A1EC;
+	}
+	
+	.gdpt{
+		text-align: center;
+		    padding: 0.2rem;
+		    font-size: 16px;
+		    color: #33A1EC;
+	}
+	
+	.hrLine{
+	      vertical-align:middle; 
+		  display:inline-block;
+		  background-color:#33A1EC;
+	 }
 
 	
 	</style>
@@ -830,6 +856,13 @@
 					<div dom="brand-box" class="brand-box" id="brand_yclist_id" style="display: none;"></div>
 
 					<div>
+						
+					<!-- <div class="gdpp" dom="gdpp" onclick='javascript:location.href = BRAND_LIST_URL' >
+						<hr class="hrLine" style="width:1rem;margin-right: 0.1rem"/>更多品牌<hr class="hrLine" style="width:1rem;margin-left: 0.1rem"/>
+						
+					</div>	 -->
+						
+						
 
 						<div class="new-brand-box" style="display: none;">
 						</div>
@@ -918,6 +951,11 @@
 
 						</ul>
 						
+						<!-- <div class="gddd" onclick='javascript:location.href = SECKILL_LIST_URL'>
+							<hr class="hrLine" style="width:1rem;margin-right: 0.1rem"/>更多夺宝<hr class="hrLine" style="width:1rem;margin-left: 0.1rem"/>
+						</div> -->
+						
+						
 						<!-- 品牌调换位置在秒杀下面 -->
 						<div class="brand-title-box  brand-pos">
 							<div></div>
@@ -930,6 +968,11 @@
 						<div dom="brand-box" class="brand-box brand-box-pos" id="brand_yclist_id" style="display: none;"></div>
 						
 						<div>
+							
+						<!-- <div class="gdpp" dom="gdpp" onclick='javascript:location.href = BRAND_LIST_URL' >
+							<hr class="hrLine" style="width:1rem;margin-right: 0.1rem"/>更多品牌<hr class="hrLine" style="width:1rem;margin-left: 0.1rem"/>
+							
+						</div> -->	
 						
 						
 						
@@ -943,6 +986,10 @@
 						<ul class="spike-content">
 						
 						</ul>
+						
+						<!-- <div class="gdpt" onclick='javascript:location.href = GROUP_LIST_URL'>
+							<hr class="hrLine" style="width:1rem;margin-right: 0.1rem"/>更多拼团<hr class="hrLine" style="width:1rem;margin-left: 0.1rem"/>
+						</div> -->
 						
 						<!-- 优惠劵 -->
 						<div class="coupon-box">
@@ -2207,6 +2254,7 @@ $(function(){
 						if (result.data.id == "2fc9616de53242d2b0bc155b88b509a3") {
 							//虎鲨直播
 							$("[dom=gdpp]").hide();
+							$(".gdpp").hide();
 							$("[dom=cypp]").html("咨询电话");
 						}
 
@@ -2579,6 +2627,7 @@ $(function(){
 							//不开启拼团
 							$(".spike-content").hide();
 							$(".group-title-box").hide();
+							$(".gdpt").hide();
 						}
 
 						//开启了广告商品(暂未使用)
@@ -2648,12 +2697,21 @@ $(function(){
 							$(".spike-content-seckill").html(html);
 						} else {
 							$(".seckill-title-box").hide();
+							$(".gddd").hide();
 						}
 
 						//开启优惠券
 						if (result.data.isCoupon == 1) {
 							var html = "";
-							for (var i = 0; i <= 5; i++) {
+							var lenght=1;
+							if(result.data.newCoupons.length>=6){
+								lenght=5
+							}
+							else{
+								lenght=result.data.newCoupons.length
+							}
+							
+							for (var i = 0; i < lenght; i++) {
 								html += '<div class="coupon-item">' +
 									'<div class="coupon-item-top">' +
 									'<div class="coupon-item-top-left">' +
@@ -2697,6 +2755,7 @@ $(function(){
 							$("[dom=brandCount]").text(result.data.brandCount)
 						var lis = "";
 						if (result.data.brandMode == 1) {
+							
 							//旧版本展示品牌
 							for (var i = 0; i < result.data.newBrands.length; i++) {
 								lis +=

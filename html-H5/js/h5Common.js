@@ -1,5 +1,7 @@
 // var API_ROOT = location.origin;
-var API_ROOT = "http://hb.shushangsoft.com";
+// var API_ROOT = "http://hb.shushangsoft.com";
+
+var API_ROOT = "http://47.114.181.11:48730";
 var LOGIN_OS = "0";
 var TOKEN_ID = getQueryString("token_id");
 var ACTIVITY_ID = getQueryString("activityId");

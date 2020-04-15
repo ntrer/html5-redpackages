@@ -2382,7 +2382,13 @@ $(function(){
 							$(".liveQrCode img").attr("src", API_ROOT + "/sys/live/new/Qrcode?liveId=" + result.data.liveIndex
 								.liveId + "&guideOpenId=" + guideOpenId);
 							// $(".headImg-left-float-box:first-child").show();
-							$("#live-QrCode-top-buttom").show()
+							if(result.data.liveCodeType == 1){
+								$("#live-QrCode-top-buttom").show()
+							}
+							else{
+								$("#live-QrCode-top-buttom").hide()
+							}
+							
 							// if(ACTIVITY_ID == "a290fe3782c745d599eb7f4b508b9536"){
 							// 	$("#live-QrCode-top-buttom").hide()
 

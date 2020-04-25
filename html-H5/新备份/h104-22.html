@@ -562,7 +562,6 @@
 			top: 50%;
 			transform: translate(-50%, 0) !important;
 			margin: 0px;
-			width: 57%;
 		}
 
 		.enroll-bottom {
@@ -633,22 +632,14 @@
 			height: 250px;
 		}
 
-		.openstor,
-		.openstor2,
-		.openstor3,
-		.openstor4,
-		.openstor5 {
+		.openstor,.openstor2,.openstor3,.openstor4 {
 			margin-top: 0.1rem;
 			margin-bottom: 0.1rem;
 			padding: 0.2rem 0;
 			border-bottom: 1px solid #ededed;
 		}
 
-		.openthestor,
-		.openthestor2,
-		.openthestor3,
-		.openthestor4,
-		.openstor5 {
+		.openthestor,.openthestor2,.openthestor3,.openthestor4 {
 			text-align: center;
 			width: 100%;
 			vertical-align: middle;
@@ -966,13 +957,6 @@
 
 				<div class="new-brand-box" style="display: none;">
 				</div>
-				<div class="openstor5">
-					<div class="openthestor5">
-						<div onclick='javascript:location.href = BRAND_LIST_URL' class="newbox ">
-							- 更多品牌 -
-						</div>
-					</div>
-				</div>
 
 
 				<!-- VIP卡 -->
@@ -1052,8 +1036,7 @@
 						<div class="seckill-time-item"><span dom="seckill-minute"></span>分</div>
 						<div class="seckill-time-yh" style="margin-top: 0.07rem;color: #C0392E;">&nbsp;:&nbsp;</div>
 						<div class="seckill-time-item"><span dom="seckill-second"></span>秒</div>
-						<div onclick='javascript:location.href = SECKILL_LIST_URL' style="visibility: hidden;">更多 <img
-								src="./../images/7.png" />
+						<div onclick='javascript:location.href = SECKILL_LIST_URL' style="visibility: hidden;">更多 <img src="./../images/7.png" />
 						</div>
 					</div>
 				</div>
@@ -1098,8 +1081,7 @@
 				<div class="group-title-box" style="border-bottom: 1px solid #ededed;">
 					<div></div>
 					<span class="group-title">拼团购</span>
-					<div onclick='javascript:location.href = GROUP_LIST_URL' style="visibility: hidden;">更多 <img
-							src="./../images/7.png" />
+					<div onclick='javascript:location.href = GROUP_LIST_URL' style="visibility: hidden;">更多 <img src="./../images/7.png" />
 					</div>
 				</div>
 				<ul class="spike-content">
@@ -1482,7 +1464,18 @@
 				<a class="gb-turntable-btn" href="javascript:;">抽奖</a>
 			</section>
 		</div> -->
-
+	<script>
+		$(document).ready(function () {
+			var mySwiper = new Swiper('.swiper-container', {
+				speed: 1000,
+				autoplay: {
+					delay: 3000,
+					disableOnInteraction: false //手动滑动后，继续自动滑动
+				},
+				loop: true
+			})
+		})
+	</script>
 
 	<script>
 		$(function () {
@@ -1738,7 +1731,6 @@
 		// 	//小时数
 		// 	var hours = Math.floor(modulo / (60 * 60));
 
-
 		// 	hour = hours + dh
 		// 	modulo = modulo % (60 * 60);
 		// 	//分钟
@@ -1752,26 +1744,22 @@
 		// 	//延迟一秒执行自己
 		// 	setTimeout(function () {
 		// 		TimeDown(endDateStr);
-
+				
 		// 	}, 1000)
 		// }
-
 
 		function TimeDown(endDateStr) {
 			//结束时间
 			var endDate = new Date(endDateStr.replace(/\-/g, '/'));
 			//当前时间
 			var nowDate = new Date();
-
 			if (endDate - nowDate < 0) {
 				$(".dd").hide();
 				$(".mm").hide();
 				$(".ss").hide();
 				$(".liveStart").show();
-
 				return;
 			}
-
 			//相差的总秒数
 			var totalSeconds = parseInt((endDate - nowDate) / 1000);
 			//天数
@@ -1780,8 +1768,8 @@
 			var modulo = totalSeconds % (60 * 60 * 24);
 			//小时数
 			var hours = Math.floor(modulo / (60 * 60));
-			var daysHours = parseInt(days / 24)
-
+			var daysHours= parseInt(days / 24)
+		
 			modulo = modulo % (60 * 60);
 			//分钟
 			var minutes = Math.floor(modulo / 60);
@@ -1798,7 +1786,6 @@
 			setTimeout(function () {
 				TimeDown(endDateStr);
 			}, 1000)
-
 		}
 		/**
 		 * 计算秒杀倒计时
@@ -1928,11 +1915,8 @@
 				vipCardTimeDown(endDateStr);
 			}, 1000)
 		}
-
 	</script>
-
 	<script>
-
 		// if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
 		// 	$(".enroll-bottom").hide();
 		// 	// $("#privilegeTop").show();
@@ -2012,7 +1996,6 @@
 			$(".enroll-sub").css("margin-top", "0.7rem");
 			$(".name-inout").css("margin-top", "0.2rem");
 		}
-
 
 		if (ACTIVITY_ID == "55f69efdb9d0443180fe22668ad4db09") {
 			$(".enroll-tisp").html("*手机号仅用于本次报名，9.9元报名，此费用不可退订！");
@@ -2168,16 +2151,16 @@
 			$(".vip-text-box").css("position", "absolute");
 		}
 		if (ACTIVITY_ID == "7663160994c5417d8648e722399e4742") {
-			$(".vip-text-box").html("凭特权卡到店面，优先抢购特价品，赠千元优惠券，送39.9元电动牙刷。</br> <span style='color:#ffffff'>点击报名</span>");
-			$(".vip-text-box").css("text-align", "center");
-			// $(".vip-text-box").css("margin-left", "9%");
-			$(".vip-text-box").css("line-height", "0.6rem");
-			$(".vip-text-box").css("font-size", "0.34rem");
-			$(".vip-text-box").css("color", "#FFFFFF");
-			$(".vip-text-box").css("margin-top", "-10%");
-			$(".vip-text-box").css("display", "block");
-			$(".vip-text-box").css("position", "absolute");
-		}
+     $(".vip-text-box").html("凭特权卡到店面，抢特价品，赠优惠券，送精美礼品</br> <span style='color:#ffffff'>点击报名</span>");
+     $(".vip-text-box").css("text-align", "center");
+     // $(".vip-text-box").css("margin-left", "9%");
+     $(".vip-text-box").css("line-height", "0.8rem");
+     $(".vip-text-box").css("font-size", "0.34rem");
+     $(".vip-text-box").css("color", "#FF5E00");
+     $(".vip-text-box").css("margin-top", "15%");
+     $(".vip-text-box").css("display", "block");
+     $(".vip-text-box").css("position", "absolute");
+    }
 
 
 		// if (ACTIVITY_ID == "07b92e344dc242f188bc45f666db01d5") {
@@ -2408,7 +2391,7 @@
 				}
 				$('title').html(result.data.activityName)
 
-				//设劵置优惠截至时间
+				//设置优惠劵截至时间
 				couponTimeDown(result.data.endTime);
 				//设置报名截至时间
 				vipCardTimeDown(result.data.endTime);
@@ -2504,9 +2487,6 @@
 					}
 				});
 				console.log(result.data.isLive)
-				 if (ACTIVITY_ID == "a56007e803124331b453713a3dd4df94") {
-						$(".head-live-tips-box").hide();
-					} 
 				if (result.data.isLive == 1) {
 					// console.log('开启直播判断123')
 					//记录直播开始 及结束时间
@@ -2537,9 +2517,7 @@
 					// (ACTIVITY_ID == "5e5b8f79ba47484d9aa64f4489b8f84d") 针对活动倒计时活动结束
 
 					// }
-				} 
-				
-				else {
+				} else{
 					TimeDown(result.data.endTime)
 					var globleFrom = result.data.endTime;
 					//2019-09-11 00:00:00
@@ -2548,12 +2526,9 @@
 					var time = globleFrom.substr(11, 5);
 					$(".head-live-time-tips-box span").html(month + "月" + day + "日 " + time + "活动结束")
 					$(".head-live-time-tips-box").css("text-align", "center");
+					$(".head-live-time-tips-box-bottom").css("justify-content", "center");
 					$(".head-live-tips-box").css("width", "50%");
-					$(".head-live-tips-box").css("margin-left", "25%");
-					
-					
-				}
-				
+					$(".head-live-tips-box").css("margin-left", "25%");}
 				// } else {
 				// 	// $(".headImg-left-float-box:first-child").hide();
 				// 	$("#live-QrCode-top-buttom").hide()
@@ -2779,10 +2754,20 @@
 							'</li>';
 					}
 					$(".spike-content").html(html);
-					// if(result.data.newGroupGoods.lenght<=6){
-					//      $('.openstor4').hide();
-					// }
-				} else {
+					if(result.data.newGroupGoods.lenght<=6){
+					$(".spike-content").hide();
+					$(".group-title-box").hide();
+					$(".gdpt").hide();
+					$('.openstor4').hide();
+					}
+					else{
+					//不开启拼团
+					$(".spike-content").hide();
+					$(".group-title-box").hide();
+					$(".gdpt").hide();
+					
+				} 
+				}else{
 					$(".spike-content").hide();
 					$(".group-title-box").hide();
 					$(".gdpt").hide();
@@ -2854,12 +2839,9 @@
 							'</li>';
 					}
 					$(".spike-content-seckill").html(html);
-
-					// if(result.data.newSeckillGoods.length<=6){
-					// 	$('.openstor2').hide();
-					// }
-
-				} else {
+					$(".seckill-title-box").hide();
+					$(".gddd").hide();
+				}  else{
 					$(".seckill-title-box").hide();
 					$(".gddd").hide();
 					$('.openstor2').hide();
@@ -2948,29 +2930,28 @@
 							'</div> ';
 					}
 
-					if (ACTIVITY_ID == "07ad468884554475a08aebf960d30474") {
+					if (ACTIVITY_ID == "07ad468884554475a08aebf960d30474"){
 						$(".brand-box-pos").html(lis);
 						$(".brand-box-pos").show();
 						$(".brand-title-box").hide();
 						$(".brand-pos").show();
-					} else {
+					} else{
 
-						if (result.data.brandCount <= 6) {
+						if(result.data.newBrands.length<=6){
 							$("[dom=brand-box]").html(lis);
-							$(".brand-title-box").show();
-							$(".brand-pos").hide();
-							$(".brand-box").show();
-							$(".brand-box-pos").hide();
-							$('.openstor3').hide()
-						} else {
-							$("[dom=brand-box]").html(lis);
-							$(".brand-title-box").show();
-							$(".brand-pos").hide();
-							$(".brand-box").show();
-							$(".brand-box-pos").hide();
-							$('.openstor5').hide()
+						$(".brand-title-box").show();
+						$(".brand-pos").hide();
+						$(".brand-box").show();
+						$(".brand-box-pos").hide();
+						$('.openstor3').hide()
+						} else{
+						$("[dom=brand-box]").html(lis);
+						$(".brand-title-box").show();
+						$(".brand-pos").hide();
+						$(".brand-box").show();
+						$(".brand-box-pos").hide();
 						}
-
+					
 					}
 
 				} else {
@@ -2991,9 +2972,6 @@
 					$(".new-brand-box").html(html);
 					$(".new-brand-box").show();
 					$('.brand-pos').hide();
-					$('.openstor3').hide();
-					$('.openstor5').hide()
-
 				}
 				$("img").lazyload({
 					effect: "fadeIn"
@@ -3264,7 +3242,6 @@
 											$(".shadowSx-box").show();
 											$("[dom=enroll-success-text1]").show();
 											return;
-
 										} else {
 											//直播开启且直播时间未开始或者直播时间已结束时
 											$(".enroll-box").hide();
@@ -3272,9 +3249,6 @@
 											$(".shadow-box").hide();
 											$(".shadowSx-box").show();
 											$("[dom=enroll-success-text1]").show();
-
-
-
 										}
 									}
 									//未关联直播主动弹出二维码

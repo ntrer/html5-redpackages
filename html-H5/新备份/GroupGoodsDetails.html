@@ -778,13 +778,6 @@
 	function groupGoodsOrder() {
 		if (paying) return;
 		paying = true;
-		
-		
-		if(TOKEN_ID==null||TOKEN_ID==""||ACTIVITY_ID==null||ACTIVITY_ID==""||GUIDE_ID==""||GUIDE_ID==null){
-			location.href = API_ROOT + "/H5/html/error.html";
-			return
-		}
-		
 		$.post(API_ROOT + "/new/client/order/save/", {
 			token_id: TOKEN_ID,
 			activityId: ACTIVITY_ID,

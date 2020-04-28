@@ -342,7 +342,7 @@
 		<div class="goods-details-image" dom="goodsDetailsImage">
 			
 		<div class="shadow-box" onclick="shadowHide()">
-
+			
 		</div>
 		<div class="enroll-box">
 			<div class="enroll-title">群龙夺宝</div>
@@ -619,13 +619,6 @@
 	</script>
 	<script>
 		function seckillGoodsSub(){
-			
-			if(TOKEN_ID==null||TOKEN_ID==""||ACTIVITY_ID==null||ACTIVITY_ID==""||GUIDE_ID==""||GUIDE_ID==null){
-				location.href = API_ROOT + "/H5/html/error.html";
-				return
-			}
-			
-			
 			paying = true;
 			$.post(API_ROOT + "/new/client/order/save/", { token_id: TOKEN_ID, activityId: ACTIVITY_ID, goodsId: GOODS_ID, goodsNum: goodsNum ,phone: $("[dom=enrollPhone]").val(), name: $("[dom=enrollName]").val(),orderType : 2 ,guideId : GUIDE_ID}, function (result) {
 			  if (result.ret != "200") {

@@ -3186,11 +3186,7 @@
 				alert('输入正确的手机号码')
 				return
 			}
-			
-			if(TOKEN_ID==null||TOKEN_ID==""||ACTIVITY_ID==null||ACTIVITY_ID==""||GUIDE_ID==""||GUIDE_ID==null){
-				location.href = API_ROOT + "/H5/html/error.html";
-				return
-			}
+
 
 			$.post(API_ROOT + "/new/client/activity/enroll", {
 				token_id: TOKEN_ID,
